@@ -181,7 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696581dc17f7748589aee88505b2cfad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameplaySceneLoaded: {fileID: 11400000, guid: 75850ff5fc5104602932f6fc1f11349d, type: 2}
 --- !u!4 &189716823
 Transform:
   m_ObjectHideFlags: 0
@@ -394,6 +393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridController: {fileID: 255571305}
+  _camera: {fileID: 1412377935}
 --- !u!4 &1108076952
 Transform:
   m_ObjectHideFlags: 0

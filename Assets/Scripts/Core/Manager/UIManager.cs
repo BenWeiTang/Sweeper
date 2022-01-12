@@ -114,7 +114,14 @@ namespace Minesweeper.Core
 
 #if UNITY_EDITOR
         //FIXME: delete later
-        public void SudoTurnOffStartPanel() => FadeSetPanelActive(_startMenuPanel, false);
+        public void SudoTurnOffStartPanel() 
+        {
+            var cg = _startMenuPanel.GetComponent<CanvasGroup>();
+            cg.interactable = false;
+            cg.blocksRaycasts = false;
+            cg.alpha = 0f;
+            _currentActivePanel = null;
+        }
 #endif
 
         private async Task FadeSetPanelActive(GameObject panel, bool toActivate)

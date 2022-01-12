@@ -9,6 +9,7 @@ namespace Minesweeper.Core
     public class GridAnimationController : MonoBehaviour
     {
         [SerializeField] internal GridController gridController;
+        [SerializeField] private Transform _camera;
 
         // Cache
         private Transform[] _spotTransforms;
@@ -56,6 +57,18 @@ namespace Minesweeper.Core
             _spotRBs[index] = rb;
         }
 
+        internal void SetAllIsKinematic(bool isKinematic)
+        {
+            foreach(var rb in _spotRBs)
+                rb.isKinematic = isKinematic;
+        }
+
+        internal void SetAllUseGravity(bool useGravity)
+        {
+            foreach (var rb in _spotRBs)
+                rb.useGravity = useGravity;
+        }
+
         internal async Task MoveAllSpotsInPlace()
         {
             var tasks = new List<Task>();
@@ -68,8 +81,8 @@ namespace Minesweeper.Core
             for (int i = 0; i < _gridSize; i++)
             {
                 Transform current = _spotTransforms[i];
-                var task = current.DOMove(_targetPositions[i], Random.Range(_minMoveTime, _maxMoveTime)).SetEase(_easeMode).AsyncWaitForCompletion();
-                tasks.Add(task);
+                var positionTask = current.DOMove(_targetPositions[i], Random.Range(_minMoveTime, _maxMoveTime)).SetEase(_easeMode).AsyncWaitForCompletion();
+                tasks.Add(positionTask);
             }
 
             await Task.WhenAll(tasks);

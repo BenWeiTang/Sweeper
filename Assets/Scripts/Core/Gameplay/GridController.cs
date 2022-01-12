@@ -80,6 +80,7 @@ namespace Minesweeper.Core
                 await animationController.DropAllSpots();
             else
                 await animationController.DetonateAllMines();
+            
 
             // UI Manager listens to this
             PostGameExit.Raise(won);
