@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e06d8ac2fe714e3cb44a322d9ba243a, type: 3}
+  m_Name: DefaultLayoutSetting
+  m_EditorClassIdentifier: 
+  Width: 16
+  Height: 16
+  MinePercentage: 15
+  SpotSize: 0.4
+  Spacing: 0.05
+  CameraDisplacement: {x: 0, y: 0, z: 10}
+  SpotPrefab: {fileID: 68974095654745218, guid: fab64d19b78bc45159644e167014ef0a, type: 3}
+  SpawnSphereRadius: 15
+  MinMoveTime: 3
+  MaxMoveTime: 4
+  EaseMode: 15
+  One: {r: 0, g: 0.3507347, b: 1, a: 1}
+  Two: {r: 0.5904467, g: 1, b: 0, a: 1}
+  Three: {r: 1, g: 0.30571634, b: 0, a: 1}
+  Four: {r: 0.77218467, g: 0, b: 0.9622642, a: 1}
+  Five: {r: 0.5188679, g: 0, b: 0, a: 1}
+  Six: {r: 0, g: 0.82566833, b: 1, a: 1}
+  Seven: {r: 0, g: 0, b: 0, a: 1}
+  Eight: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 1}

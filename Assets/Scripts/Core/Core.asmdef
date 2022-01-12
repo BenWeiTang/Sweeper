@@ -1,0 +1,19 @@
+{
+    "name": "Core",
+    "rootNamespace": "Minesweeper.Core",
+    "references": [
+        "GUID:b69f523880e87455c9344aa3c135f131",
+        "GUID:bcfa8dc36c9604d6cb2002f81e414e6e",
+        "GUID:32e525b2662d4450886458c10aa430f4",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
