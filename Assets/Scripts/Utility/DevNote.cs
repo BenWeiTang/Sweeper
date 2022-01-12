@@ -1,21 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Minesweeper
 {
     public class DevNote : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        [TextArea(20, 25)]
+        [SerializeField] private string Note; 
     }
 }
