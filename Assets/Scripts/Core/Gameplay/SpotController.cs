@@ -171,7 +171,7 @@ namespace Minesweeper.Core
             float endValue = ogScaleFactor + delta;
             Sequence s = DOTween.Sequence();
             s.Append(transform.DOScale(endValue, inDuration).SetEase(inEase));
-            atPeak.Invoke();
+            atPeak?.Invoke();
             s.Append(transform.DOScale(ogScaleFactor, outDuration).SetEase(outEase));
             var currentTask = s.AsyncWaitForCompletion();
 
