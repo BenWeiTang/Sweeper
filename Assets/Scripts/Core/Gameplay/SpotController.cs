@@ -1,8 +1,10 @@
+using System;
 using System.Threading.Tasks;
 using System.Linq;
 using UnityEngine;
 using TMPro;
 using Minesweeper.Event;
+using DG.Tweening;
 
 namespace Minesweeper.Core
 {
@@ -150,7 +152,9 @@ namespace Minesweeper.Core
         {
             if (index == IndexInGrid)
             {
-                //TODO: do the bounce animation and then swap to BugBlock
+                //TODO: do the bounce animation and while swapping to BugBlock
+                // Bounce()
+                
             }
         }
 
@@ -160,6 +164,18 @@ namespace Minesweeper.Core
             {
                 //TODO: do the bounce animation and then swap to MarkedBlock
             }
+        }
+        internal async Task Bounce(float inDuration, float outDuration, float delta, Ease inEase, Ease outEase, Action atPeak)
+        {
+            float ogScaleFactor = transform.localScale.x;
+            float endValue = ogScaleFactor + delta;
+            Sequence s = DOTween.Sequence();
+            s.Append(transform.DOScale(endValue, inDuration).SetEase(inEase));
+            atPeak.Invoke();
+            s.Append(transform.DOScale(ogScaleFactor, outDuration).SetEase(outEase));
+            var currentTask = s.AsyncWaitForCompletion();
+
+            await currentTask;
         }
 
         private void Start()
