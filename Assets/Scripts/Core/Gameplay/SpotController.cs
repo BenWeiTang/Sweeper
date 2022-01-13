@@ -13,6 +13,8 @@ namespace Minesweeper.Core
         [Header("Event")]
         [SerializeField] private IntEvent SafeSpotDug;
         [SerializeField] private VoidEvent FirstSafeSpotDig;
+        [SerializeField] private IntEvent SafeSpotDigAt;
+        [SerializeField] private IntEvent SpotMarkAt;
         [SerializeField] private BoolEvent GameFinish;
 
         [Header("Appearances")]
@@ -57,8 +59,8 @@ namespace Minesweeper.Core
                 else
                 {
                     spot.State = SpotState.Dug;
-                    SwtichToBlock(Block.Dug);
-                    RevealHintNumber();
+                    // SwtichToBlock(Block.Dug);
+                    SafeSpotDigAt.Raise(IndexInGrid);
                     SafeSpotDug.Raise(spot.HintNumber);
                     AutoNearClear();
                 }
@@ -76,42 +78,6 @@ namespace Minesweeper.Core
                 }
             }
 
-            void RevealHintNumber()
-            {
-                _hintNumberText.alpha = 1f;
-                _hintNumberText.text = spot.HintNumber.ToString();
-                switch (spot.HintNumber)
-                {
-                    case 1:
-                        _hintNumberText.color = GameManager.Instance.CurrentLayout.One;
-                        break;
-                    case 2:
-                        _hintNumberText.color = GameManager.Instance.CurrentLayout.Two;
-                        break;
-                    case 3:
-                        _hintNumberText.color = GameManager.Instance.CurrentLayout.Three;
-                        break;
-                    case 4:
-                        _hintNumberText.color = GameManager.Instance.CurrentLayout.Four;
-                        break;
-                    case 5:
-                        _hintNumberText.color = GameManager.Instance.CurrentLayout.Five;
-                        break;
-                    case 6:
-                        _hintNumberText.color = GameManager.Instance.CurrentLayout.Six;
-                        break;
-                    case 7:
-                        _hintNumberText.color = GameManager.Instance.CurrentLayout.Seven;
-                        break;
-                    case 8:
-                        _hintNumberText.color = GameManager.Instance.CurrentLayout.Eight;
-                        break;
-                    default:
-                        _hintNumberText.alpha = 0f;
-                        _hintNumberText.text = "";
-                        break;
-                }
-            }
         }
 
         public void Mark()
@@ -123,12 +89,14 @@ namespace Minesweeper.Core
                     return;
 
                 spot.State = SpotState.Marked;
-                SwtichToBlock(Block.Marked);
+                // SwtichToBlock(Block.Marked);
+                SpotMarkAt.Raise(IndexInGrid);
             }
             else if (spot.State == SpotState.Marked)
             {
                 spot.State = SpotState.Untouched;
-                SwtichToBlock(Block.Untouched);
+                // SwtichToBlock(Block.Untouched);
+                SpotMarkAt.Raise(IndexInGrid);
             }
         }
 
@@ -153,8 +121,11 @@ namespace Minesweeper.Core
             if (index == IndexInGrid)
             {
                 //TODO: do the bounce animation and while swapping to BugBlock
-                // Bounce()
-                
+                Action atPeak = null;
+                atPeak += () => SwtichToBlock(Block.Dug);
+                atPeak += () => RevealHintNumber();
+                await Bounce(0.2f, 0.75f, -0.22f, Ease.Linear, Ease.OutBounce, atPeak);
+
             }
         }
 
@@ -163,13 +134,21 @@ namespace Minesweeper.Core
             if (index == IndexInGrid)
             {
                 //TODO: do the bounce animation and then swap to MarkedBlock
+                Action atPeak = null;
+                if (spot.State == SpotState.Marked)
+                    atPeak = () => SwtichToBlock(Block.Marked);
+                else if (spot.State == SpotState.Untouched)
+                    atPeak = () => SwtichToBlock(Block.Untouched);
+
+                await Bounce(0.2f, 0.75f, -0.22f, Ease.Linear, Ease.OutBounce, atPeak);
             }
         }
+
         internal async Task Bounce(float inDuration, float outDuration, float delta, Ease inEase, Ease outEase, Action atPeak)
         {
+            Sequence s = DOTween.Sequence();
             float ogScaleFactor = transform.localScale.x;
             float endValue = ogScaleFactor + delta;
-            Sequence s = DOTween.Sequence();
             s.Append(transform.DOScale(endValue, inDuration).SetEase(inEase));
             atPeak?.Invoke();
             s.Append(transform.DOScale(ogScaleFactor, outDuration).SetEase(outEase));
@@ -216,12 +195,49 @@ namespace Minesweeper.Core
             }
         }
 
-        private enum Block
+        private void RevealHintNumber()
         {
-            Untouched,
-            Dug,
-            Marked,
-            Mine
+            _hintNumberText.alpha = 1f;
+            _hintNumberText.text = spot.HintNumber.ToString();
+            switch (spot.HintNumber)
+            {
+                case 1:
+                    _hintNumberText.color = GameManager.Instance.CurrentLayout.One;
+                    break;
+                case 2:
+                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Two;
+                    break;
+                case 3:
+                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Three;
+                    break;
+                case 4:
+                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Four;
+                    break;
+                case 5:
+                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Five;
+                    break;
+                case 6:
+                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Six;
+                    break;
+                case 7:
+                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Seven;
+                    break;
+                case 8:
+                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Eight;
+                    break;
+                default:
+                    _hintNumberText.alpha = 0f;
+                    _hintNumberText.text = "";
+                    break;
+            }
         }
+    }
+
+    public enum Block
+    {
+        Untouched,
+        Dug,
+        Marked,
+        Mine
     }
 }

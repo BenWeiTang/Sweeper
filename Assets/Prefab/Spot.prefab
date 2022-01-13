@@ -221,6 +221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SafeSpotDug: {fileID: 11400000, guid: c5a0faf06d042447bbe6ae00fdab655b, type: 2}
   FirstSafeSpotDig: {fileID: 11400000, guid: 086ad10d020d648b8b497b5f325b6242, type: 2}
+  SafeSpotDigAt: {fileID: 11400000, guid: 1f9b5ea1f028341ac95a152e4da289e3, type: 2}
+  SpotMarkAt: {fileID: 11400000, guid: addaaf29477294ec690a3d681f9bca3d, type: 2}
   GameFinish: {fileID: 11400000, guid: d32849a6b114a498c90735847c3b2a66, type: 2}
   _untouchedBlock: {fileID: 1756714757364161802}
   _dugBlock: {fileID: 7680701109300600344}
