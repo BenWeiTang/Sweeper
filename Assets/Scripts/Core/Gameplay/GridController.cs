@@ -32,6 +32,7 @@ namespace Minesweeper.Core
         private int _safeSpotCount;
         private int _dugSafeSpotCount = 0;
 
+        #region PUBLIC_METHODS
         public IEnumerable<SpotController> GetAdjacentSpotControllers(SpotController controller)
         {
             int index = System.Array.IndexOf(_spotControllers, controller);
@@ -41,10 +42,17 @@ namespace Minesweeper.Core
                 yield return _spotControllers[ai];
             }
         }
-
+        #endregion
+        #region PUBLIC_CALLBACKS
         public async void OnGameSceneLoaded()
         {
             await animationController.MoveAllSpotsInPlace();
+            await animationController.BounceAll(
+            _layout.BounceInDuration,
+            _layout.BounceOutDuration,
+            _layout.BounceDelta,
+            _layout.BounceEaseIn,
+            _layout.BounceEasOut);
             GameReady.Raise();
         }
 
@@ -80,12 +88,13 @@ namespace Minesweeper.Core
                 await animationController.DropAllSpots();
             else
                 await animationController.DetonateAllMines();
-            
+
 
             // UI Manager listens to this
             PostGameExit.Raise(won);
         }
-
+        #endregion
+        #region UNITY_METHODS
         private void Awake()
         {
             if (!_camera) { _camera = Camera.main.transform; }
@@ -98,7 +107,8 @@ namespace Minesweeper.Core
             GridInit();
             GenerateGrid();
         }
-
+        #endregion
+        #region PRIVATE_METHODS
         private void LayoutInit()
         {
             _layout = GameManager.Instance.CurrentLayout;
@@ -146,7 +156,7 @@ namespace Minesweeper.Core
                 spotController.SetGridController(this);
                 spotController.spot = _grid[i];
 
-                _spotControllers[i] = spotController; 
+                _spotControllers[i] = spotController;
 
                 animationController.SetSpotControllerAt(i, spotController);
                 animationController.SetTargetPositionAt(i, newPos);
@@ -206,4 +216,5 @@ namespace Minesweeper.Core
                 yield return index + _layout.Width + 1; // down right
         }
     }
+    #endregion
 }

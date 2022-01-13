@@ -24,7 +24,8 @@ namespace Minesweeper.Core
         private float _maxMoveTime;
         private Ease _easeMode;
 
-        private void Start() 
+        #region UNITY_METHODS
+        private void Start()
         {
             _layout = GameManager.Instance.CurrentLayout;
             _gridSize = _layout.Width * _layout.Height;
@@ -36,17 +37,18 @@ namespace Minesweeper.Core
             _maxMoveTime = _layout.MaxMoveTime;
             _easeMode = _layout.EaseMode;
         }
-
+        #endregion
+        #region INTERNAL_METHODS
         internal void SetTransformAt(int index, Transform t)
         {
             _spotTransforms[index] = t;
         }
-        
+
         internal void SetTargetPositionAt(int index, Vector3 targetPosition)
         {
             _targetPositions[index] = targetPosition;
         }
-        
+
         internal void SetSpotControllerAt(int index, SpotController sc)
         {
             _spotControllers[index] = sc;
@@ -59,7 +61,7 @@ namespace Minesweeper.Core
 
         internal void SetAllIsKinematic(bool isKinematic)
         {
-            foreach(var rb in _spotRBs)
+            foreach (var rb in _spotRBs)
                 rb.isKinematic = isKinematic;
         }
 
@@ -129,5 +131,23 @@ namespace Minesweeper.Core
             }
 
         }
+
+        internal async Task BounceAll(float inDuration, float outDuration, float delta, Ease inEase, Ease outEase)
+        {
+            List<Task> tasks = new List<Task>();
+            float ogScaleFactor = _spotTransforms[0].localScale.x;
+            float endValue = ogScaleFactor + delta;
+            foreach(var t in _spotTransforms)
+            {
+                Sequence s = DOTween.Sequence();
+                s.Append(t.DOScale(endValue, inDuration).SetEase(inEase));
+                s.Append(t.DOScale(ogScaleFactor, outDuration).SetEase(outEase));
+                var currentTask = s.AsyncWaitForCompletion();
+                tasks.Add(currentTask);
+            }
+
+            await Task.WhenAll(tasks);
+        }
+        #endregion
     }
 }

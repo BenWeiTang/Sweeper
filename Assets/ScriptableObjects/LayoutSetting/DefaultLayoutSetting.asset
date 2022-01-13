@@ -22,7 +22,12 @@ MonoBehaviour:
   SpawnSphereRadius: 15
   MinMoveTime: 3
   MaxMoveTime: 4
-  EaseMode: 15
+  EaseMode: 24
+  BounceInDuration: 0.73
+  BounceOutDuration: 1.26
+  BounceDelta: -0.22
+  BounceEaseIn: 1
+  BounceEasOut: 30
   One: {r: 0, g: 0.3507347, b: 1, a: 1}
   Two: {r: 0.5904467, g: 1, b: 0, a: 1}
   Three: {r: 1, g: 0.30571634, b: 0, a: 1}

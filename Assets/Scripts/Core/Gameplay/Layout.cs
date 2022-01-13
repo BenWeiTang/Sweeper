@@ -28,6 +28,11 @@ namespace Minesweeper.Core
         public float MinMoveTime = 4f;
         public float MaxMoveTime = 5f;
         public Ease EaseMode = Ease.OutQuad;
+        [Range(0.1f, 2f)] public float BounceInDuration = 0.1f;
+        [Range(0.1f, 2f)] public float BounceOutDuration = 0.1f;
+        [Range(-0.5f, 0.5f)] public float BounceDelta = -0.1f;
+        public Ease BounceEaseIn = Ease.Linear;
+        public Ease BounceEasOut = Ease.OutBounce;
 
         [Header("Color Configuration")]
         public Color One = Color.white;
