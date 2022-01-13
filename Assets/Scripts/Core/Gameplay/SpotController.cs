@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System.Linq;
 using UnityEngine;
 using TMPro;
@@ -20,10 +21,12 @@ namespace Minesweeper.Core
         [SerializeField] private TextMeshPro _hintNumberText;
 
         public Spot spot { get; set; }
+        public int IndexInGrid { get; private set; } = -1;
 
         private GridController _gridController;
 
         public void SetGridController(GridController controller) => _gridController = controller;
+        public void SetIndexInGrid(int index) => IndexInGrid = index;
 
         public void Dig()
         {
@@ -79,7 +82,7 @@ namespace Minesweeper.Core
                 {
                     case 1:
                         _hintNumberText.color = GameManager.Instance.CurrentLayout.One;
-                        break; 
+                        break;
                     case 2:
                         _hintNumberText.color = GameManager.Instance.CurrentLayout.Two;
                         break;
@@ -123,7 +126,7 @@ namespace Minesweeper.Core
             else if (spot.State == SpotState.Marked)
             {
                 spot.State = SpotState.Untouched;
-                SwtichToBlock(Block.Untouched); 
+                SwtichToBlock(Block.Untouched);
             }
         }
 
@@ -140,6 +143,22 @@ namespace Minesweeper.Core
             foreach (SpotController ac in adjacentSC)
             {
                 ac.Dig();
+            }
+        }
+
+        public async void OnSafeSpotDugAt(int index)
+        {
+            if (index == IndexInGrid)
+            {
+                //TODO: do the bounce animation and then swap to BugBlock
+            }
+        }
+
+        public async void OnSpotMarkedAt(int index)
+        {
+            if (index == IndexInGrid)
+            {
+                //TODO: do the bounce animation and then swap to MarkedBlock
             }
         }
 
@@ -188,17 +207,5 @@ namespace Minesweeper.Core
             Marked,
             Mine
         }
-
-        // public void SudoSwitchToBlock()
-        // {
-        //     if (spot.IsMine)
-        //     {
-        //         SwtichToBlock(Block.Mine);
-        //     }
-        //     else
-        //     {
-        //         SwtichToBlock(Block.Dug);
-        //     }
-        // }
     }
 }

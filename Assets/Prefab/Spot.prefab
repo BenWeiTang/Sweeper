@@ -176,6 +176,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1108562070234402482}
   - component: {fileID: 68974095654745218}
+  - component: {fileID: -4771067930902092392}
+  - component: {fileID: -3257536075018758437}
   - component: {fileID: 6013586521146432244}
   - component: {fileID: 6694692501243475912}
   m_Layer: 0
@@ -225,6 +227,62 @@ MonoBehaviour:
   _markedBlock: {fileID: 5674558438566941254}
   _mineBlock: {fileID: 1215591663817971028}
   _hintNumberText: {fileID: 3628256141546901763}
+--- !u!114 &-4771067930902092392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763972840110850404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1709cbda25d4edc8699836e1cf0248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 1f9b5ea1f028341ac95a152e4da289e3, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 68974095654745218}
+        m_TargetAssemblyTypeName: Minesweeper.Core.SpotController, Core
+        m_MethodName: OnSafeSpotDugAt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-3257536075018758437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763972840110850404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1709cbda25d4edc8699836e1cf0248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: addaaf29477294ec690a3d681f9bca3d, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 68974095654745218}
+        m_TargetAssemblyTypeName: Minesweeper.Core.SpotController, Core
+        m_MethodName: OnSpotMarkedAt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &6013586521146432244
 BoxCollider:
   m_ObjectHideFlags: 0

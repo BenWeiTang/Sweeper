@@ -158,6 +158,7 @@ namespace Minesweeper.Core
 
                 _spotControllers[i] = spotController;
 
+                spotController.SetIndexInGrid(i);
                 animationController.SetSpotControllerAt(i, spotController);
                 animationController.SetTargetPositionAt(i, newPos);
                 animationController.SetTransformAt(i, spotController.transform);
