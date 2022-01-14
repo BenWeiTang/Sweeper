@@ -10,19 +10,15 @@ namespace Minesweeper.Core
 {
     public class SpotController : MonoBehaviour, ISpot
     {
+        [SerializeField] private SpotAnimationController _animController;
+
         [Header("Event")]
         [SerializeField] private IntEvent SafeSpotDug;
         [SerializeField] private VoidEvent FirstSafeSpotDig;
         [SerializeField] private IntEvent SafeSpotDigAt;
         [SerializeField] private IntEvent SpotMarkAt;
+        [SerializeField] private IntEvent MineDigAt;
         [SerializeField] private BoolEvent GameFinish;
-
-        [Header("Appearances")]
-        [SerializeField] private GameObject _untouchedBlock;
-        [SerializeField] private GameObject _dugBlock;
-        [SerializeField] private GameObject _markedBlock;
-        [SerializeField] private GameObject _mineBlock;
-        [SerializeField] private TextMeshPro _hintNumberText;
 
         public Spot spot { get; set; }
         public int IndexInGrid { get; private set; } = -1;
@@ -34,6 +30,10 @@ namespace Minesweeper.Core
 
         public void Dig()
         {
+            //TODO: Allow for 1 stored click
+            if (_animController.AnimIsPlaying)
+                return;
+
             if (spot.State == SpotState.Untouched)
             {
                 // Always make the first click safe
@@ -53,14 +53,13 @@ namespace Minesweeper.Core
                 if (spot.IsMine)
                 {
                     spot.State = SpotState.Detonated;
-                    SwtichToBlock(Block.Mine);
+                    MineDigAt.Raise(IndexInGrid);
                     GameFinish.Raise(false);
                 }
                 else
                 {
                     spot.State = SpotState.Dug;
-                    // SwtichToBlock(Block.Dug);
-                    SafeSpotDigAt.Raise(IndexInGrid);
+                    SafeSpotDigAt.Raise(IndexInGrid); // See _animController.OnSafeSpotDugAt
                     SafeSpotDug.Raise(spot.HintNumber);
                     AutoNearClear();
                 }
@@ -82,6 +81,10 @@ namespace Minesweeper.Core
 
         public void Mark()
         {
+            //TODO: Allow for 1 stored click
+            if (_animController.AnimIsPlaying)
+                return;
+
             if (spot.State == SpotState.Untouched)
             {
                 // Don't allow for marking in the beginning of the game
@@ -89,14 +92,12 @@ namespace Minesweeper.Core
                     return;
 
                 spot.State = SpotState.Marked;
-                // SwtichToBlock(Block.Marked);
-                SpotMarkAt.Raise(IndexInGrid);
+                SpotMarkAt.Raise(IndexInGrid); // See _animController.OnSpotMarkAt
             }
             else if (spot.State == SpotState.Marked)
             {
                 spot.State = SpotState.Untouched;
-                // SwtichToBlock(Block.Untouched);
-                SpotMarkAt.Raise(IndexInGrid);
+                SpotMarkAt.Raise(IndexInGrid); // See _animController.OnSpotMarkAt
             }
         }
 
@@ -116,128 +117,9 @@ namespace Minesweeper.Core
             }
         }
 
-        public async void OnSafeSpotDugAt(int index)
-        {
-            if (index == IndexInGrid)
-            {
-                //TODO: do the bounce animation and while swapping to BugBlock
-                Action atPeak = null;
-                atPeak += () => SwtichToBlock(Block.Dug);
-                atPeak += () => RevealHintNumber();
-                await Bounce(0.2f, 0.75f, -0.22f, Ease.Linear, Ease.OutBounce, atPeak);
-
-            }
-        }
-
-        public async void OnSpotMarkedAt(int index)
-        {
-            if (index == IndexInGrid)
-            {
-                //TODO: do the bounce animation and then swap to MarkedBlock
-                Action atPeak = null;
-                if (spot.State == SpotState.Marked)
-                    atPeak = () => SwtichToBlock(Block.Marked);
-                else if (spot.State == SpotState.Untouched)
-                    atPeak = () => SwtichToBlock(Block.Untouched);
-
-                await Bounce(0.2f, 0.75f, -0.22f, Ease.Linear, Ease.OutBounce, atPeak);
-            }
-        }
-
-        internal async Task Bounce(float inDuration, float outDuration, float delta, Ease inEase, Ease outEase, Action atPeak)
-        {
-            Sequence s = DOTween.Sequence();
-            float ogScaleFactor = transform.localScale.x;
-            float endValue = ogScaleFactor + delta;
-            s.Append(transform.DOScale(endValue, inDuration).SetEase(inEase));
-            atPeak?.Invoke();
-            s.Append(transform.DOScale(ogScaleFactor, outDuration).SetEase(outEase));
-            var currentTask = s.AsyncWaitForCompletion();
-
-            await currentTask;
-        }
-
         private void Start()
         {
             transform.localScale = Vector3.one * GameManager.Instance.CurrentLayout.SpotSize;
-            _hintNumberText.alpha = 0f;
-            SwtichToBlock(Block.Untouched);
         }
-
-        private void SwtichToBlock(Block block)
-        {
-            switch (block)
-            {
-                case Block.Untouched:
-                    _untouchedBlock.SetActive(true);
-                    _dugBlock.SetActive(false);
-                    _markedBlock.SetActive(false);
-                    _mineBlock.SetActive(false);
-                    break;
-                case Block.Dug:
-                    _dugBlock.SetActive(true);
-                    _untouchedBlock.SetActive(false);
-                    _markedBlock.SetActive(false);
-                    _mineBlock.SetActive(false);
-                    break;
-                case Block.Marked:
-                    _markedBlock.SetActive(true);
-                    _dugBlock.SetActive(false);
-                    _untouchedBlock.SetActive(false);
-                    _mineBlock.SetActive(false);
-                    break;
-                case Block.Mine:
-                    _mineBlock.SetActive(true);
-                    _dugBlock.SetActive(false);
-                    _markedBlock.SetActive(false);
-                    _untouchedBlock.SetActive(false);
-                    break;
-            }
-        }
-
-        private void RevealHintNumber()
-        {
-            _hintNumberText.alpha = 1f;
-            _hintNumberText.text = spot.HintNumber.ToString();
-            switch (spot.HintNumber)
-            {
-                case 1:
-                    _hintNumberText.color = GameManager.Instance.CurrentLayout.One;
-                    break;
-                case 2:
-                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Two;
-                    break;
-                case 3:
-                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Three;
-                    break;
-                case 4:
-                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Four;
-                    break;
-                case 5:
-                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Five;
-                    break;
-                case 6:
-                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Six;
-                    break;
-                case 7:
-                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Seven;
-                    break;
-                case 8:
-                    _hintNumberText.color = GameManager.Instance.CurrentLayout.Eight;
-                    break;
-                default:
-                    _hintNumberText.alpha = 0f;
-                    _hintNumberText.text = "";
-                    break;
-            }
-        }
-    }
-
-    public enum Block
-    {
-        Untouched,
-        Dug,
-        Marked,
-        Mine
     }
 }
