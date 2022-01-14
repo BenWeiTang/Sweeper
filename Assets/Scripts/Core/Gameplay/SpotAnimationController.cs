@@ -88,6 +88,11 @@ namespace Minesweeper.Core
             AnimIsPlaying = false;
         }
 
+        private void Awake() 
+        {
+            DOTween.SetTweensCapacity(300, 100);
+        }
+
         private void Start()
         {
             SwtichToBlock(Block.Untouched);

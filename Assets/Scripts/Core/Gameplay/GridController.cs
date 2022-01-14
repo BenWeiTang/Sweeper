@@ -115,8 +115,6 @@ namespace Minesweeper.Core
             _displacement = _layout.CameraDisplacement;
             _spotPrefab = _layout.SpotPrefab;
             _spawSphereRadius = _layout.SpawnSphereRadius;
-
-            DOTween.SetTweensCapacity(_layout.Width * _layout.Height * 4, _layout.Width * _layout.Height * 4);
         }
 
         private void GridInit()
