@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Minesweeper.Scene;
