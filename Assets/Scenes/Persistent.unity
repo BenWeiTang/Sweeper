@@ -4744,6 +4744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e656fc3a3972740058f1ab30d621b8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FadeBlindOutComplete: {fileID: 11400000, guid: 5e11d7c4ddc234892952c2ea344fabba, type: 2}
   _blind: {fileID: 1361284720}
   _blindFadeRate: 1
   _panelFadeRate: 3.15

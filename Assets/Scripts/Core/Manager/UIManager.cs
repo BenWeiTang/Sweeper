@@ -1,13 +1,17 @@
 using System.Threading.Tasks;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Minesweeper.Scene;
+using Minesweeper.Event;
 
 namespace Minesweeper.Core
 {
     public class UIManager : AManager<UIManager>
     {
+        [Header("Event")]
+        [SerializeField] private VoidEvent FadeBlindOutComplete;
+
         [Header("Fade Blind")]
         [SerializeField] private CanvasGroup _blind;
         [SerializeField] private float _blindFadeRate = 1f;
@@ -22,6 +26,7 @@ namespace Minesweeper.Core
         [SerializeField] private GameObject _loadingPanel;
 
         private GameObject _currentActivePanel;
+        private bool _isFirstTime = true;
 
         protected override void Awake()
         {
@@ -31,30 +36,25 @@ namespace Minesweeper.Core
             {
                 _blind.alpha = 1f;
                 _blind.blocksRaycasts = true;
-                // await FadeSetPanelActive(_loadingPanel,false);
-                // await FadeBlind(false);
-                StartCoroutine(OnSceneLoaded());
+
+                if (_isFirstTime)
+                {
+                    _isFirstTime = false;
+                    StartCoroutine(OnFirstTimeLoaded());
+                }
             };
 
-            //FIXME: in conjugation with GameplayHelper, delete later
-            _startMenuPanel.SetActive(true);
-            _startMenuPanel.GetComponent<CanvasGroup>().interactable = true;
-            _startMenuPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
-            _currentActivePanel = _startMenuPanel;
-
-            IEnumerator OnSceneLoaded()
+            IEnumerator OnFirstTimeLoaded()
             {
-                List<Task> tasks = new List<Task>();
-                tasks.Add(FadeSetPanelActive(_loadingPanel, false));
-                tasks.Add(FadeBlind(false));
-                for (int i = 0; i < tasks.Count; i++)
+                var blindOperation = FadeBlind(false);
+                while (!blindOperation.IsCompleted)
                 {
-                    while (!tasks[i].IsCompleted)
-                    {
-                        print($"Doing task {i}");
-                        yield return null;
-                    }
+                    yield return null;
                 }
+                _startMenuPanel.SetActive(true);
+                _startMenuPanel.GetComponent<CanvasGroup>().interactable = true;
+                _startMenuPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                _currentActivePanel = _startMenuPanel;
             }
         }
 
@@ -65,6 +65,8 @@ namespace Minesweeper.Core
             await FadeBlind(true);
             await FadeSetPanelActive(_loadingPanel, true);
             await GameManager.Instance.StartNewGame();
+            await FadeSetPanelActive(_loadingPanel, false);
+            await FadeBlind(false);
         }
 
         // This is for starting a new game in Gameplay, e.g. pause, win, and lose panels
@@ -74,12 +76,18 @@ namespace Minesweeper.Core
             await FadeBlind(true);
             await FadeSetPanelActive(_loadingPanel, true);
             await GameManager.Instance.RestartGame();
+            await FadeSetPanelActive(_loadingPanel, false);
+            await FadeBlind(false);
         }
 
         // Called by the Resume Button in the pause panel
-        public void ResumeGame()
+        public async void ResumeGame()
         {
+            await FadeSetPanelActive(_currentActivePanel, false);
+            await FadeBlind(true);
             GameManager.Instance.ResumeGame();
+            await FadeSetPanelActive(_loadingPanel, false);
+            await FadeBlind(false);
         }
 
         // Called by the Back Buttons in pause, win, and lose panels
@@ -89,6 +97,8 @@ namespace Minesweeper.Core
             await FadeBlind(true);
             await FadeSetPanelActive(_loadingPanel, true);
             await GameManager.Instance.BackToMenu();
+            await FadeSetPanelActive(_loadingPanel, false);
+            await FadeBlind(false);
             await FadeSetPanelActive(_startMenuPanel, true);
         }
 
@@ -205,6 +215,7 @@ namespace Minesweeper.Core
                     await Task.Yield();
                 }
                 _blind.blocksRaycasts = false;
+                FadeBlindOutComplete.Raise();
             }
         }
     }

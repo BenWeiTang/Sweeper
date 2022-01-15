@@ -44,7 +44,7 @@ namespace Minesweeper.Core
         }
         #endregion
         #region PUBLIC_CALLBACKS
-        public async void OnGameSceneLoaded()
+        public async void OnFadeBlindOutCompleted()
         {
             await animationController.MoveAllSpotsInPlace();
             await animationController.BounceAll(

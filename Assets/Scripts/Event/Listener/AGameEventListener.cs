@@ -27,7 +27,7 @@ namespace Minesweeper.Event
         private void OnDisable() 
         {
             if (_gameEvent == null) return;
-            GameEvent.RegisterListener(this);
+            GameEvent.DeregisterListener(this);
         }
     }
 }

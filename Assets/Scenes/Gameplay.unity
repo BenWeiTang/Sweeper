@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &189716821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,13 +263,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: 75850ff5fc5104602932f6fc1f11349d, type: 2}
+  _gameEvent: {fileID: 11400000, guid: 5e11d7c4ddc234892952c2ea344fabba, type: 2}
   _unityEventResponse:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 255571305}
         m_TargetAssemblyTypeName: Minesweeper.Core.GridController, Core
-        m_MethodName: OnGameSceneLoaded
+        m_MethodName: OnFadeBlindOutCompleted
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

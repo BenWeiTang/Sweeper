@@ -100,12 +100,14 @@ namespace Minesweeper.Core
             }
 
             var loadOperation = LevelSystem.LoadSceneAdditiveAsync(toLoad);
-            while (!loadOperation.isDone)
+            loadOperation.allowSceneActivation = false;
+            while (loadOperation.progress < 0.9f)
             {
                 float actual = Mathf.Lerp(0f, 0.9f, loadOperation.progress);
                 _loadingProgress.value = Mathf.Lerp(0.5f, 1f, actual);
                 await Task.Yield();
             }
+            loadOperation.allowSceneActivation = true;
         }
     }
 
