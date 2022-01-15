@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Minesweeper.Scene;
 using Minesweeper.Event;
+using Minesweeper.Reference;
 
 namespace Minesweeper.Core
 {
@@ -19,6 +20,9 @@ namespace Minesweeper.Core
         [SerializeField] private VoidEvent GamePause;
         [SerializeField] private VoidEvent GameResume;
         [SerializeField] private BoolEvent PostGameEnter;
+
+        [Header("Reference")]
+        [SerializeField] private FloatRef _loadingProgress;
 
         private Layout _layout;
         public Layout CurrentLayout
@@ -90,12 +94,16 @@ namespace Minesweeper.Core
             var unloadOperation = LevelSystem.UnloadSceneAsync(toUnload);
             while (!unloadOperation.isDone)
             {
+                float actual = Mathf.Lerp(0f, 0.9f, unloadOperation.progress);
+                _loadingProgress.value = Mathf.Lerp(0f, 0.5f, actual);
                 await Task.Yield();
             }
 
             var loadOperation = LevelSystem.LoadSceneAdditiveAsync(toLoad);
             while (!loadOperation.isDone)
             {
+                float actual = Mathf.Lerp(0f, 0.9f, loadOperation.progress);
+                _loadingProgress.value = Mathf.Lerp(0.5f, 1f, actual);
                 await Task.Yield();
             }
         }

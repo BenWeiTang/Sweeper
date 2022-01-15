@@ -1,7 +1,9 @@
 {
     "name": "UI",
     "rootNamespace": "Minesweeper.UI",
-    "references": [],
+    "references": [
+        "GUID:b04b9841772f644da8f409d453aa8ead"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
