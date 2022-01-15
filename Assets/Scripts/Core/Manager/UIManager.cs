@@ -32,13 +32,11 @@ namespace Minesweeper.Core
                 await FadeBlind(false);
             };
 
-#if UNITY_EDITOR
             //FIXME: in conjugation with GameplayHelper, delete later
             _startMenuPanel.SetActive(true);
             _startMenuPanel.GetComponent<CanvasGroup>().interactable = true;
             _startMenuPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
             _currentActivePanel = _startMenuPanel;
-#endif
         }
 
         // This is for the New Game button in StartMenu
