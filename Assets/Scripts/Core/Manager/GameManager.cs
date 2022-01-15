@@ -94,7 +94,7 @@ namespace Minesweeper.Core
             var unloadOperation = LevelSystem.UnloadSceneAsync(toUnload);
             while (!unloadOperation.isDone)
             {
-                float actual = Mathf.Lerp(0f, 0.9f, unloadOperation.progress);
+                float actual = Mathf.InverseLerp(0f, 0.9f, unloadOperation.progress);
                 _loadingProgress.value = Mathf.Lerp(0f, 0.5f, actual);
                 await Task.Yield();
             }
@@ -103,7 +103,7 @@ namespace Minesweeper.Core
             loadOperation.allowSceneActivation = false;
             while (loadOperation.progress < 0.9f)
             {
-                float actual = Mathf.Lerp(0f, 0.9f, loadOperation.progress);
+                float actual = Mathf.InverseLerp(0f, 0.9f, loadOperation.progress);
                 _loadingProgress.value = Mathf.Lerp(0.5f, 1f, actual);
                 await Task.Yield();
             }
