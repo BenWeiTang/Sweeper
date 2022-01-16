@@ -14,10 +14,10 @@ namespace Minesweeper.Core
 
         [Header("Fade Blind")]
         [SerializeField] private CanvasGroup _blind;
-        [SerializeField] private float _blindFadeRate = 1f;
+        [SerializeField, Range(0.1f, 5f)] private float _blindFadeDuration = 1f;
 
         [Header("Panels")]
-        [SerializeField, Range(0.1f, 5f)] private float _panelFadeRate = 1f;
+        [SerializeField, Range(0.1f, 5f)] private float _panelFadeDuration = 1f;
         [SerializeField] private GameObject _startMenuPanel;
         [SerializeField] private GameObject _settingsPanel;
         [SerializeField] private GameObject _pausePanel;
@@ -169,16 +169,16 @@ namespace Minesweeper.Core
         {
             if (toTurnOn)
             {
-                var operation = cg.DOFade(1f, 0.5f).SetEase(Ease.OutQuad);
-                while (operation.IsPlaying())
+                var operation = cg.DOFade(1f, _panelFadeDuration).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
+                while (!operation.IsCompleted)
                 {
                     await Task.Yield();
                 }
             }
             else
             {
-                var operation = cg.DOFade(0f, 0.5f).SetEase(Ease.OutQuad);
-                while (operation.IsPlaying())
+                var operation = cg.DOFade(0f, _panelFadeDuration).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
+                while (!operation.IsCompleted)
                 {
                     await Task.Yield();
                 }
@@ -190,16 +190,16 @@ namespace Minesweeper.Core
             if (toFadeIn)
             {
                 _blind.blocksRaycasts = true;
-                var operation = _blind.DOFade(1f, 0.5f).SetEase(Ease.OutQuad);
-                while (operation.IsPlaying())
+                var operation = _blind.DOFade(1f, _blindFadeDuration).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
+                while (!operation.IsCompleted)
                 {
                     await Task.Yield();
                 }
             }
             else
             {
-                var operation = _blind.DOFade(0f, 0.5f).SetEase(Ease.OutQuad);
-                while (operation.IsPlaying())
+                var operation = _blind.DOFade(0f, _blindFadeDuration).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
+                while (!operation.IsCompleted)
                 {
                     await Task.Yield();
                 }
