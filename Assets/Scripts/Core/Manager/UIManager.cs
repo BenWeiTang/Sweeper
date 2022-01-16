@@ -2,8 +2,8 @@ using System.Threading.Tasks;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Minesweeper.Scene;
 using Minesweeper.Event;
+using DG.Tweening;
 
 namespace Minesweeper.Core
 {
@@ -51,10 +51,15 @@ namespace Minesweeper.Core
                 {
                     yield return null;
                 }
-                _startMenuPanel.SetActive(true);
-                _startMenuPanel.GetComponent<CanvasGroup>().interactable = true;
-                _startMenuPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                _currentActivePanel = _startMenuPanel;
+                // _startMenuPanel.SetActive(true);
+                // _startMenuPanel.GetComponent<CanvasGroup>().interactable = true;
+                // _startMenuPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                // _currentActivePanel = _startMenuPanel;
+                var panelOperation = FadeSetPanelActive(_startMenuPanel, true);
+                while (!panelOperation.IsCompleted)
+                {
+                    yield return null;
+                }
             }
         }
 
@@ -201,17 +206,17 @@ namespace Minesweeper.Core
             if (toFadeIn)
             {
                 _blind.blocksRaycasts = true;
-                while (_blind.alpha < 1f)
+                var operation = _blind.DOFade(1f, 0.5f).SetEase(Ease.OutQuad);
+                while (operation.IsPlaying())
                 {
-                    _blind.alpha += _blindFadeRate * Time.deltaTime;
                     await Task.Yield();
                 }
             }
             else
             {
-                while (_blind.alpha > 0f)
+                var operation = _blind.DOFade(0f, 0.5f).SetEase(Ease.OutQuad);
+                while (operation.IsPlaying())
                 {
-                    _blind.alpha -= _blindFadeRate * Time.deltaTime;
                     await Task.Yield();
                 }
                 _blind.blocksRaycasts = false;
