@@ -147,18 +147,6 @@ namespace Minesweeper.Core
             _currentActivePanel = target;
         }
 
-#if UNITY_EDITOR
-        //FIXME: delete later
-        public void SudoTurnOffStartPanel()
-        {
-            var cg = _startMenuPanel.GetComponent<CanvasGroup>();
-            cg.interactable = false;
-            cg.blocksRaycasts = false;
-            cg.alpha = 0f;
-            _currentActivePanel = null;
-        }
-#endif
-
         private async Task FadeSetPanelActive(GameObject panel, bool toActivate)
         {
             var currentCanvasGroup = panel.GetComponent<CanvasGroup>();
@@ -185,17 +173,17 @@ namespace Minesweeper.Core
         {
             if (toTurnOn)
             {
-                while (cg.alpha < 1f)
+                var operation = cg.DOFade(1f, 0.5f).SetEase(Ease.OutQuad);
+                while (operation.IsPlaying())
                 {
-                    cg.alpha += _panelFadeRate * Time.deltaTime;
                     await Task.Yield();
                 }
             }
             else
             {
-                while (cg.alpha > 0f)
+                var operation = cg.DOFade(0f, 0.5f).SetEase(Ease.OutQuad);
+                while (operation.IsPlaying())
                 {
-                    cg.alpha -= _panelFadeRate * Time.deltaTime;
                     await Task.Yield();
                 }
             }
