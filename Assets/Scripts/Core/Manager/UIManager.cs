@@ -51,10 +51,6 @@ namespace Minesweeper.Core
                 {
                     yield return null;
                 }
-                // _startMenuPanel.SetActive(true);
-                // _startMenuPanel.GetComponent<CanvasGroup>().interactable = true;
-                // _startMenuPanel.GetComponent<CanvasGroup>().blocksRaycasts = true;
-                // _currentActivePanel = _startMenuPanel;
                 var panelOperation = FadeSetPanelActive(_startMenuPanel, true);
                 while (!panelOperation.IsCompleted)
                 {
