@@ -20,9 +20,9 @@ MonoBehaviour:
   CameraDisplacement: {x: 0, y: 0, z: 10}
   SpotPrefab: {fileID: 68974095654745218, guid: fab64d19b78bc45159644e167014ef0a, type: 3}
   SpawnSphereRadius: 15
-  MinMoveTime: 3
-  MaxMoveTime: 4
-  EaseMode: 24
+  MinMoveTime: 2
+  MaxMoveTime: 3
+  EaseMode: 30
   BounceInDuration: 0.2
   BounceOutDuration: 0.75
   BounceDelta: -0.22
