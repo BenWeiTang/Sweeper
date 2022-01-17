@@ -4746,8 +4746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FadeBlindOutComplete: {fileID: 11400000, guid: 5e11d7c4ddc234892952c2ea344fabba, type: 2}
   _blind: {fileID: 1361284720}
-  _blindFadeRate: 1
-  _panelFadeRate: 3.15
+  _blindFadeDuration: 0.5
+  _panelFadeDuration: 0.5
   _startMenuPanel: {fileID: 2095921375}
   _settingsPanel: {fileID: 670656905}
   _pausePanel: {fileID: 853905566}
