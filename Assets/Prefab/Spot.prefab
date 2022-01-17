@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ff6c636927246869ae265963cf0942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animController: {fileID: 191861087216191889}
+  animController: {fileID: 191861087216191889}
   SafeSpotDug: {fileID: 11400000, guid: c5a0faf06d042447bbe6ae00fdab655b, type: 2}
   FirstSafeSpotDig: {fileID: 11400000, guid: 086ad10d020d648b8b497b5f325b6242, type: 2}
   SafeSpotDigAt: {fileID: 11400000, guid: 1f9b5ea1f028341ac95a152e4da289e3, type: 2}

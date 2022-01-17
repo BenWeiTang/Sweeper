@@ -82,12 +82,9 @@ namespace Minesweeper.Core
 
         public async void OnPostGameEnter(bool won)
         {
-            //TODO: do different animations depending on the result of the game
-            // For example, when lost, play...
             if (won)
             {
                 await Task.Delay(200);
-                // await animationController.DropAllSpots();
                 await animationController.FloatAll();
             }
             else
@@ -96,6 +93,23 @@ namespace Minesweeper.Core
 
             // UI Manager listens to this
             PostGameExit.Raise(won);
+        }
+
+        public async void OnGameRestart()
+        {
+            foreach (var sc in _spotControllers)
+            {
+                // Clear mines, set state to untouched, swtich block to untouched
+                sc.ResetSpot();
+            }
+
+            _dugSafeSpotCount = 0;
+            RandomGenerateMines();
+
+            await animationController.MoveAllBack();
+
+            HasBegun = false;
+            GameReady.Raise();
         }
         #endregion
         #region UNITY_METHODS
@@ -125,13 +139,25 @@ namespace Minesweeper.Core
         {
             _grid = new Spot[_layout.Width * _layout.Height];
             _gridSize = _grid.Length;
+            RandomGenerateMines();
+            _spotControllers = new SpotController[_gridSize]; // solely for use of GetAdjacent;
+        }
+
+        private void RandomGenerateMines()
+        {
             for (int i = 0; i < _gridSize; i++)
             {
+                if (_grid[i] == null)
+                {
+                    _grid[i] = new Spot();
+                }
+                else
+                {
+                    _grid[i].HintNumber = 0;
+                }
                 bool isMine = Random.Range(0f, 100f) < _layout.MinePercentage;
-                _grid[i] = new Spot();
                 _grid[i].SetMine(isMine);
             }
-            _spotControllers = new SpotController[_gridSize]; // solely for use of GetAdjacent;
         }
 
         private void GenerateGrid()

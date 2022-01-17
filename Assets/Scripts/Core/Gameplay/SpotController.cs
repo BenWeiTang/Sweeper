@@ -10,7 +10,7 @@ namespace Minesweeper.Core
 {
     public class SpotController : MonoBehaviour, ISpot
     {
-        [SerializeField] private SpotAnimationController _animController;
+        [SerializeField] internal SpotAnimationController animController;
 
         [Header("Event")]
         [SerializeField] private IntEvent SafeSpotDug;
@@ -31,7 +31,7 @@ namespace Minesweeper.Core
         public void Dig()
         {
             //TODO: Allow for 1 stored click
-            if (_animController.AnimIsPlaying)
+            if (animController.AnimIsPlaying)
                 return;
 
             if (spot.State == SpotState.Untouched)
@@ -82,7 +82,7 @@ namespace Minesweeper.Core
         public void Mark()
         {
             //TODO: Allow for 1 stored click
-            if (_animController.AnimIsPlaying)
+            if (animController.AnimIsPlaying)
                 return;
 
             if (spot.State == SpotState.Untouched)
@@ -115,6 +115,13 @@ namespace Minesweeper.Core
             {
                 ac.Dig();
             }
+        }
+
+        public void ResetSpot()
+        {
+            spot.SetMine(false);
+            spot.State = SpotState.Untouched;
+            animController.SwtichToBlock(Block.Untouched);
         }
 
         private void Start()

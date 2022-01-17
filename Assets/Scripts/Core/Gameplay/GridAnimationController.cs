@@ -80,6 +80,9 @@ namespace Minesweeper.Core
                 await Task.Yield();
             }
 
+            SetAllIsKinematic(true);
+            SetAllUseGravity(false);
+
             for (int i = 0; i < _gridSize; i++)
             {
                 Transform current = _spotTransforms[i];

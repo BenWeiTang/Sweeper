@@ -16,7 +16,6 @@ namespace Minesweeper.Core
         [SerializeField] private Layout _defaultLayout;
 
         [Header("Event")]
-        [SerializeField] private VoidEvent GameplaySceneLoaded;
         [SerializeField] private VoidEvent GamePause;
         [SerializeField] private VoidEvent GameResume;
         [SerializeField] private BoolEvent PostGameEnter;
@@ -45,12 +44,7 @@ namespace Minesweeper.Core
 
             SceneManager.sceneLoaded += (scene, mode) =>
             {
-                // Whenever entering Gameplay, 
-                if (LevelSystem.IsSameScene(SceneIndex.Gameplay, scene))
-                {
-                    CurrentState = GameState.PreGame;
-                    GameplaySceneLoaded.Raise();
-                }
+                CurrentState = GameState.PreGame;
             };
         }
 
@@ -58,7 +52,7 @@ namespace Minesweeper.Core
         public async Task StartNewGame() => await UnloadThenLoadScene(SceneIndex.StartMenu, SceneIndex.Gameplay);
 
         // Should only be called by the UI Manager
-        public async Task RestartGame()
+        public void RestartGame()
         {
             CurrentState = GameState.PreGame;
             GameRestart.Raise();

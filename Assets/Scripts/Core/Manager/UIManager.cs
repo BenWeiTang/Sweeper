@@ -74,11 +74,11 @@ namespace Minesweeper.Core
         public async void RestartGame()
         {
             await FadeSetPanelActive(_currentActivePanel, false);
-            await FadeBlind(true);
-            await FadeSetPanelActive(_loadingPanel, true);
-            await GameManager.Instance.RestartGame();
-            await FadeSetPanelActive(_loadingPanel, false);
-            await FadeBlind(false);
+            // await FadeBlind(true);
+            // await FadeSetPanelActive(_loadingPanel, true);
+            GameManager.Instance.RestartGame();
+            // await FadeSetPanelActive(_loadingPanel, false);
+            // await FadeBlind(false);
         }
 
         // Called by the Resume Button in the pause panel
