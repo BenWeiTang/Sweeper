@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8023fdf6ac2504f96956b31a17dcff28, type: 3}
+  m_Name: DefaultBlockColorPalette
+  m_EditorClassIdentifier: 
+  materialColors:
+  - name: Dug Base
+    material: {fileID: 2100000, guid: 0b6e2b3f3322442c6807f4e2d733edcd, type: 2}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - name: Dug Edge
+    material: {fileID: 2100000, guid: 16bd190d73d43435f8c357f15dd91995, type: 2}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - name: Mared Base
+    material: {fileID: 2100000, guid: 73934c0d1e5f24a409d661e6a922a421, type: 2}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - name: Marked Edge
+    material: {fileID: 2100000, guid: eb7ac2277134a4addb4d6afc70d1d532, type: 2}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - name: Mine Base
+    material: {fileID: 2100000, guid: fbf57307b47414dd7af98bc2a8443a99, type: 2}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - name: Mine Edge
+    material: {fileID: 2100000, guid: b02116b8d9df04f1babcec5b7b838ec7, type: 2}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - name: Untouched Base
+    material: {fileID: 2100000, guid: b50b0c81af3f54372b830b242cab8adb, type: 2}
+    color: {r: 0, g: 0, b: 0, a: 0}
+  - name: Untouched Edge
+    material: {fileID: 2100000, guid: 25599b878273c4bab827ac207b8a5702, type: 2}
+    color: {r: 0, g: 0, b: 0, a: 0}

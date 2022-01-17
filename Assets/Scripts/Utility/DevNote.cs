@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Minesweeper
+namespace Minesweeper.Utility
 {
     public class DevNote : MonoBehaviour
     {

@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using Minesweeper.Utility;
 
 namespace Minesweeper.Editor
 {
     public class MaterialColorizer : EditorWindow
     {
+        private static MaterialColorPalette _mcp;
         private static Material[] _materials = new Material[8];
         private static Color[] _colors = new Color[8];
+        private Color[] _targetColors;
 
 
         [MenuItem("3D Minesweeper/Material Colorizer")]
@@ -18,73 +21,70 @@ namespace Minesweeper.Editor
 
         private void OnGUI()
         {
-            DrawMaterialFields();
-            DrawColorFields();
-            DrawButton();
+            DrawMCP();
         }
 
-        private void DrawMaterialFields()
+        private void DrawMCP()
         {
             GUILayout.Space(10f);
-            GUILayout.Label("Target Materials", EditorStyles.boldLabel);
+            _mcp = (MaterialColorPalette)EditorGUILayout.ObjectField("Material Color Palette", _mcp, typeof(MaterialColorPalette), false);
 
-            _materials[0] = (Material)EditorGUILayout.ObjectField("Dug Base", _materials[0], typeof(Material), false);
-            _materials[1] = (Material)EditorGUILayout.ObjectField("Dug Edge", _materials[1], typeof(Material), false);
+            if (_mcp != null)
+            {
+                GUILayout.Space(10f);
+                GUILayout.Label("Current Colors", EditorStyles.boldLabel);
 
-            GUILayout.Space(5f);
+                foreach (var mc in _mcp.materialColors)
+                {
+                    EditorGUILayout.ColorField(mc.name, mc.material.color);
+                }
 
-            _materials[2] = (Material)EditorGUILayout.ObjectField("Marked Base", _materials[2], typeof(Material), false);
-            _materials[3] = (Material)EditorGUILayout.ObjectField("Marked Edge", _materials[3], typeof(Material), false);
+                GUILayout.Space(10f);
+                GUILayout.Label("Target Colors", EditorStyles.boldLabel);
 
-            GUILayout.Space(5f);
+                int count = _mcp.materialColors.Count;
+                
+                // First initialized as the same as the current color
+                if (_targetColors == null || _targetColors.Length == 0)
+                {
+                    _targetColors = new Color[count];
 
-            _materials[4] = (Material)EditorGUILayout.ObjectField("Mine Base", _materials[4], typeof(Material), false);
-            _materials[5] = (Material)EditorGUILayout.ObjectField("Mine Edge", _materials[5], typeof(Material), false);
+                    for (int i = 0; i < count; i++)
+                    {
+                        _targetColors[i] = _mcp.materialColors[i].material.color;
+                    }
+                }
 
-            GUILayout.Space(5f);
-
-            _materials[6] = (Material)EditorGUILayout.ObjectField("Untouched Base", _materials[6], typeof(Material), false);
-            _materials[7] = (Material)EditorGUILayout.ObjectField("Untouchec Edge", _materials[7], typeof(Material), false);
+                for (int i = 0; i < count; i++)
+                {
+                    _targetColors[i] = (Color)EditorGUILayout.ColorField(_mcp.materialColors[i].name, _targetColors[i]);
+                }
+                
+                DrawButtons();
+            }
         }
 
-        private void DrawColorFields()
-        {
-            GUILayout.Space(10f);
-            GUILayout.Label("Target Colors", EditorStyles.boldLabel);
-
-            _colors[0] = EditorGUILayout.ColorField("Dug Base", _colors[0]);
-            _colors[1] = EditorGUILayout.ColorField("Dug Edge", _colors[1]);
-
-            GUILayout.Space(5f);
-
-            _colors[2] = EditorGUILayout.ColorField("Marked Base", _colors[2]);
-            _colors[3] = EditorGUILayout.ColorField("Marked Edge", _colors[3]);
-
-            GUILayout.Space(5f);
-
-            _colors[4] = EditorGUILayout.ColorField("Mine Base", _colors[4]);
-            _colors[5] = EditorGUILayout.ColorField("Mine Edge", _colors[5]);
-
-            GUILayout.Space(5f);
-
-            _colors[6] = EditorGUILayout.ColorField("Untouched Base", _colors[6]);
-            _colors[7] = EditorGUILayout.ColorField("Untouched Edge", _colors[7]);
-        }
-
-        private void DrawButton()
+        private void DrawButtons()
         {
             GUILayout.Space(10f);
 
-            if (GUILayout.Button("Apply Colors"))
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Reset"))
+            {
+                for (int i = 0; i < _mcp.materialColors.Count; i++)
+                {
+                    _targetColors[i] = _mcp.materialColors[i].material.color;
+                }
+            }
+
+            if (GUILayout.Button("Apply"))
             {
                 for (int i = 0; i < _materials.Length; i++)
                 {
-                    if (_materials[i] == null)
-                        continue;
-                    
-                    _materials[i].color = _colors[i];
+                    _mcp.materialColors[i].material.color = _targetColors[i];
                 }
             }
+            GUILayout.EndHorizontal();
         }
     }
 }
