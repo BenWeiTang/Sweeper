@@ -4640,6 +4640,7 @@ MonoBehaviour:
   GamePause: {fileID: 11400000, guid: aa90a7233f1654b95880032616ac2352, type: 2}
   GameResume: {fileID: 11400000, guid: 29723e4b7e22a4395a7081bb3458df63, type: 2}
   PostGameEnter: {fileID: 11400000, guid: ae5ec8765bf3f49ed97226c3110a8939, type: 2}
+  GameRestart: {fileID: 11400000, guid: c5df1fed5640644e0ac12829a43f8a07, type: 2}
   _loadingProgress: {fileID: 11400000, guid: f0b331698a3a1447cad1307d6db0c75a, type: 2}
 --- !u!114 &1674972604
 MonoBehaviour:
