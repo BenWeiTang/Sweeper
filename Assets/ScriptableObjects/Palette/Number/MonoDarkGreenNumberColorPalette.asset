@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8023fdf6ac2504f96956b31a17dcff28, type: 3}
+  m_Name: MonoDarkGreenNumberColorPalette
+  m_EditorClassIdentifier: 
+  materialColors:
+  - name: One
+    material: {fileID: 2100000, guid: f2559cea1b5d14778b60f4f10970d2cf, type: 2}
+  - name: Two
+    material: {fileID: 2100000, guid: 5a1cb79eb45794f77894c772c0ed7348, type: 2}
+  - name: Three
+    material: {fileID: 2100000, guid: cee4748c933a74d9dbaebad7931b4d08, type: 2}
+  - name: Four
+    material: {fileID: 2100000, guid: 13a4415a66c9a4f3ba2ec0d0568d265a, type: 2}
+  - name: Five
+    material: {fileID: 2100000, guid: 3e0cb819c83da478e8b08af45bb114fe, type: 2}
+  - name: Six
+    material: {fileID: 2100000, guid: e084437b678904c62a6f1842f0fa169e, type: 2}
+  - name: Seven
+    material: {fileID: 2100000, guid: 8974e210a813540f4af0ce49f061c956, type: 2}
+  - name: Eight
+    material: {fileID: 2100000, guid: 4bf6062ff5ef74ca8a701149429a2ca7, type: 2}

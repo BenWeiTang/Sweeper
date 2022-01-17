@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: One
     material: {fileID: 2100000, guid: 887d141b3a6bd4f00a8ec65a9f0662a2, type: 2}
   - name: Two
-    material: {fileID: 2100000, guid: d550badf7868f41f0a9ffe20092bfd87, type: 2}
+    material: {fileID: 2100000, guid: 1899bb7831242458cb1439ab8d8c2d59, type: 2}
   - name: Three
     material: {fileID: 2100000, guid: fdf6cfc3319294c34adc0b9e97695ade, type: 2}
   - name: Four
@@ -28,4 +28,4 @@ MonoBehaviour:
   - name: Seven
     material: {fileID: 2100000, guid: dee53477355e44bf4a35849739226f77, type: 2}
   - name: Eight
-    material: {fileID: 2100000, guid: 1899bb7831242458cb1439ab8d8c2d59, type: 2}
+    material: {fileID: 2100000, guid: d550badf7868f41f0a9ffe20092bfd87, type: 2}
