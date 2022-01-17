@@ -23,7 +23,7 @@ namespace Minesweeper.Core
         public async void OnSafeSpotDugAt(int index)
         {
             if (index == _spotController.IndexInGrid)
-            { 
+            {
                 Action atPeak = () => SwtichToBlock((Block)_spotController.spot.HintNumber);
                 await Bounce(0.1f, 0.2f, -0.15f, Ease.Linear, Ease.OutBounce, atPeak);
             }
@@ -38,7 +38,7 @@ namespace Minesweeper.Core
                     atPeak += () => SwtichToBlock(Block.Untouched);
                 else if (_spotController.spot.State == SpotState.Marked)
                     atPeak += () => SwtichToBlock(Block.Marked);
-                
+
                 await Bounce(0.1f, 0.2f, -0.22f, Ease.Linear, Ease.OutBounce, atPeak);
             }
         }
@@ -47,7 +47,7 @@ namespace Minesweeper.Core
         {
             if (index == _spotController.IndexInGrid)
             {
-                Action atPeak = ()=>SwtichToBlock(Block.Mine);
+                Action atPeak = () => SwtichToBlock(Block.Mine);
                 await Bounce(0.1f, 0.2f, -0.15f, Ease.Linear, Ease.OutBounce, atPeak);
             }
         }
@@ -55,7 +55,7 @@ namespace Minesweeper.Core
         internal void SwtichToBlock(Block toBlock)
         {
             _currentBlock?.SetActive(false);
-            switch(toBlock)
+            switch (toBlock)
             {
                 case Block.Untouched:
                     _currentBlock = _untouchedBlock;
@@ -73,6 +73,23 @@ namespace Minesweeper.Core
             _currentBlock.SetActive(true);
         }
 
+        internal async Task ShakeToBlock(Block toBlock, float duration, Vector3 strength, int vibrato, float randomness, bool fadeOut = false)
+        {
+            var firstShake = transform.DOShakeRotation(duration * 0.5f, strength, 10, randomness, fadeOut).AsyncWaitForCompletion();
+            while (!firstShake.IsCompleted)
+            {
+                await Task.Yield();
+            }
+
+            SwtichToBlock(toBlock);
+
+            var secondShake = transform.DOShakeRotation(duration * 0.5f, strength, 10, randomness, fadeOut).AsyncWaitForCompletion();
+            while (!secondShake.IsCompleted)
+            {
+                await Task.Yield();
+            }
+        }
+
         internal async Task Bounce(float inDuration, float outDuration, float delta, Ease inEase, Ease outEase, Action atPeak)
         {
             AnimIsPlaying = true;
@@ -88,7 +105,7 @@ namespace Minesweeper.Core
             AnimIsPlaying = false;
         }
 
-        private void Awake() 
+        private void Awake()
         {
             DOTween.SetTweensCapacity(300, 100);
         }

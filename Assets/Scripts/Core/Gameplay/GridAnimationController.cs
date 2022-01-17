@@ -100,27 +100,10 @@ namespace Minesweeper.Core
             Vector3 forward = gridController.transform.forward * -1;
             foreach(var current in _spotTransforms)
             {
-                var task = current.DORotate(forward, _minMoveTime).SetEase(Ease.OutBounce).AsyncWaitForCompletion();
+                var task = current.DORotate(forward, 0.2f).SetEase(Ease.Linear).AsyncWaitForCompletion();
                 rotationTasks.Add(task);
             }
             await Task.WhenAll(rotationTasks);
-        }
-
-        internal async Task DropAllSpots()
-        {
-            SetAllIsKinematic(false);
-            SetAllUseGravity(false);
-            for (int i = _gridSize - 1; i >= 0; i--)
-            {
-                Vector3 rndDir = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
-                Vector3 rndTorque = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
-                _spotRBs[i].AddForce(rndDir, ForceMode.Impulse);
-                _spotRBs[i].AddTorque(rndTorque, ForceMode.Impulse);
-            }
-
-            await Task.Delay(1000);
-
-            SetAllUseGravity(true);
         }
 
         internal async Task FloatAll()

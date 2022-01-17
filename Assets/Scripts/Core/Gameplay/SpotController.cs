@@ -117,11 +117,11 @@ namespace Minesweeper.Core
             }
         }
 
-        public void ResetSpot()
+        public async Task ResetSpot()
         {
             spot.SetMine(false);
             spot.State = SpotState.Untouched;
-            animController.SwtichToBlock(Block.Untouched);
+            await animController.ShakeToBlock(Block.Untouched, 0.75f, Vector3.one * 10f, 50, 30f);
         }
 
         private void Start()

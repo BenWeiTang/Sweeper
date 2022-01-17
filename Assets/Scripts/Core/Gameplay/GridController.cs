@@ -97,17 +97,27 @@ namespace Minesweeper.Core
 
         public async void OnGameRestart()
         {
+            await animationController.MoveAllBack();
+            await Task.Delay(100);
+
+            // Clear mines, set state to untouched, swtich block to untouched while doing ShakeToBlock anim
+            List<Task> resettingTasks = new List<Task>();
             foreach (var sc in _spotControllers)
             {
-                // Clear mines, set state to untouched, swtich block to untouched
-                sc.ResetSpot();
+                resettingTasks.Add(sc.ResetSpot()); 
             }
+            await Task.WhenAll(resettingTasks);
+            await Task.Delay(100);
+
+            await animationController.BounceAll(
+            _layout.BounceInDuration,
+            _layout.BounceOutDuration,
+            _layout.BounceDelta,
+            _layout.BounceEaseIn,
+            _layout.BounceEasOut);
 
             _dugSafeSpotCount = 0;
             RandomGenerateMines();
-
-            await animationController.MoveAllBack();
-
             HasBegun = false;
             GameReady.Raise();
         }
