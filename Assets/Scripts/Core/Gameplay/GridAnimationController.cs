@@ -92,7 +92,6 @@ namespace Minesweeper.Core
 
         internal async Task DropAllSpots()
         {
-            await Task.Delay(200);
             for (int i = _gridSize - 1; i >= 0; i--)
             {
                 _spotRBs[i].isKinematic = false;
@@ -108,6 +107,21 @@ namespace Minesweeper.Core
             {
                 rb.useGravity = true;
             }
+        }
+
+        internal async Task FloatAll()
+        {
+            for (int i = _gridSize - 1; i >= 0; i--)
+            {
+                _spotRBs[i].isKinematic = false;
+                _spotRBs[i].useGravity = false;
+
+                Vector3 rndDir = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
+                Vector3 rndTorque = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
+                _spotRBs[i].AddForce(rndDir * 2f, ForceMode.Impulse);
+                _spotRBs[i].AddTorque(rndTorque, ForceMode.Impulse);
+            }
+            await Task.Delay(1_000);
         }
 
         internal async Task DetonateAllMines()

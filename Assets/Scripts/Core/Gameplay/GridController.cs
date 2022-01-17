@@ -85,7 +85,11 @@ namespace Minesweeper.Core
             //TODO: do different animations depending on the result of the game
             // For example, when lost, play...
             if (won)
-                await animationController.DropAllSpots();
+            {
+                await Task.Delay(200);
+                // await animationController.DropAllSpots();
+                await animationController.FloatAll();
+            }
             else
                 await animationController.DetonateAllMines();
 
