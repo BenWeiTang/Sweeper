@@ -71,20 +71,19 @@ namespace Minesweeper.Core
         }
 
         // This is for starting a new game in Gameplay, e.g. pause, win, and lose panels
+        // If called in pause menu, there is no need to move back the blocks as they are already in place
         public async void RestartGame()
         {
+            bool shouldMoveBlocks = _currentActivePanel != _pausePanel;
             await FadeSetPanelActive(_currentActivePanel, false);
-            GameManager.Instance.RestartGame();
+            GameManager.Instance.RestartGame(shouldMoveBlocks);
         }
 
         // Called by the Resume Button in the pause panel
         public async void ResumeGame()
         {
             await FadeSetPanelActive(_currentActivePanel, false);
-            await FadeBlind(true);
             GameManager.Instance.ResumeGame();
-            await FadeSetPanelActive(_loadingPanel, false);
-            await FadeBlind(false);
         }
 
         // Called by the Back Buttons in pause, win, and lose panels
@@ -99,14 +98,15 @@ namespace Minesweeper.Core
             await FadeSetPanelActive(_startMenuPanel, true);
         }
 
-        public async void OnGamePaused()
-        {
-            await FadeSetPanelActive(_pausePanel, true);
-        }
-
+        // Used only for when Esc key is down when in pause panel
         public async void OnGameResumed()
         {
             await FadeSetPanelActive(_pausePanel, false);
+        }
+
+        public async void OnGamePaused()
+        {
+            await FadeSetPanelActive(_pausePanel, true);
         }
 
         public async void OnPostGameExit(bool won)

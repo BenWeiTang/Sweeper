@@ -7,8 +7,7 @@ namespace Minesweeper.Core
         [SerializeField] private Camera _camera;
 
         private ISpot _currentISpot;
-        private float _lastMouseDownTime;
-        private float _lastDoubleDownUpTime;
+        private float _lastEscDown;
 
         private void Update()
         {
@@ -70,8 +69,10 @@ namespace Minesweeper.Core
 
         private void CheckPause()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Escape) && Time.time > _lastEscDown + 1f)
             {
+                _lastEscDown = Time.time;
+
                 if (GameManager.Instance.CurrentState == GameState.InGame)
                     GameManager.Instance.PauseGame();
                 else if (GameManager.Instance.CurrentState == GameState.Pause)

@@ -4636,7 +4636,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultLayout: {fileID: 11400000, guid: 41fc8ed9a6c3444f7a726b0e98c48293, type: 2}
-  GameplaySceneLoaded: {fileID: 11400000, guid: 75850ff5fc5104602932f6fc1f11349d, type: 2}
   GamePause: {fileID: 11400000, guid: aa90a7233f1654b95880032616ac2352, type: 2}
   GameResume: {fileID: 11400000, guid: 29723e4b7e22a4395a7081bb3458df63, type: 2}
   PostGameEnter: {fileID: 11400000, guid: ae5ec8765bf3f49ed97226c3110a8939, type: 2}
@@ -4709,7 +4708,7 @@ GameObject:
   - component: {fileID: 1702091596}
   - component: {fileID: 1702091597}
   - component: {fileID: 1702091599}
-  - component: {fileID: 1702091598}
+  - component: {fileID: 1702091601}
   - component: {fileID: 1702091600}
   m_Layer: 0
   m_Name: UIManager
@@ -4755,34 +4754,6 @@ MonoBehaviour:
   _winPanel: {fileID: 713689502}
   _losePanel: {fileID: 1204019791}
   _loadingPanel: {fileID: 935224050}
---- !u!114 &1702091598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702091595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gameEvent: {fileID: 11400000, guid: 29723e4b7e22a4395a7081bb3458df63, type: 2}
-  _unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1702091597}
-        m_TargetAssemblyTypeName: Minesweeper.Core.UIManager, Core
-        m_MethodName: OnGameResumed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1702091599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4831,6 +4802,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Minesweeper.Core.UIManager, Core
         m_MethodName: OnPostGameExit
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1702091601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702091595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 29723e4b7e22a4395a7081bb3458df63, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1702091597}
+        m_TargetAssemblyTypeName: Minesweeper.Core.UIManager, Core
+        m_MethodName: OnGameResumed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

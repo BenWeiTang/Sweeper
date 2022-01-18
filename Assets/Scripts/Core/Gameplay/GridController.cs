@@ -95,9 +95,12 @@ namespace Minesweeper.Core
             PostGameExit.Raise(won);
         }
 
-        public async void OnGameRestart()
+        public async void OnGameRestart(bool shouldMoveBlocks)
         {
-            await animationController.MoveAllBack();
+            if (shouldMoveBlocks)
+            {
+                await animationController.MoveAllBack();
+            }
             await Task.Delay(100);
 
             // Clear mines, set state to untouched, swtich block to untouched while doing ShakeToBlock anim

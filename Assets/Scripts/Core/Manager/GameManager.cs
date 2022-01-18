@@ -19,7 +19,7 @@ namespace Minesweeper.Core
         [SerializeField] private VoidEvent GamePause;
         [SerializeField] private VoidEvent GameResume;
         [SerializeField] private BoolEvent PostGameEnter;
-        [SerializeField] private VoidEvent GameRestart;
+        [SerializeField] private BoolEvent GameRestart;
 
         [Header("Reference")]
         [SerializeField] private FloatRef _loadingProgress;
@@ -52,10 +52,10 @@ namespace Minesweeper.Core
         public async Task StartNewGame() => await UnloadThenLoadScene(SceneIndex.StartMenu, SceneIndex.Gameplay);
 
         // Should only be called by the UI Manager
-        public void RestartGame()
+        public void RestartGame(bool shouldMoveBlocks)
         {
             CurrentState = GameState.PreGame;
-            GameRestart.Raise();
+            GameRestart.Raise(shouldMoveBlocks);
         }
 
         // Should only be called by the UI Manager

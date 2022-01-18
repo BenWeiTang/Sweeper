@@ -301,7 +301,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 255571304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e162702c88924da59e4b6863ddadd73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _gameEvent: {fileID: 11400000, guid: c5df1fed5640644e0ac12829a43f8a07, type: 2}
@@ -311,7 +311,7 @@ MonoBehaviour:
       - m_Target: {fileID: 255571305}
         m_TargetAssemblyTypeName: Minesweeper.Core.GridController, Core
         m_MethodName: OnGameRestart
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
