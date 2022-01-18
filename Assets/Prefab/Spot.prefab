@@ -95,6 +95,8 @@ MonoBehaviour:
   _untouchedBlock: {fileID: 3374401184949960780}
   _markedBlock: {fileID: 5194087977094506004}
   _mineBlock: {fileID: 5876684221116731698}
+  _bounceAnim: {fileID: 11400000, guid: 7b9207a1b5cf74dc79cf83dc44d40d4e, type: 2}
+  _shakeToBlockAnim: {fileID: 11400000, guid: 45365feff28e545efb18e73541a1167b, type: 2}
 --- !u!114 &-4771067930902092392
 MonoBehaviour:
   m_ObjectHideFlags: 0
