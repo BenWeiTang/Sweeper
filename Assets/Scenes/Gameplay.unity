@@ -355,6 +355,8 @@ MonoBehaviour:
   _detonateAllAnim: {fileID: 11400000, guid: e4cc49c32fbfc4643988a2f61bcda14f, type: 2}
   _detonateUnmarkedAnim: {fileID: 11400000, guid: 8b26377689c264628917b0077bfd120b, type: 2}
   _floatAllAnim: {fileID: 11400000, guid: 60c1d82a7b3984e87997ed88664fdec9, type: 2}
+  _moveAllInPlaceAnim: {fileID: 11400000, guid: 3dd787412667d4dfebe9d1ca2c2f3549, type: 2}
+  _lookForwardAnim: {fileID: 11400000, guid: 6e307d757931b4224a7d08b1df46da69, type: 2}
 --- !u!4 &1108076952
 Transform:
   m_ObjectHideFlags: 0

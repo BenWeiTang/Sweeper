@@ -18,6 +18,8 @@ namespace Minesweeper.Core
         [SerializeField] private DetonateMines _detonateAllAnim;
         [SerializeField] private DetonateMines _detonateUnmarkedAnim;
         [SerializeField] private FloatAll _floatAllAnim;
+        [SerializeField] private MoveAllTo _moveAllInPlaceAnim;
+        [SerializeField] private RotateAllTowards _lookForwardAnim;
 
 
         // Cache
@@ -82,8 +84,7 @@ namespace Minesweeper.Core
 
         internal async Task MoveAllSpotsInPlace()
         {
-            var positionTasks = new List<Task>();
-
+            //TODO: test if really need this
             while (_spotTransforms == null)
             {
                 await Task.Yield();
@@ -92,27 +93,18 @@ namespace Minesweeper.Core
             SetAllIsKinematic(true);
             SetAllUseGravity(false);
 
-            for (int i = 0; i < _gridSize; i++)
-            {
-                Transform current = _spotTransforms[i];
-                var task = current.DOMove(_targetPositions[i], Random.Range(_minMoveTime, _maxMoveTime)).SetEase(_easeMode).AsyncWaitForCompletion();
-                positionTasks.Add(task);
-            }
-            await Task.WhenAll(positionTasks);
+            await _moveAllInPlaceAnim.PerformAsync(_spotTransforms, _targetPositions);
         }
 
         internal async Task MoveAllBack()
         {
-            await MoveAllSpotsInPlace();
+            SetAllIsKinematic(true);
+            SetAllUseGravity(false);
 
-            var rotationTasks = new List<Task>();
-            Vector3 forward = gridController.transform.forward * -1;
-            foreach (var current in _spotTransforms)
-            {
-                var task = current.DORotate(forward, 0.2f).SetEase(Ease.Linear).AsyncWaitForCompletion();
-                rotationTasks.Add(task);
-            }
-            await Task.WhenAll(rotationTasks);
+            await _moveAllInPlaceAnim.PerformAsync(_spotTransforms, _targetPositions);
+
+            Vector3 forward =  gridController.transform.forward * -1; 
+            await _lookForwardAnim.PerformAsync(_spotTransforms, forward);
         }
 
         internal async Task FloatAll()
