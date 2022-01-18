@@ -85,15 +85,6 @@ namespace Minesweeper.Core
         internal async Task Bounce(Action atPeak)
         {
             AnimIsPlaying = true;
-            // Sequence s = DOTween.Sequence();
-            // float ogScaleFactor = transform.localScale.x;
-            // float endValue = ogScaleFactor + delta;
-            // s.Append(transform.DOScale(endValue, inDuration).SetEase(inEase));
-            // atPeak?.Invoke();
-            // s.Append(transform.DOScale(ogScaleFactor, outDuration).SetEase(outEase));
-            // var currentTask = s.AsyncWaitForCompletion();
-
-            // await currentTask;
             await _bounceAnim.PerformAsync(transform, null, atPeak, null);
             AnimIsPlaying = false;
         }
