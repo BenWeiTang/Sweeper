@@ -26,8 +26,6 @@ namespace Minesweeper.Animation
             onPeak?.Invoke();
             await controller.DOScale(ogScaleFactor, _outDuration).SetEase(_outEase).AsyncWaitForCompletion();
             onExit?.Invoke();
-
-
         }
     }
 }
