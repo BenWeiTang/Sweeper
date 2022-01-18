@@ -12,5 +12,11 @@ namespace Minesweeper.Animation
         {
             await Task.Yield();
         }
+
+        public virtual async Task PerformAsync(IEnumerable<Transform> controller, IEnumerable<Vector3> positions,
+            Action onEnter = null, Action onEach = null, Action onExit = null)
+        {
+            await Task.Yield();
+        }
     }
 }
