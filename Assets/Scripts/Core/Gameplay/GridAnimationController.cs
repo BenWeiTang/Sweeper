@@ -17,6 +17,7 @@ namespace Minesweeper.Core
         [SerializeField] private bool _detonateAllMines = false;
         [SerializeField] private DetonateMines _detonateAllAnim;
         [SerializeField] private DetonateMines _detonateUnmarkedAnim;
+        [SerializeField] private FloatAll _floatAllAnim;
 
 
         // Cache
@@ -118,13 +119,7 @@ namespace Minesweeper.Core
         {
             SetAllIsKinematic(false);
             SetAllUseGravity(false);
-            for (int i = _gridSize - 1; i >= 0; i--)
-            {
-                Vector3 rndDir = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
-                Vector3 rndTorque = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f));
-                _spotRBs[i].AddForce(rndDir * 2f, ForceMode.Impulse);
-                _spotRBs[i].AddTorque(rndTorque, ForceMode.Impulse);
-            }
+            await _floatAllAnim.PerformAsync(null, _spotRBs, null, null, null);
             await Task.Delay(1_000);
         }
 

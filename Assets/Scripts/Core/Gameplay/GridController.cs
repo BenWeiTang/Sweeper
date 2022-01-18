@@ -93,7 +93,6 @@ namespace Minesweeper.Core
                 await animationController.DetonateMines();
             }
 
-
             // UI Manager listens to this
             PostGameExit.Raise(won);
         }

@@ -351,8 +351,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridController: {fileID: 255571305}
   _camera: {fileID: 1412377935}
+  _detonateAllMines: 0
   _detonateAllAnim: {fileID: 11400000, guid: e4cc49c32fbfc4643988a2f61bcda14f, type: 2}
   _detonateUnmarkedAnim: {fileID: 11400000, guid: 8b26377689c264628917b0077bfd120b, type: 2}
+  _floatAllAnim: {fileID: 11400000, guid: 60c1d82a7b3984e87997ed88664fdec9, type: 2}
 --- !u!4 &1108076952
 Transform:
   m_ObjectHideFlags: 0
