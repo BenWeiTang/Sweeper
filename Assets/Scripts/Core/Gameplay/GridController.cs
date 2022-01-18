@@ -88,7 +88,10 @@ namespace Minesweeper.Core
                 await animationController.FloatAll();
             }
             else
+            {
+                await Task.Delay(300);
                 await animationController.DetonateAllMines();
+            }
 
 
             // UI Manager listens to this

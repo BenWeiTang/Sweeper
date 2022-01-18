@@ -122,8 +122,6 @@ namespace Minesweeper.Core
 
         internal async Task DetonateAllMines()
         {
-            await Task.Delay(200);
-
             SetAllIsKinematic(false);
             SetAllUseGravity(false);
 
