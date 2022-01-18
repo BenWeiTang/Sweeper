@@ -39,7 +39,7 @@ namespace Minesweeper.Core
                 else if (_spotController.spot.State == SpotState.Marked)
                     atPeak += () => SwtichToBlock(Block.Marked);
 
-                await Bounce(0.1f, 0.2f, -0.22f, Ease.Linear, Ease.OutBounce, atPeak);
+                await Bounce(0.1f, 0.2f, -0.15f, Ease.Linear, Ease.OutBounce, atPeak);
             }
         }
 

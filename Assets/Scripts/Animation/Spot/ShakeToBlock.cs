@@ -14,7 +14,9 @@ namespace Minesweeper.Animation
         [SerializeField] private float _randomness;
         [SerializeField] private bool _fadeOut;
 
-        public override async Task PerformAsync(Transform controller, Action onEnter = null, Action onPeak = null, Action onExit = null)
+
+        // Does not provide optional Actions for we want to make sure caller implement SwitchToBlock at onPeak
+        public override async Task PerformAsync(Transform controller, Action onEnter, Action onPeak, Action onExit)
         {
             onEnter?.Invoke();
 
