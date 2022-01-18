@@ -1,0 +1,16 @@
+{
+    "name": "Animation",
+    "rootNamespace": "Minesweeper.Animation",
+    "references": [
+        "GUID:32e525b2662d4450886458c10aa430f4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
