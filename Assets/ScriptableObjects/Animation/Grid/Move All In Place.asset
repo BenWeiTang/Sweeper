@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minMoveTime: 0.74
   _maxMoveTime: 1.85
-  _easeMode: 30
+  _easeMode: 16

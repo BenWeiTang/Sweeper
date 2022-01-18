@@ -16,5 +16,5 @@ MonoBehaviour:
   _randomSphereRadius: 3
   _explosionRadius: 15
   _upwardsModifier: 0
-  _delayMinInMS: 25
-  _delayMaxInMS: 50
+  _delayMinInMS: 12
+  _delayMaxInMS: 28

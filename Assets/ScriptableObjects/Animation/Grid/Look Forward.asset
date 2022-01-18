@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88758170d535e4608905e89325377c0a, type: 3}
   m_Name: Look Forward
   m_EditorClassIdentifier: 
-  _minRotateTime: 0.5
-  _maxRotateTime: 0.5
+  _minRotateTime: 0.2
+  _maxRotateTime: 0.2
   _easeMode: 1
