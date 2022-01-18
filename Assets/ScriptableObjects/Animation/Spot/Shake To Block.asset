@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Shake To Block
   m_EditorClassIdentifier: 
   _duration: 0.625
-  _strength: {x: 11, y: 11, z: 0}
+  X: 11.1
+  Y: 8.9
+  Z: 0
   _vibrato: 30
   _randomness: 0
   _fadeOut: 0

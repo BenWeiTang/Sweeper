@@ -8,9 +8,9 @@ namespace Minesweeper.Animation
     [CreateAssetMenu(fileName = "Bounce", menuName = "3D Minesweeper/Animation/Spot/Bounce")]
     public class Bounce : ASpotAnimation
     {
-        [SerializeField] private float _inDuration;
-        [SerializeField] private float _outDuration;
-        [SerializeField] private float _delta;
+        [SerializeField, Range(0f, 0.1f)] private float _inDuration;
+        [SerializeField, Range(0f, 0.2f)] private float _outDuration;
+        [SerializeField, Range(-0.5f, 0.5f)] private float _delta;
         [SerializeField] private Ease _inEase;
         [SerializeField] private Ease _outEase;
 

@@ -9,9 +9,9 @@ namespace Minesweeper.Animation
     [CreateAssetMenu(fileName = "Bounce All", menuName = "3D Minesweeper/Animation/Grid/Bounce All")]
     public class BounceAll : AGridAnimation
     {
-        [SerializeField] private float _inDuration;
-        [SerializeField] private float _outDuration;
-        [SerializeField] private float _delta;
+        [SerializeField, Range(0f, 1f)] private float _inDuration;
+        [SerializeField, Range(0f, 1f)] private float _outDuration;
+        [SerializeField, Range(-0.5f, 0.5f)] private float _delta;
         [SerializeField] private Ease _inEase;
         [SerializeField] private Ease _outEase;
 
