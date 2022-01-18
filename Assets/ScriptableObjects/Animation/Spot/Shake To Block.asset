@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4075da0f560fd4e299c80d91347d2b5c, type: 3}
   m_Name: Shake To Block
   m_EditorClassIdentifier: 
-  _duration: 0.75
-  _strength: {x: 10, y: 10, z: 10}
-  _vibrato: 50
-  _randomness: 30
+  _duration: 0.625
+  _strength: {x: 11, y: 11, z: 0}
+  _vibrato: 30
+  _randomness: 0
   _fadeOut: 0
