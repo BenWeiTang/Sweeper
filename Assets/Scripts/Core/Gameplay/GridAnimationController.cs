@@ -2,14 +2,22 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Minesweeper.Animation;
 using DG.Tweening;
 
 namespace Minesweeper.Core
 {
     public class GridAnimationController : MonoBehaviour
     {
+        [Header("Movement")]
         [SerializeField] internal GridController gridController;
         [SerializeField] private Transform _camera;
+
+        [Header("Animation")]
+        [SerializeField] private bool _detonateAllMines = false;
+        [SerializeField] private DetonateMines _detonateAllAnim;
+        [SerializeField] private DetonateMines _detonateUnmarkedAnim;
+
 
         // Cache
         private Transform[] _spotTransforms;
@@ -98,7 +106,7 @@ namespace Minesweeper.Core
 
             var rotationTasks = new List<Task>();
             Vector3 forward = gridController.transform.forward * -1;
-            foreach(var current in _spotTransforms)
+            foreach (var current in _spotTransforms)
             {
                 var task = current.DORotate(forward, 0.2f).SetEase(Ease.Linear).AsyncWaitForCompletion();
                 rotationTasks.Add(task);
@@ -120,19 +128,22 @@ namespace Minesweeper.Core
             await Task.Delay(1_000);
         }
 
-        internal async Task DetonateAllMines()
+        internal async Task DetonateMines()
         {
             SetAllIsKinematic(false);
             SetAllUseGravity(false);
 
-            // For each mine not makred
-            var allUnmarkedMines = _spotControllers.Where(sc => sc.spot.IsMine && sc.spot.State != SpotState.Marked);
-
-            foreach (var mine in allUnmarkedMines)
+            if (_detonateAllMines)
             {
-                Rigidbody rb = mine.GetComponent<Rigidbody>();
-                rb.AddExplosionForce(25f, rb.transform.position + Random.insideUnitSphere, 15f, 0f, ForceMode.Impulse);
-                await Task.Delay(Random.Range(25, 50));
+                var allMines = _spotControllers.Where(sc => sc.spot.IsMine);
+                var rbs = allMines.Select(rb => rb.GetComponent<Rigidbody>());
+                await _detonateAllAnim.PerformAsync(null, rbs, null, null, null);
+            }
+            else
+            {
+                var allUnmarkedMines = _spotControllers.Where(sc => sc.spot.IsMine && sc.spot.State != SpotState.Marked);
+                var rbs = allUnmarkedMines.Select(rb => rb.GetComponent<Rigidbody>());
+                await _detonateUnmarkedAnim.PerformAsync(null, rbs, null, null, null);
             }
         }
 
@@ -141,7 +152,7 @@ namespace Minesweeper.Core
             List<Task> tasks = new List<Task>();
             float ogScaleFactor = _spotTransforms[0].localScale.x;
             float endValue = ogScaleFactor + delta;
-            foreach(var t in _spotTransforms)
+            foreach (var t in _spotTransforms)
             {
                 Sequence s = DOTween.Sequence();
                 s.Append(t.DOScale(endValue, inDuration).SetEase(inEase));

@@ -8,7 +8,7 @@ namespace Minesweeper.Animation
     public abstract class AGridAnimation : ScriptableObject
     {
         public virtual async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Rigidbody> rigidbodies,
-            Action onEnter = null, Action onPeak = null, Action onExit = null)
+            Action onEnter = null, Action onEach = null, Action onExit = null)
         {
             await Task.Yield();
         }

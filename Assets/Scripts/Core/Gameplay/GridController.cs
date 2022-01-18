@@ -90,7 +90,7 @@ namespace Minesweeper.Core
             else
             {
                 await Task.Delay(300);
-                await animationController.DetonateAllMines();
+                await animationController.DetonateMines();
             }
 
 
