@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -15,10 +16,10 @@ namespace Minesweeper.Animation
         [SerializeField] private Ease _inEase;
         [SerializeField] private Ease _outEase;
 
-        public override async Task PerformAsync(Transform[] controllers, Rigidbody[] _, Action onEnter = null, Action onPeak = null, Action onExit = null)
+        public override async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Rigidbody> _, Action onEnter = null, Action onPeak = null, Action onExit = null)
         {
             List<Task> tasks = new List<Task>();
-            float ogScaleFactor = controllers[0].localScale.x;
+            float ogScaleFactor = controllers.FirstOrDefault().localScale.x;
             float endValue = ogScaleFactor + _delta;
             foreach(var controller in controllers)
             {
