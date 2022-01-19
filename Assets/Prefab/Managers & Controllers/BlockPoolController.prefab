@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &252366110193760029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 252366110193760028}
+  - component: {fileID: 252366110193760031}
+  m_Layer: 0
+  m_Name: BlockPoolController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &252366110193760028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252366110193760029}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &252366110193760031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252366110193760029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85feabf7bf5e24935a77ebb53625a5dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _count: 40
+  _speed: 1
+  _torque: 0.5
+  _spawnSpereRadius: 10
+  _parent: {fileID: 252366110193760028}
+  _blocksToSpawn:
+  - {fileID: 5526108025788704094, guid: c675974d59fb145569713d5ad940355e, type: 3}
+  - {fileID: 16246379094332373, guid: b4e83f795d18a4aa983e1c9ddf45614e, type: 3}
+  - {fileID: 3381996235171981372, guid: 78334b5ea9b974bf5836d8bbbb721995, type: 3}
+  - {fileID: 6295294704829517510, guid: 89c0fa923c38147fe99db90b7e676966, type: 3}
+  - {fileID: 3910905383082032202, guid: 433fd10fe1a834b5f934186986b341a0, type: 3}
+  - {fileID: 1192144499487583914, guid: 4594bfecd0c2f40adbbe3d4f4ede710c, type: 3}
+  - {fileID: 4876116052696750201, guid: 8aa06669de9ca483a915aad6db86cbc2, type: 3}
+  - {fileID: 1525824728619242587, guid: 4bb21b08a599d47c3b53ca23d8a4e7c2, type: 3}
+  - {fileID: 678401972024217321, guid: c80602de984d94cef8d01989ba9ff57e, type: 3}
+  - {fileID: 5526108025788704094, guid: ef5675cf112714c33a007245d1a88480, type: 3}
+  - {fileID: 5526108025788704094, guid: e82e3d844e8d14af3af1633360c9ccfb, type: 3}
+  - {fileID: 5526108025788704094, guid: 1bafb396bbd9a4edeb93cf949a9ad3ad, type: 3}
+  _physicMaterial: {fileID: 13400000, guid: c3abb9f814da3470498034dab8eab5e9, type: 2}
