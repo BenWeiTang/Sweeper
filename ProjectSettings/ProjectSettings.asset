@@ -42,8 +42,8 @@ PlayerSettings:
   m_SplashScreenLogos: []
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
-  defaultScreenWidth: 2560
-  defaultScreenHeight: 1440
+  defaultScreenWidth: 1920
+  defaultScreenHeight: 1080
   defaultScreenWidthWeb: 960
   defaultScreenHeightWeb: 600
   m_StereoRenderingPath: 0
@@ -625,6 +625,7 @@ PlayerSettings:
     Nintendo Switch: PROBUILDER_EXPERIMENTAL_FEATURES
     PS4: PROBUILDER_EXPERIMENTAL_FEATURES
     PS5: PROBUILDER_EXPERIMENTAL_FEATURES
+    Server: 9
     Stadia: PROBUILDER_EXPERIMENTAL_FEATURES
     Standalone: PROBUILDER_EXPERIMENTAL_FEATURES
     WebGL: PROBUILDER_EXPERIMENTAL_FEATURES
