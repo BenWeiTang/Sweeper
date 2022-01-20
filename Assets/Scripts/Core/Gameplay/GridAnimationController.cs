@@ -20,6 +20,7 @@ namespace Minesweeper.Core
         [SerializeField] private FloatAll _floatAllAnim;
         [SerializeField] private MoveAllTo _moveAllInPlaceAnim;
         [SerializeField] private RotateAllTowards _lookForwardAnim;
+        [SerializeField] private BounceAll _bounceAllAnim;
 
 
         // Cache
@@ -30,11 +31,6 @@ namespace Minesweeper.Core
         private Layout _layout;
         private int _gridSize;
 
-        // Tweening
-        private float _minMoveTime;
-        private float _maxMoveTime;
-        private Ease _easeMode;
-
         #region UNITY_METHODS
         private void Start()
         {
@@ -44,9 +40,6 @@ namespace Minesweeper.Core
             _targetPositions = new Vector3[_gridSize];
             _spotControllers = new SpotController[_gridSize];
             _spotRBs = new Rigidbody[_gridSize];
-            _minMoveTime = _layout.MinMoveTime;
-            _maxMoveTime = _layout.MaxMoveTime;
-            _easeMode = _layout.EaseMode;
         }
         #endregion
         #region INTERNAL_METHODS
@@ -128,21 +121,10 @@ namespace Minesweeper.Core
             }
         }
 
-        internal async Task BounceAll(float inDuration, float outDuration, float delta, Ease inEase, Ease outEase)
+        internal async Task BounceAll()
         {
-            List<Task> tasks = new List<Task>();
-            float ogScaleFactor = _spotTransforms[0].localScale.x;
-            float endValue = ogScaleFactor + delta;
-            foreach (var t in _spotTransforms)
-            {
-                Sequence s = DOTween.Sequence();
-                s.Append(t.DOScale(endValue, inDuration).SetEase(inEase));
-                s.Append(t.DOScale(ogScaleFactor, outDuration).SetEase(outEase));
-                var currentTask = s.AsyncWaitForCompletion();
-                tasks.Add(currentTask);
-            }
-
-            await Task.WhenAll(tasks);
+            //FIXME: only passing _spotRBs to avoid ambiguity
+            await _bounceAllAnim.PerformAsync(_spotTransforms, _spotRBs, null, null, null);
         }
         #endregion
     }

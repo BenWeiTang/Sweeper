@@ -49,12 +49,7 @@ namespace Minesweeper.Core
         public async void OnFadeBlindOutCompleted()
         {
             await animationController.MoveAllSpotsInPlace();
-            await animationController.BounceAll(
-            _layout.BounceInDuration,
-            _layout.BounceOutDuration,
-            _layout.BounceDelta,
-            _layout.BounceEaseIn,
-            _layout.BounceEasOut);
+            await animationController.BounceAll();
             GameReady.Raise();
         }
 
@@ -116,12 +111,7 @@ namespace Minesweeper.Core
             await Task.WhenAll(resettingTasks);
             await Task.Delay(100);
 
-            await animationController.BounceAll(
-            _layout.BounceInDuration,
-            _layout.BounceOutDuration,
-            _layout.BounceDelta,
-            _layout.BounceEaseIn,
-            _layout.BounceEasOut);
+            await animationController.BounceAll();
 
             _dugSafeSpotCount = 0;
             RandomGenerateMines();
