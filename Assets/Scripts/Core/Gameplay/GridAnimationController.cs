@@ -84,12 +84,6 @@ namespace Minesweeper.Core
 
         internal async Task MoveAllSpotsInPlace()
         {
-            //TODO: test if really need this
-            while (_spotTransforms == null)
-            {
-                await Task.Yield();
-            }
-
             SetAllIsKinematic(true);
             SetAllUseGravity(false);
 
