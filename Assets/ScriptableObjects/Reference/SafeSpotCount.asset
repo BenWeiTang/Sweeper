@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c889b78d33e2441ba866f8ab913cc357, type: 3}
-  m_Name: ClickCount
+  m_Name: SafeSpotCount
   m_EditorClassIdentifier: 
-  value: 3
+  value: 0

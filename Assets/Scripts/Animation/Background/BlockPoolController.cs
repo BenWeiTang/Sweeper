@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -13,8 +14,12 @@ namespace Minesweeper.Animation
         [SerializeField] private Transform _parent;
         [SerializeField] private List<GameObject> _blocksToSpawn = new List<GameObject>();
         [SerializeField] private PhysicMaterial _physicMaterial;
+        [SerializeField] private float _explosionPeriod = 5f;
+        [SerializeField, Range(0f, 10f)] private float _explosionForce = 2f;
 
         private ObjectPool<GameObject> _pool;
+        private float _nextExplosionTime;
+        private HashSet<Rigidbody> _blocksInUse = new HashSet<Rigidbody>();
 
         private void Awake()
         {
@@ -24,6 +29,25 @@ namespace Minesweeper.Animation
         private void Start() 
         {
             SpawnBlocks();
+            StartCoroutine(AddExplosion());
+
+            IEnumerator AddExplosion()
+            {
+                while(true)
+                {
+                    if (Time.time > _nextExplosionTime)
+                    {
+                        _nextExplosionTime = Time.time + _explosionPeriod;
+                        foreach(var rb in _blocksInUse)
+                        {
+                            rb.AddExplosionForce(_explosionForce, 
+                                rb.transform.position + Random.onUnitSphere, 
+                                10f, 0f, ForceMode.Impulse);
+                        }
+                    }
+                    yield return null;
+                }
+            }
         }
 
         private void SpawnBlocks()
@@ -53,6 +77,8 @@ namespace Minesweeper.Animation
             var rb = go.AddComponent<Rigidbody>();
             rb.isKinematic = false;
             rb.useGravity = false;
+            rb.drag = 0;
+            rb.angularDrag = 0.05f;
             return go;
         }
 
@@ -63,13 +89,16 @@ namespace Minesweeper.Animation
             Rigidbody rb = block.GetComponent<Rigidbody>();
             rb.AddForce(Random.insideUnitSphere * _speed, ForceMode.Impulse);
             rb.AddTorque(Random.insideUnitSphere * _torque, ForceMode.Impulse);
+
+            _blocksInUse.Add(rb);
         }
         private void OnReleaseBlock(GameObject block)
         {
+
             block.name = "Block Inactive";
             block.SetActive(false);
             Rigidbody rb = block.GetComponent<Rigidbody>();
-            rb.AddForce(Random.insideUnitSphere, ForceMode.Impulse);
+            _blocksInUse.Remove(rb);
         }
         private void OnDestroyBlock(GameObject block)
         {

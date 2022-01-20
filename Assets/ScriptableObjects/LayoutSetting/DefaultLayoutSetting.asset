@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e06d8ac2fe714e3cb44a322d9ba243a, type: 3}
   m_Name: DefaultLayoutSetting
   m_EditorClassIdentifier: 
-  Width: 16
-  Height: 16
+  Width: 5
+  Height: 5
   MinePercentage: 15
   SpotSize: 0.4
   Spacing: 0.05

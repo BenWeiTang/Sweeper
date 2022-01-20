@@ -57,6 +57,7 @@ MonoBehaviour:
   GameFinish: {fileID: 11400000, guid: d32849a6b114a498c90735847c3b2a66, type: 2}
   PostGameExit: {fileID: 11400000, guid: 2998892afbd714d6bb1a21f90bea5190, type: 2}
   animationController: {fileID: 7924643440182354030}
+  _safeSpotCount: {fileID: 11400000, guid: 43a8df78be4c34736aa76b5508b267d4, type: 2}
 --- !u!114 &7924643439155788946
 MonoBehaviour:
   m_ObjectHideFlags: 0

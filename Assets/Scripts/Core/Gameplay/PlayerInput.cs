@@ -7,6 +7,7 @@ namespace Minesweeper.Core
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private IntRef _clickCount;
+        [SerializeField] private FloatRef _efficiency;
 
         private ISpot _currentISpot;
         private float _lastEscDown;

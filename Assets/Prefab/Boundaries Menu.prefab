@@ -7,22 +7,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4598252731114366248, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4598252731114366249, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c3abb9f814da3470498034dab8eab5e9, type: 2}
+    - target: {fileID: 4598252731492463172, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4598252731492463173, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c3abb9f814da3470498034dab8eab5e9, type: 2}
+    - target: {fileID: 4598252731714077769, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4598252731714077770, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c3abb9f814da3470498034dab8eab5e9, type: 2}
+    - target: {fileID: 4598252731826076372, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4598252731826076373, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c3abb9f814da3470498034dab8eab5e9, type: 2}
+    - target: {fileID: 4598252732315981958, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4598252732315981959, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_Material
       value: 
@@ -74,6 +94,10 @@ PrefabInstance:
     - target: {fileID: 4598252732413168065, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_Name
       value: Boundaries Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598252732948217875, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4598252732948217964, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_Material

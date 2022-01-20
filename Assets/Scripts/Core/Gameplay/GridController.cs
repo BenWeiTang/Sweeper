@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using UnityEngine;
-using DG.Tweening;
 using Minesweeper.Event;
+using Minesweeper.Reference;
 
 namespace Minesweeper.Core
 {
@@ -21,6 +21,9 @@ namespace Minesweeper.Core
         [Header("Animation")]
         [SerializeField] internal GridAnimationController animationController;
 
+        [Header("Reference")]
+        [SerializeField] private IntRef _safeSpotCount;
+
         public bool HasBegun { get; set; } = false;
 
         private Layout _layout;
@@ -29,7 +32,6 @@ namespace Minesweeper.Core
         private int _gridSize;
         private Spot[] _grid;
         private SpotController[] _spotControllers;
-        private int _safeSpotCount;
         private int _dugSafeSpotCount = 0;
 
         #region PUBLIC_METHODS
@@ -68,13 +70,13 @@ namespace Minesweeper.Core
                 _grid[i].HintNumber = _grid[i].IsMine ? -1 : sum;
             }
 
-            _safeSpotCount = _grid.Count(s => s.IsMine == false);
+            _safeSpotCount.value = _grid.Count(s => s.IsMine == false);
         }
 
         public void OnSafeSpotDug(int hintNumber)
         {
             _dugSafeSpotCount++;
-            if (_dugSafeSpotCount == _safeSpotCount)
+            if (_dugSafeSpotCount == _safeSpotCount.value)
             {
                 GameFinish.Raise(true);
             }
