@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 1412377933}
   - component: {fileID: 1412377936}
   - component: {fileID: 1412377937}
+  - component: {fileID: 1412377938}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -255,6 +256,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1412377934}
+  _clickCount: {fileID: 11400000, guid: 91960d0316f2f44e2bed467a4ed3527e, type: 2}
+--- !u!114 &1412377938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412377932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 086ad10d020d648b8b497b5f325b6242, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1412377937}
+        m_TargetAssemblyTypeName: Minesweeper.Core.PlayerInput, Core
+        m_MethodName: OnFirstSafeSpotDug
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &7924643439075461625
 PrefabInstance:
   m_ObjectHideFlags: 0
