@@ -16,7 +16,7 @@ namespace Minesweeper.Animation
         [SerializeField] private Ease _inEase;
         [SerializeField] private Ease _outEase;
 
-        public override async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Rigidbody> _, Action onEnter = null, Action onPeak = null, Action onExit = null)
+        public override async Task PerformAsync(IEnumerable<Transform> controllers, Action onEnter = null, Action onPeak = null, Action onExit = null)
         {
             List<Task> tasks = new List<Task>();
             float ogScaleFactor = controllers.FirstOrDefault().localScale.x;
