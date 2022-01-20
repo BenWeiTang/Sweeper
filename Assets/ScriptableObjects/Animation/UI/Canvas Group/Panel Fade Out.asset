@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _toFadeIn: 0
   _fadeDuration: 0.5
-  _easeMode: 12
+  _easeMode: 1

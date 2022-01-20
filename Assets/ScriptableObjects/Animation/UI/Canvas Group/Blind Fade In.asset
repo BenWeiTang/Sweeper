@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Blind Fade In
   m_EditorClassIdentifier: 
   _toFadeIn: 1
-  _fadeDuration: 0.5
-  _easeMode: 12
+  _fadeDuration: 0.65
+  _easeMode: 1
