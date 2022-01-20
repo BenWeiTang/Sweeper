@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Minesweeper.Utility
+namespace Minesweeper.Editor
 {
     [CreateAssetMenu(fileName = "New Material Color Palette", menuName = "3D Minesweeper/Material Color Palette")]
     public class MaterialColorPalette : ScriptableObject

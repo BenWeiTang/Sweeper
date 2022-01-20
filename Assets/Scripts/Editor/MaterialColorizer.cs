@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEditor;
-using Minesweeper.Utility;
 
 namespace Minesweeper.Editor
 {
