@@ -30,7 +30,6 @@ namespace Minesweeper.Animation
         {
             for (int i = 0; i < _count; i++)     
             {
-                print("Getting a block");
                 var go = _pool.Get();
             }
         }
