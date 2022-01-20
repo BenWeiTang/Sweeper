@@ -1,7 +1,4 @@
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using Minesweeper.Scene;
 
 namespace Minesweeper.Core
 {
