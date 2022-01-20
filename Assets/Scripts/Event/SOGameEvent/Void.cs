@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Minesweeper.Event
 {
     [System.Serializable]

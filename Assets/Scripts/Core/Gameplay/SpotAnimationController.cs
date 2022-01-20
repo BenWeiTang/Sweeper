@@ -2,7 +2,6 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using Minesweeper.Animation;
-using DG.Tweening;
 
 namespace Minesweeper.Core
 {
