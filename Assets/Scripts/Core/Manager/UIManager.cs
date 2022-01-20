@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Minesweeper.Event;
-using DG.Tweening;
+using Minesweeper.Animation;
 
 namespace Minesweeper.Core
 {
@@ -14,10 +14,12 @@ namespace Minesweeper.Core
 
         [Header("Fade Blind")]
         [SerializeField] private CanvasGroup _blind;
-        [SerializeField, Range(0.1f, 5f)] private float _blindFadeDuration = 1f;
+        [SerializeField] private CanvasGroupFade _blindFadeInAnim;
+        [SerializeField] private CanvasGroupFade _blindFadeOutAnim;
 
         [Header("Panels")]
-        [SerializeField, Range(0.1f, 5f)] private float _panelFadeDuration = 1f;
+        [SerializeField] private CanvasGroupFade _panelFadeInAnim;
+        [SerializeField] private CanvasGroupFade _panelFadeOutAnim;
         [SerializeField] private GameObject _startMenuPanel;
         [SerializeField] private GameObject _settingsPanel;
         [SerializeField] private GameObject _pausePanel;
@@ -127,57 +129,59 @@ namespace Minesweeper.Core
             var currentCanvasGroup = _currentActivePanel.GetComponent<CanvasGroup>();
             var targetCanvasGroup = target.GetComponent<CanvasGroup>();
 
-            currentCanvasGroup.interactable = false;
-            currentCanvasGroup.blocksRaycasts = false;
-            await Fade(currentCanvasGroup, false); // its alpha goes to 0
-            _currentActivePanel.SetActive(false);
+            await _panelFadeOutAnim.PerformAsync(
+                currentCanvasGroup,
+                () => {
+                    currentCanvasGroup.interactable = false;
+                    currentCanvasGroup.blocksRaycasts = false;
+                },
+                null,
+                () => _currentActivePanel.SetActive(false)
+            );
 
-            target.SetActive(true);
-            await Fade(targetCanvasGroup, true);
-            targetCanvasGroup.interactable = true;
-            targetCanvasGroup.blocksRaycasts = true;
-            _currentActivePanel = target;
+            await _panelFadeInAnim.PerformAsync(
+                targetCanvasGroup,
+                () => target.SetActive(true),
+                null,
+                () => {
+                    targetCanvasGroup.interactable = true;
+                    targetCanvasGroup.blocksRaycasts = true;
+                    _currentActivePanel = target;
+                }
+            );
         }
 
-        private async Task FadeSetPanelActive(GameObject panel, bool toActivate)
+        private async Task FadeSetPanelActive(GameObject panel, bool toFadeIn)
         {
             var currentCanvasGroup = panel.GetComponent<CanvasGroup>();
 
-            if (toActivate)
+            if (toFadeIn)
             {
-                panel.SetActive(true);
-                await Fade(currentCanvasGroup, true);
-                currentCanvasGroup.interactable = true;
-                currentCanvasGroup.blocksRaycasts = true;
-                _currentActivePanel = panel;
+                await _panelFadeInAnim.PerformAsync(
+                    currentCanvasGroup,
+                    () => panel.SetActive(true),
+                    null,
+                    () => {
+                        currentCanvasGroup.interactable = true;
+                        currentCanvasGroup.blocksRaycasts = true;
+                        _currentActivePanel = panel;
+                    }
+                );
             }
             else
             {
-                currentCanvasGroup.interactable = false;
-                currentCanvasGroup.blocksRaycasts = false;
-                await Fade(currentCanvasGroup, false);
-                panel.SetActive(false);
-                _currentActivePanel = null;
-            }
-        }
-
-        private async Task Fade(CanvasGroup cg, bool toTurnOn)
-        {
-            if (toTurnOn)
-            {
-                var operation = cg.DOFade(1f, _panelFadeDuration).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
-                while (!operation.IsCompleted)
-                {
-                    await Task.Yield();
-                }
-            }
-            else
-            {
-                var operation = cg.DOFade(0f, _panelFadeDuration).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
-                while (!operation.IsCompleted)
-                {
-                    await Task.Yield();
-                }
+                await _panelFadeOutAnim.PerformAsync(
+                    currentCanvasGroup,
+                    () => {
+                        currentCanvasGroup.interactable = false;
+                        currentCanvasGroup.blocksRaycasts = false;
+                    },
+                    null,
+                    () => {
+                        panel.SetActive(false);
+                        _currentActivePanel = null;
+                    }
+                );
             }
         }
 
@@ -185,22 +189,19 @@ namespace Minesweeper.Core
         {
             if (toFadeIn)
             {
-                _blind.blocksRaycasts = true;
-                var operation = _blind.DOFade(1f, _blindFadeDuration).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
-                while (!operation.IsCompleted)
-                {
-                    await Task.Yield();
-                }
+                await _blindFadeInAnim.PerformAsync(_blind, () => _blind.blocksRaycasts = true);
             }
             else
             {
-                var operation = _blind.DOFade(0f, _blindFadeDuration).SetEase(Ease.OutQuad).AsyncWaitForCompletion();
-                while (!operation.IsCompleted)
-                {
-                    await Task.Yield();
-                }
-                _blind.blocksRaycasts = false;
-                FadeBlindOutComplete.Raise();
+                await _blindFadeOutAnim.PerformAsync(
+                    _blind,
+                    null, // onEnter
+                    null, // onPeak
+                    () => { //onExit
+                        _blind.blocksRaycasts = false;
+                        FadeBlindOutComplete.Raise();
+                    }
+                );
             }
         }
     }
