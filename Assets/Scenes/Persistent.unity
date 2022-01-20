@@ -4747,6 +4747,10 @@ MonoBehaviour:
   FadeBlindOutComplete: {fileID: 11400000, guid: 5e11d7c4ddc234892952c2ea344fabba, type: 2}
   _blind: {fileID: 1361284720}
   _blindFadeDuration: 0.5
+  _panelFadeInAnim: {fileID: 11400000, guid: 19b9c1ac45d1c40e8895f6e71dd7ba9a, type: 2}
+  _panelFadeOutAnim: {fileID: 11400000, guid: ecfacf4d2f18c4cd5a5b82e0dd688ba4, type: 2}
+  _blindFadeInAnim: {fileID: 11400000, guid: c26380c7ff5944a39a4b41a0d2d7972d, type: 2}
+  _blindFadeOutAnim: {fileID: 11400000, guid: 292c6ac69420242d7b551bb17a2fd0b4, type: 2}
   _panelFadeDuration: 0.5
   _startMenuPanel: {fileID: 2095921375}
   _settingsPanel: {fileID: 670656905}
