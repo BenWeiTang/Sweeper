@@ -349,10 +349,6 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1412377935}
-    - target: {fileID: 7924643440182354030, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
-      propertyPath: _bounceAllAnim
-      value: 
-      objectReference: {fileID: 11400000, guid: ed84419f110a44ff9aaa2bb7c5a332b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
 --- !u!1001 &8367538912144273094
