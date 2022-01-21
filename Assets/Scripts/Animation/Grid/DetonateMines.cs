@@ -15,7 +15,7 @@ namespace Minesweeper.Animation
         [SerializeField, Range(0, 100)] private int _delayMinInMS;
         [SerializeField, Range(0, 100)] private int _delayMaxInMS;
 
-        public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, Action onEnter, Action onEach, Action __)
+        public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, Action onEnter = null, Action onEach = null, Action onExit = null)
         {
             onEnter?.Invoke();
 

@@ -96,7 +96,7 @@ namespace Minesweeper.Core
         {
             SetAllIsKinematic(false);
             SetAllUseGravity(false);
-            await _floatAllAnim.PerformAsync(_spotRBs, null, null, null);
+            await _floatAllAnim.PerformAsync(_spotRBs);
             await Task.Delay(1_000);
         }
 
@@ -109,19 +109,19 @@ namespace Minesweeper.Core
             {
                 var allMines = _spotControllers.Where(sc => sc.spot.IsMine);
                 var rbs = allMines.Select(rb => rb.GetComponent<Rigidbody>());
-                await _detonateAllAnim.PerformAsync(rbs, null, null, null);
+                await _detonateAllAnim.PerformAsync(rbs);
             }
             else
             {
                 var allUnmarkedMines = _spotControllers.Where(sc => sc.spot.IsMine && sc.spot.State != SpotState.Marked);
                 var rbs = allUnmarkedMines.Select(rb => rb.GetComponent<Rigidbody>());
-                await _detonateUnmarkedAnim.PerformAsync(rbs, null, null, null);
+                await _detonateUnmarkedAnim.PerformAsync(rbs);
             }
         }
 
         internal async Task BounceAll()
         {
-            await _bounceAllAnim.PerformAsync(_spotTransforms, null, null, null);
+            await _bounceAllAnim.PerformAsync(_spotTransforms);
         }
         #endregion
     }

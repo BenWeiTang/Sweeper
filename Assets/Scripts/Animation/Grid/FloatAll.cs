@@ -11,7 +11,7 @@ namespace Minesweeper.Animation
         [SerializeField, Range(0f, 2.5f)] private float _initForce;
         [SerializeField, Range(0f, 2.5f)] private float _initTorque;
 
-        public override async Task PerformAsync(IEnumerable<Rigidbody> rigidbodies, Action __, Action ___, Action ____)
+        public override async Task PerformAsync(IEnumerable<Rigidbody> rigidbodies, Action onEnter = null, Action onPeak = null, Action onExit = null)
         {
             foreach (var rb in rigidbodies)
             {
