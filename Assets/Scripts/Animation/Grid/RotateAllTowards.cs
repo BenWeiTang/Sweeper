@@ -27,5 +27,16 @@ namespace Minesweeper.Animation
             await Task.WhenAll(rotationTasks);
             onExit?.Invoke();
         }
+
+        public override async Task PerformAsync(IEnumerable<Transform> controllers, Action onEnter = null, Action onEach = null, Action onExit = null)
+        {
+            await Task.Yield();
+            throw new NotSupportedException();
+        }
+        public override async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Vector3> _, Action onEnter = null, Action onEach = null, Action onExit = null)
+        {
+            await Task.Yield();
+            throw new NotSupportedException();
+        }
     }
 }

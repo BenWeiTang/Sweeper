@@ -39,5 +39,17 @@ namespace Minesweeper.Animation
             await Task.WhenAll(secondBounceTasks);
             onExit?.Invoke();
         }
+
+        public override async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Vector3> _, Action onEnter = null, Action onPeak = null, Action onExit = null)
+        {
+            await Task.Yield();
+            throw new NotSupportedException();
+        }
+
+        public override async Task PerformAsync(IEnumerable<Transform> controllers, Vector3 _, Action onEnter = null, Action onPeak = null, Action onExit = null)
+        {
+            await Task.Yield();
+            throw new NotSupportedException();
+        }
     }
 }

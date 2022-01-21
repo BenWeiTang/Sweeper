@@ -34,5 +34,16 @@ namespace Minesweeper.Animation
 
             onExit?.Invoke();
         }
+
+        public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, IEnumerable<Vector3> _, Action onEnter = null, Action onEach = null, Action onExit = null)
+        {
+            await Task.Yield();
+            throw new NotSupportedException();
+        }
+        public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, Vector3 _, Action onEnter = null, Action onEach = null, Action onExit = null)
+        {
+            await Task.Yield();
+            throw new NotSupportedException();
+        }
     }
 }
