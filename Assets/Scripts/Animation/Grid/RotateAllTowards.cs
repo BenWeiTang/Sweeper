@@ -16,6 +16,7 @@ namespace Minesweeper.Animation
         {
             await Task.Yield();
             var rotationTasks = new List<Task>();
+            onEnter?.Invoke();
             foreach (var current in controllers)
             {
                 var task = current.DORotate(rotation, UnityEngine.Random.Range(_minRotateTime, _maxRotateTime))
@@ -24,6 +25,7 @@ namespace Minesweeper.Animation
                 rotationTasks.Add(task);
             }
             await Task.WhenAll(rotationTasks);
+            onExit?.Invoke();
         }
     }
 }

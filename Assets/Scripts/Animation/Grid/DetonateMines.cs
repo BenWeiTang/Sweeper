@@ -21,6 +21,7 @@ namespace Minesweeper.Animation
 
             foreach (var rb in rbs)
             {
+                onEach?.Invoke();
                 rb.AddExplosionForce(
                     _explosionForce,
                     rb.transform.position + UnityEngine.Random.insideUnitSphere * _randomSphereRadius,
@@ -30,6 +31,8 @@ namespace Minesweeper.Animation
 
                 await Task.Delay(UnityEngine.Random.Range(_delayMinInMS, _delayMaxInMS));
             }
+
+            onExit?.Invoke();
         }
     }
 }

@@ -18,19 +18,26 @@ namespace Minesweeper.Animation
 
         public override async Task PerformAsync(IEnumerable<Transform> controllers, Action onEnter = null, Action onPeak = null, Action onExit = null)
         {
-            List<Task> tasks = new List<Task>();
+            List<Task> firstBounceTasks = new List<Task>();
+            List<Task> secondBounceTasks = new List<Task>();
             float ogScaleFactor = controllers.FirstOrDefault().localScale.x;
             float endValue = ogScaleFactor + _delta;
+            
+            onEnter?.Invoke();
             foreach(var controller in controllers)
             {
-                Sequence s = DOTween.Sequence();
-                s.Append(controller.DOScale(endValue, _inDuration).SetEase(_inEase));
-                s.Append(controller.DOScale(ogScaleFactor, _outDuration).SetEase(_outEase));
-                var currentTask = s.AsyncWaitForCompletion();
-                tasks.Add(currentTask);
+                var task = controller.DOScale(endValue, _inDuration).SetEase(_inEase).AsyncWaitForCompletion();
+                firstBounceTasks.Add(task);
             }
-
-            await Task.WhenAll(tasks);
+            await Task.WhenAll(firstBounceTasks);
+            onPeak?.Invoke();
+            foreach(var controller in controllers)
+            {
+                var task = controller.DOScale(ogScaleFactor, _outDuration).SetEase(_outEase).AsyncWaitForCompletion();
+                secondBounceTasks.Add(task);
+            }
+            await Task.WhenAll(secondBounceTasks);
+            onExit?.Invoke();
         }
     }
 }

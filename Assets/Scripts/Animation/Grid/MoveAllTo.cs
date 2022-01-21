@@ -14,10 +14,11 @@ namespace Minesweeper.Animation
         [SerializeField, Range(0f, 5f)] private float _maxMoveTime;
         [SerializeField] private Ease _easeMode;
 
-        public override async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Vector3> positions, Action onEnter = null, Action onEach = null, Action onExit = null)
+        public override async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Vector3> positions, Action onEnter = null, Action _ = null, Action onExit = null)
         {
             List<Task> tasks = new List<Task>();
 
+            onEnter?.Invoke();
             for (int i = 0; i < controllers.Count(); i++)
             {
                 Transform current = controllers.ElementAt(i);
@@ -27,6 +28,7 @@ namespace Minesweeper.Animation
                 tasks.Add(task);
             }
             await Task.WhenAll(tasks);
+            onExit?.Invoke();
         }
     }
 }
