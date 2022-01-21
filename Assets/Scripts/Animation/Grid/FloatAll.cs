@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Float All", menuName = "3D Minesweeper/Animation/Grid/Float All")]
-    public class FloatAll : AGridAnimation
+    public class FloatAll : AGridAnimation<Rigidbody>
     {
         [SerializeField, Range(0f, 2.5f)] private float _initForce;
         [SerializeField, Range(0f, 2.5f)] private float _initTorque;

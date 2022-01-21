@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Detonate Mines", menuName = "3D Minesweeper/Animation/Grid/Detonate Mines")]
-    public class DetonateMines : AGridAnimation
+    public class DetonateMines : AGridAnimation<Rigidbody>
     {
         [SerializeField, Range(0f, 50f)] private float _explosionForce;
         [SerializeField, Range(0f, 10f)] private float _randomSphereRadius;

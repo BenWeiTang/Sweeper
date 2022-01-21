@@ -5,40 +5,22 @@ using UnityEngine;
 
 namespace Minesweeper.Animation
 {
-    public abstract class AGridAnimation : ScriptableObject
+    public abstract class AGridAnimation<T> : ScriptableObject
     {
-        public virtual async Task PerformAsync(IEnumerable<Rigidbody> rigidbodies,
+        public virtual async Task PerformAsync(IEnumerable<T> rigidbodies,
             Action onEnter = null, Action onEach = null, Action onExit = null)
         {
             await Task.Yield();
         }
 
-        public virtual async Task PerformAsync(IEnumerable<Rigidbody> rigidbodies, IEnumerable<Vector3> positions,
+        public virtual async Task PerformAsync(IEnumerable<T> rigidbodies, IEnumerable<Vector3> positions,
             Action onEnter = null, Action onPeak = null, Action onExit = null)
         {
             await Task.Yield();
         }
 
-        public virtual async Task PerformAsync(IEnumerable<Rigidbody> rigidbodies, Vector3 positions,
+        public virtual async Task PerformAsync(IEnumerable<T> rigidbodies, Vector3 positions,
             Action onEnter = null, Action onPeak = null, Action onExit = null)
-        {
-            await Task.Yield();
-        }
-
-        public virtual async Task PerformAsync(IEnumerable<Transform> controllers,
-            Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-        }
-
-        public virtual async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Vector3> positions,
-            Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-        }
-
-        public virtual async Task PerformAsync(IEnumerable<Transform> controllers, Vector3 position,
-            Action onEnter = null, Action onEach = null, Action onExit = null)
         {
             await Task.Yield();
         }

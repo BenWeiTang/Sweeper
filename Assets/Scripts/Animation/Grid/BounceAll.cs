@@ -8,7 +8,7 @@ using DG.Tweening;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Bounce All", menuName = "3D Minesweeper/Animation/Grid/Bounce All")]
-    public class BounceAll : AGridAnimation
+    public class BounceAll : AGridAnimation<Transform>
     {
         [SerializeField, Range(0f, 1f)] private float _inDuration;
         [SerializeField, Range(0f, 1f)] private float _outDuration;

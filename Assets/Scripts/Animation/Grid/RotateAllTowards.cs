@@ -7,7 +7,7 @@ using DG.Tweening;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Rotate All Towards", menuName = "3D Minesweeper/Animation/Grid/Rotate All Towards")]
-    public class RotateAllTowards : AGridAnimation
+    public class RotateAllTowards : AGridAnimation<Transform>
     {
         [SerializeField, Range(0f, 2f)] private float _minRotateTime;
         [SerializeField, Range(0f, 2f)] private float _maxRotateTime;
