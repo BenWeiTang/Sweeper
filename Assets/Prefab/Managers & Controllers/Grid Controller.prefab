@@ -250,6 +250,7 @@ MonoBehaviour:
   _floatAllAnim: {fileID: 11400000, guid: 60c1d82a7b3984e87997ed88664fdec9, type: 2}
   _moveAllInPlaceAnim: {fileID: 11400000, guid: 3dd787412667d4dfebe9d1ca2c2f3549, type: 2}
   _lookForwardAnim: {fileID: 11400000, guid: 6e307d757931b4224a7d08b1df46da69, type: 2}
+  _bounceAllAnim: {fileID: 11400000, guid: ed84419f110a44ff9aaa2bb7c5a332b9, type: 2}
 --- !u!1001 &5920469101481795882
 PrefabInstance:
   m_ObjectHideFlags: 0
