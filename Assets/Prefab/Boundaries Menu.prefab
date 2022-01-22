@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c3abb9f814da3470498034dab8eab5e9, type: 2}
+    - target: {fileID: 4598252731114366251, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4598252731492463172, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_AngularDrag
       value: 0
@@ -23,6 +27,14 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c3abb9f814da3470498034dab8eab5e9, type: 2}
+    - target: {fileID: 4598252731492463175, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598252731714077764, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4598252731714077769, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_AngularDrag
       value: 0
@@ -39,6 +51,14 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c3abb9f814da3470498034dab8eab5e9, type: 2}
+    - target: {fileID: 4598252731826076375, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598252732315981953, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 4598252732315981958, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
       propertyPath: m_AngularDrag
       value: 0
@@ -103,5 +123,9 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c3abb9f814da3470498034dab8eab5e9, type: 2}
+    - target: {fileID: 4598252732948217966, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 781f4f95fcbc5430cbeddab076077009, type: 3}
