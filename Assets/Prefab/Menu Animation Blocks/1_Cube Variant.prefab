@@ -63,6 +63,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 691510b55c2524a7e988572549ae1d32, type: 2}
+    - target: {fileID: 16246379094332331, guid: b4e83f795d18a4aa983e1c9ddf45614e, type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 16246379094332331, guid: b4e83f795d18a4aa983e1c9ddf45614e, type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 16246379094332372, guid: b4e83f795d18a4aa983e1c9ddf45614e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 16246379094332373, guid: b4e83f795d18a4aa983e1c9ddf45614e, type: 3}
       propertyPath: m_Name
       value: 1_Cube Variant
@@ -87,15 +99,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2765499889992748271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5395085730238368121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6f1acecc82d943c29aed42219a3dc4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

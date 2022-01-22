@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 8_Cube Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 678401972024217322, guid: c80602de984d94cef8d01989ba9ff57e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 678401972024217332, guid: c80602de984d94cef8d01989ba9ff57e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -87,15 +91,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8294197969192410021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3886440581234558999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6f1acecc82d943c29aed42219a3dc4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

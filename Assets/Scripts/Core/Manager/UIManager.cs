@@ -20,6 +20,7 @@ namespace Minesweeper.Core
         [Header("Panels")]
         [SerializeField] private CanvasGroupFade _panelFadeInAnim;
         [SerializeField] private CanvasGroupFade _panelFadeOutAnim;
+        [SerializeField] private GameObject _welcomePanel;
         [SerializeField] private GameObject _startMenuPanel;
         [SerializeField] private GameObject _settingsPanel;
         [SerializeField] private GameObject _pausePanel;
@@ -53,7 +54,7 @@ namespace Minesweeper.Core
                 {
                     yield return null;
                 }
-                var panelOperation = FadeSetPanelActive(_startMenuPanel, true);
+                var panelOperation = FadeSetPanelActive(_welcomePanel, true);
                 while (!panelOperation.IsCompleted)
                 {
                     yield return null;
@@ -123,8 +124,13 @@ namespace Minesweeper.Core
             }
         }
 
+        public async void OnFirstClick()
+        {
+            await FadeSwitchPanel(_startMenuPanel);
+        }
+
         // Called by the Settings Button in StartMenu panel, Back Button in the Settings panel
-        public async void FadeSwitchPanel(GameObject target)
+        public async Task FadeSwitchPanel(GameObject target)
         {
             var currentCanvasGroup = _currentActivePanel.GetComponent<CanvasGroup>();
             var targetCanvasGroup = target.GetComponent<CanvasGroup>();

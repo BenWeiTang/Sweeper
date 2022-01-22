@@ -10,6 +10,7 @@ namespace Minesweeper.UI
     public enum PanelType
     {
         None,
+        Welcome,
         StartMenu,
         Settings,
         Pause,
