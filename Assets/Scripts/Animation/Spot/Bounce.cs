@@ -27,5 +27,11 @@ namespace Minesweeper.Animation
             await controller.DOScale(ogScaleFactor, _outDuration).SetEase(_outEase).AsyncWaitForCompletion();
             onExit?.Invoke();
         }
+
+        public override async Task PerformAsync(Transform controller, Vector3 _, Action onEnter = null, Action onPeak = null, Action onExit = null)
+        {
+            await Task.Yield();
+            throw new NotSupportedException();
+        }
     }
 }
