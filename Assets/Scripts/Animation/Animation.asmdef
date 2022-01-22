@@ -2,6 +2,7 @@
     "name": "Animation",
     "rootNamespace": "Minesweeper.Animation",
     "references": [
+        "GUID:b04b9841772f644da8f409d453aa8ead",
         "GUID:32e525b2662d4450886458c10aa430f4"
     ],
     "includePlatforms": [],

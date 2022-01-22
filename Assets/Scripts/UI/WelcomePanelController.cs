@@ -13,7 +13,6 @@ namespace Minesweeper.UI
         {
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
             {
-                print("Clicked");
                 _firstClick?.Raise();
                 _mouseButtonClick?.Raise();
             }

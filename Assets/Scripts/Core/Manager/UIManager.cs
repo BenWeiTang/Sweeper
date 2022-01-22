@@ -11,6 +11,8 @@ namespace Minesweeper.Core
     {
         [Header("Event")]
         [SerializeField] private VoidEvent FadeBlindOutComplete;
+        [SerializeField] private VoidEvent SettingsButtonClick;
+        [SerializeField] private VoidEvent LeaveMenu;
 
         [Header("Fade Blind")]
         [SerializeField] private CanvasGroup _blind;
@@ -99,6 +101,18 @@ namespace Minesweeper.Core
             await FadeSetPanelActive(_loadingPanel, false);
             await FadeBlind(false);
             await FadeSetPanelActive(_startMenuPanel, true);
+        }
+
+        public async void EnterSettings()
+        {
+            SettingsButtonClick.Raise();
+            await FadeSwitchPanel(_settingsPanel);
+        }
+
+        public async void ExitSettings()
+        {
+            LeaveMenu.Raise();
+            await FadeSwitchPanel(_startMenuPanel);
         }
 
         // Used only for when Esc key is down when in pause panel

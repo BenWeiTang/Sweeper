@@ -209,11 +209,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1702091597}
         m_TargetAssemblyTypeName: Minesweeper.Core.UIManager, Core
-        m_MethodName: FadeSwitchPanel
-        m_Mode: 2
+        m_MethodName: EnterSettings
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 670656905}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3514,11 +3514,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1702091597}
         m_TargetAssemblyTypeName: Minesweeper.Core.UIManager, Core
-        m_MethodName: FadeSwitchPanel
-        m_Mode: 2
+        m_MethodName: ExitSettings
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2095921375}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4241,6 +4241,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeBlindOutComplete: {fileID: 11400000, guid: 5e11d7c4ddc234892952c2ea344fabba, type: 2}
+  SettingsButtonClick: {fileID: 11400000, guid: 4c47a58fc2c474bf697bf6276554fbd3, type: 2}
+  LeaveMenu: {fileID: 11400000, guid: 8fdea6e47b8454620b4fa66cd2a90bce, type: 2}
   _blind: {fileID: 1361284720}
   _blindFadeInAnim: {fileID: 11400000, guid: c26380c7ff5944a39a4b41a0d2d7972d, type: 2}
   _blindFadeOutAnim: {fileID: 11400000, guid: 292c6ac69420242d7b551bb17a2fd0b4, type: 2}
@@ -4354,12 +4356,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1702091597}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: Minesweeper.Core.UIManager, Core
+        m_MethodName: OnFirstClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
