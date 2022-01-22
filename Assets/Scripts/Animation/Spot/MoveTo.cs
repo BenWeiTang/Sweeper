@@ -17,7 +17,7 @@ namespace Minesweeper.Animation
         {
             onEnter?.Invoke();
 
-            Vector3 midPoint = (controller.transform.position + position) * 0.5f;
+            Vector3 midPoint = (controller.position + position) * 0.5f;
             await controller.DOMove(midPoint, 0.5f * _duration).SetEase(_inEase).AsyncWaitForCompletion();
             await controller.DOMove(position, 0.5f * _duration).SetEase(_outEase).AsyncWaitForCompletion();
 
