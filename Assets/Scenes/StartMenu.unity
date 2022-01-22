@@ -2790,6 +2790,7 @@ MonoBehaviour:
   _start: {fileID: 937220085}
   _settings: {fileID: 2098423838}
   _moveToAnim: {fileID: 11400000, guid: cc015c71e39a640b29565c8727b8d7a3, type: 2}
+  _firstEnterSeesion: {fileID: 11400000, guid: 2d243a8fc7a14482fb710e736495ff15, type: 2}
 --- !u!114 &1129982958
 MonoBehaviour:
   m_ObjectHideFlags: 0
