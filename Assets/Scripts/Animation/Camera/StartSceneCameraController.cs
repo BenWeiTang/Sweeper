@@ -16,13 +16,13 @@ namespace Minesweeper.Animation
         [SerializeField] private MoveTo _moveToAnim;
 
         [Header("Type Reference")]
-        [SerializeField] BoolRef _firstEnterSeesion;
+        [SerializeField] BoolRef _firstEnterSession;
 
         private void Start()
         {
-            if (_firstEnterSeesion.value)
+            if (_firstEnterSession.value)
             {
-                _firstEnterSeesion.value = false;
+                _firstEnterSession.value = false;
                 transform.position = _origin.position;
             }
             else
@@ -48,7 +48,7 @@ namespace Minesweeper.Animation
 
         private void OnApplicationQuit()
         {
-            _firstEnterSeesion.value = true;
+            _firstEnterSession.value = true;
         }
     }
 }

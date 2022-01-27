@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using Minesweeper.Reference;
 using DG.Tweening;
 
 namespace Minesweeper.Animation
@@ -8,6 +9,7 @@ namespace Minesweeper.Animation
     public class StartScenePPController : MonoBehaviour
     {
         [SerializeField] private Volume _volume;
+        [SerializeField] private BoolRef _firstSession;
 
         private DepthOfField _dof;
         private Vignette _vignette;
@@ -26,6 +28,13 @@ namespace Minesweeper.Animation
             _volume.profile.TryGet<Vignette>(out _vignette);
             _ogDofValue = _dof.focalLength.value;
             _ogVignetteValue = _vignette.intensity.value;
+
+            // Not very clean code; fix if got time
+            if (!_firstSession.value)
+            {
+                _dof.focalLength.value = 50f;
+                _vignette.intensity.value = 0f;
+            }
         }
 
         private void OnDisable()
