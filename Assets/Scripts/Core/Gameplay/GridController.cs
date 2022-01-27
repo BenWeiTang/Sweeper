@@ -106,7 +106,7 @@ namespace Minesweeper.Core
             List<Task> resettingTasks = new List<Task>();
             foreach (var sc in _spotControllers)
             {
-                resettingTasks.Add(sc.ResetSpot()); 
+                resettingTasks.Add(sc.ResetSpot());
             }
             await Task.WhenAll(resettingTasks);
             await Task.Delay(100);
@@ -251,6 +251,46 @@ namespace Minesweeper.Core
             if (!isBottom && !isRight)
                 yield return index + _layout.Width + 1; // down right
         }
+
+#if UNITY_EDITOR
+        [ContextMenu("Show Everything")]
+        private void ShowEverything()
+        {
+            foreach (var spotController in _spotControllers)
+            {
+                spotController.ShowSpot();
+            }
+        }
+
+        [ContextMenu("Show Mines")]
+        private void ShowMines()
+        {
+            foreach (var spotController in _spotControllers.Where(s => s.spot.IsMine))
+            {
+                spotController.ShowSpot();
+            }
+        }
+
+        [ContextMenu("Show Everything Except Mines")]
+        private void ShowEverythingExceptMines()
+        {
+            foreach (var spotController in _spotControllers.Where(s => !s.spot.IsMine))
+            {
+                spotController.ShowSpot();
+            }            
+        }
+
+        [ContextMenu("Hide Everything")]
+        private void HideEverything()
+        {
+            foreach (var spotController in _spotControllers.Where(s => s.spot.State != SpotState.Dug))
+            {
+                spotController.HideSpot();
+            }
+        }
+#endif
+
     }
     #endregion
+
 }

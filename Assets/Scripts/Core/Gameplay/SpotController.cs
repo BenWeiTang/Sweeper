@@ -125,5 +125,25 @@ namespace Minesweeper.Core
         {
             transform.localScale = Vector3.one * GameManager.Instance.CurrentLayout.SpotSize;
         }
+
+#if UNITY_EDITOR
+        public void ShowSpot()
+        {
+            if (spot.IsMine)
+                animController.SwtichToBlock(Block.Mine);
+            else
+            {
+                animController.SwtichToBlock((Block)spot.HintNumber);
+            }
+        }
+
+        public void HideSpot()
+        {
+            if (spot.State == SpotState.Marked)
+                animController.SwtichToBlock(Block.Marked);
+            else
+                animController.SwtichToBlock(Block.Untouched);
+        }
+#endif
     }
 }
