@@ -257,7 +257,7 @@ namespace Minesweeper.Core
 
 #if UNITY_EDITOR
         [ContextMenu("Show Everything")]
-        private void ShowEverything()
+        public void ShowEverything()
         {
             foreach (var spotController in _spotControllers)
             {
@@ -266,7 +266,7 @@ namespace Minesweeper.Core
         }
 
         [ContextMenu("Show Mines")]
-        private void ShowMines()
+        public void ShowMines()
         {
             foreach (var spotController in _spotControllers.Where(s => s.spot.IsMine))
             {
@@ -275,7 +275,7 @@ namespace Minesweeper.Core
         }
 
         [ContextMenu("Show Everything Except Mines")]
-        private void ShowEverythingExceptMines()
+        public void ShowEverythingExceptMines()
         {
             foreach (var spotController in _spotControllers.Where(s => !s.spot.IsMine))
             {
@@ -284,7 +284,7 @@ namespace Minesweeper.Core
         }
 
         [ContextMenu("Hide Everything")]
-        private void HideEverything()
+        public void HideEverything()
         {
             foreach (var spotController in _spotControllers.Where(s => s.spot.State != SpotState.Dug))
             {
