@@ -4428,6 +4428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _volume: {fileID: 1893267543}
+  _firstSession: {fileID: 11400000, guid: 2d243a8fc7a14482fb710e736495ff15, type: 2}
 --- !u!114 &1893267546
 MonoBehaviour:
   m_ObjectHideFlags: 0
