@@ -20,6 +20,7 @@ namespace Minesweeper.Core
         [SerializeField] private RotateAllTowards _lookForwardAnim;
         [SerializeField] private BounceAll _bounceAllAnim;
 
+        internal bool _shouldFollowMouse = false;
 
         // Cache
         private Transform[] _spotTransforms;
@@ -28,6 +29,8 @@ namespace Minesweeper.Core
         private Rigidbody[] _spotRBs;
         private Layout _layout;
         private int _gridSize;
+
+
 
         #region UNITY_METHODS
         private void Start()
@@ -38,6 +41,14 @@ namespace Minesweeper.Core
             _targetPositions = new Vector3[_gridSize];
             _spotControllers = new SpotController[_gridSize];
             _spotRBs = new Rigidbody[_gridSize];
+        }
+
+        private void Update()
+        {
+            if (!_shouldFollowMouse)
+            {
+
+            }
         }
         #endregion
         #region INTERNAL_METHODS
@@ -88,7 +99,7 @@ namespace Minesweeper.Core
 
             await _moveAllInPlaceAnim.PerformAsync(_spotTransforms, _targetPositions);
 
-            Vector3 forward =  gridController.transform.forward * -1; 
+            Vector3 forward = gridController.transform.forward * -1;
             await _lookForwardAnim.PerformAsync(_spotTransforms, forward);
         }
 
