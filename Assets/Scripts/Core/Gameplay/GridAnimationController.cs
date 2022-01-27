@@ -9,6 +9,8 @@ namespace Minesweeper.Core
     {
         [Header("Movement")]
         [SerializeField] internal GridController gridController;
+
+        [Tooltip("Important for getting the PlayerInput script")]
         [SerializeField] private Transform _camera;
 
         [Header("Animation")]
@@ -20,7 +22,6 @@ namespace Minesweeper.Core
         [SerializeField] private RotateAllTowards _lookForwardAnim;
         [SerializeField] private BounceAll _bounceAllAnim;
 
-        internal bool _shouldFollowMouse = false;
 
         // Cache
         private Transform[] _spotTransforms;
@@ -29,8 +30,8 @@ namespace Minesweeper.Core
         private Rigidbody[] _spotRBs;
         private Layout _layout;
         private int _gridSize;
-
-
+        private bool _shouldFollowMouse = false;
+        private PlayerInput _playerInput;
 
         #region UNITY_METHODS
         private void Start()
@@ -41,15 +42,26 @@ namespace Minesweeper.Core
             _targetPositions = new Vector3[_gridSize];
             _spotControllers = new SpotController[_gridSize];
             _spotRBs = new Rigidbody[_gridSize];
+            _playerInput = _camera.GetComponent<PlayerInput>();
         }
 
         private void Update()
         {
-            if (!_shouldFollowMouse)
+            if (_shouldFollowMouse)
             {
-
+                // gridController.transform.forward = _playerInput.ScreenPointToRay.direction;
+                foreach (var spot in _spotControllers)
+                {
+                    spot.transform.forward = _playerInput.ScreenPointToRay.direction;
+                }
             }
         }
+        #endregion
+        #region PUBLIC_CALLBACKS
+        public void OnGameReady() => _shouldFollowMouse = true;
+        public void OnGamePaused() => _shouldFollowMouse = false;
+        public void OnGameResumed() => _shouldFollowMouse = true;
+        public void OnGameFinished(bool _) => _shouldFollowMouse = false;
         #endregion
         #region INTERNAL_METHODS
         internal void SetTransformAt(int index, Transform t)

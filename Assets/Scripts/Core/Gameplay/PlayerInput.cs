@@ -9,6 +9,8 @@ namespace Minesweeper.Core
         [SerializeField] private IntRef _clickCount;
         [SerializeField] private FloatRef _efficiency;
 
+        internal Ray ScreenPointToRay {get; private set;} = new Ray();
+
         private ISpot _currentISpot;
         private float _lastEscDown;
 
@@ -16,6 +18,7 @@ namespace Minesweeper.Core
 
         private void Update()
         {
+            ScreenPointToRay = _camera.ScreenPointToRay(Input.mousePosition);
             if (GameManager.Instance.CurrentState == GameState.InGame)
                 CheckMouseInput();
 
@@ -91,9 +94,7 @@ namespace Minesweeper.Core
 
         private void UpdateCurrentISpot()
         {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out RaycastHit hitInfo))
+            if (Physics.Raycast(ScreenPointToRay, out RaycastHit hitInfo))
             {
                 _currentISpot = hitInfo.transform.GetComponent<ISpot>();
             }

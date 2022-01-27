@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
-  _displacement: {x: 0, y: 0, z: 15}
   GameReady: {fileID: 11400000, guid: 6f977b49cadbd42b280271909bba90af, type: 2}
   GameFinish: {fileID: 11400000, guid: d32849a6b114a498c90735847c3b2a66, type: 2}
   PostGameExit: {fileID: 11400000, guid: 2998892afbd714d6bb1a21f90bea5190, type: 2}
@@ -208,6 +207,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7924643440182354017}
   - component: {fileID: 7924643440182354030}
+  - component: {fileID: 8501496799568893505}
+  - component: {fileID: 4933914688472099209}
+  - component: {fileID: 626543739713011711}
+  - component: {fileID: 2706066976413589200}
   m_Layer: 0
   m_Name: Grid Anim Controller
   m_TagString: Untagged
@@ -251,6 +254,118 @@ MonoBehaviour:
   _moveAllInPlaceAnim: {fileID: 11400000, guid: 3dd787412667d4dfebe9d1ca2c2f3549, type: 2}
   _lookForwardAnim: {fileID: 11400000, guid: 6e307d757931b4224a7d08b1df46da69, type: 2}
   _bounceAllAnim: {fileID: 11400000, guid: ed84419f110a44ff9aaa2bb7c5a332b9, type: 2}
+--- !u!114 &8501496799568893505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924643440182354031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 6f977b49cadbd42b280271909bba90af, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7924643440182354030}
+        m_TargetAssemblyTypeName: Minesweeper.Core.GridAnimationController, Core
+        m_MethodName: OnGameReady
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4933914688472099209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924643440182354031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: aa90a7233f1654b95880032616ac2352, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7924643440182354030}
+        m_TargetAssemblyTypeName: Minesweeper.Core.GridAnimationController, Core
+        m_MethodName: OnGamePaused
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &626543739713011711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924643440182354031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 29723e4b7e22a4395a7081bb3458df63, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7924643440182354030}
+        m_TargetAssemblyTypeName: Minesweeper.Core.GridAnimationController, Core
+        m_MethodName: OnGameResumed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2706066976413589200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924643440182354031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e162702c88924da59e4b6863ddadd73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: d32849a6b114a498c90735847c3b2a66, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7924643440182354030}
+        m_TargetAssemblyTypeName: Minesweeper.Core.GridAnimationController, Core
+        m_MethodName: OnGameFinished
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &5920469101481795882
 PrefabInstance:
   m_ObjectHideFlags: 0
