@@ -34,7 +34,7 @@ namespace Minesweeper.Core
         private SpotController[] _spotControllers;
         private int _dugSafeSpotCount = 0;
 
-        #region PUBLIC_METHODS
+#region PUBLIC_METHODS
         public IEnumerable<SpotController> GetAdjacentSpotControllers(SpotController controller)
         {
             int index = System.Array.IndexOf(_spotControllers, controller);
@@ -44,8 +44,11 @@ namespace Minesweeper.Core
                 yield return _spotControllers[ai];
             }
         }
-        #endregion
-        #region PUBLIC_CALLBACKS
+        
+        public IEnumerable<SpotController> GetAllSafeSpots() => _spotControllers.Where(s => !s.spot.IsMine);
+        
+#endregion
+#region PUBLIC_CALLBACKS
         public async void OnFadeBlindOutCompleted()
         {
             await animationController.MoveAllSpotsInPlace();
@@ -132,8 +135,8 @@ namespace Minesweeper.Core
             GridInit();
             GenerateGrid();
         }
-        #endregion
-        #region PRIVATE_METHODS
+#endregion
+#region PRIVATE_METHODS
         private void LayoutInit()
         {
             _layout = GameManager.Instance.CurrentLayout;
@@ -251,6 +254,7 @@ namespace Minesweeper.Core
             if (!isBottom && !isRight)
                 yield return index + _layout.Width + 1; // down right
         }
+#endregion
 
 #if UNITY_EDITOR
         [ContextMenu("Show Everything")]
@@ -289,8 +293,5 @@ namespace Minesweeper.Core
             }
         }
 #endif
-
     }
-    #endregion
-
 }

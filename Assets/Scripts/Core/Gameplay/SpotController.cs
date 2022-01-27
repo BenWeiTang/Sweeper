@@ -39,10 +39,17 @@ namespace Minesweeper.Core
                     _gridController.HasBegun = true;
                     spot.SetMine(false);
                     var adjacentSC = _gridController.GetAdjacentSpotControllers(this);
-                    foreach (var sc in adjacentSC)
-                    {
+                    var toCancel = adjacentSC.Where(s => s.spot.IsMine); // nearby mines
+                    var toAdd = _gridController.GetAllSafeSpots()
+                        .Except(adjacentSC) // all safe spots except the adjacent eight, mines are disregarded
+                        .Where(s => s != this) // also exclude self
+                        .OrderBy(x => new System.Random().Next()) // shuffle
+                        .Take(toCancel.Count()); // take the same amount as that of the toCancel
+
+                    foreach (var sc in toCancel)
                         sc.spot.SetMine(false);
-                    }
+                    foreach (var sc in toAdd)
+                        sc.spot.SetMine(true);
 
                     FirstSafeSpotDig.Raise();
                 }
@@ -73,7 +80,6 @@ namespace Minesweeper.Core
                     ac.Dig();
                 }
             }
-
         }
 
         public void Mark()
