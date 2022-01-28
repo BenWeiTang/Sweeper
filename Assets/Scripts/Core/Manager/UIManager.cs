@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Minesweeper.Event;
 using Minesweeper.Animation;
+using Minesweeper.Scene;
 
 namespace Minesweeper.Core
 {
@@ -42,20 +43,38 @@ namespace Minesweeper.Core
                 _blind.alpha = 1f;
                 _blind.blocksRaycasts = true;
 
+                /*
+                Persistent is loaded before StartMenu
+                This means that the first time this callback is invoked, 
+                the parameter scene is actually Persistent scene
+                And we only want to fade out blind when the StartMenu is loaded
+                Therefore, bail out the first time and start to fade and set _isFirstTime to false
+                when StartMenu is actually loaded
+                */
+                if (LevelSystem.IsSameScene(SceneIndex.Persistent, scene))
+                    return;
+
                 if (_isFirstTime)
                 {
                     _isFirstTime = false;
-                    StartCoroutine(OnFirstTimeLoaded());
+                    StartCoroutine(OnFirstTimeLoaded(scene));
                 }
             };
 
-            IEnumerator OnFirstTimeLoaded()
+            IEnumerator OnFirstTimeLoaded(UnityEngine.SceneManagement.Scene scene)
             {
                 var blindOperation = FadeBlind(false);
                 while (!blindOperation.IsCompleted)
                 {
                     yield return null;
                 }
+
+#if UNITY_EDITOR
+                // This allows for starting directly from Gameplay scene
+                if (!LevelSystem.IsSameScene(SceneIndex.StartMenu, scene))
+                    yield break;
+#endif
+
                 var panelOperation = FadeSetPanelActive(_welcomePanel, true);
                 while (!panelOperation.IsCompleted)
                 {
@@ -151,7 +170,8 @@ namespace Minesweeper.Core
 
             await _panelFadeOutAnim.PerformAsync(
                 currentCanvasGroup,
-                () => {
+                () =>
+                {
                     currentCanvasGroup.interactable = false;
                     currentCanvasGroup.blocksRaycasts = false;
                 },
@@ -163,7 +183,8 @@ namespace Minesweeper.Core
                 targetCanvasGroup,
                 () => target.SetActive(true),
                 null,
-                () => {
+                () =>
+                {
                     targetCanvasGroup.interactable = true;
                     targetCanvasGroup.blocksRaycasts = true;
                     _currentActivePanel = target;
@@ -181,7 +202,8 @@ namespace Minesweeper.Core
                     currentCanvasGroup,
                     () => panel.SetActive(true),
                     null,
-                    () => {
+                    () =>
+                    {
                         currentCanvasGroup.interactable = true;
                         currentCanvasGroup.blocksRaycasts = true;
                         _currentActivePanel = panel;
@@ -192,12 +214,14 @@ namespace Minesweeper.Core
             {
                 await _panelFadeOutAnim.PerformAsync(
                     currentCanvasGroup,
-                    () => {
+                    () =>
+                    {
                         currentCanvasGroup.interactable = false;
                         currentCanvasGroup.blocksRaycasts = false;
                     },
                     null,
-                    () => {
+                    () =>
+                    {
                         panel.SetActive(false);
                         _currentActivePanel = null;
                     }
@@ -217,7 +241,8 @@ namespace Minesweeper.Core
                     _blind,
                     null, // onEnter
                     null, // onPeak
-                    () => { //onExit
+                    () =>
+                    { //onExit
                         _blind.blocksRaycasts = false;
                         FadeBlindOutComplete.Raise();
                     }
