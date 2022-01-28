@@ -44,18 +44,6 @@ namespace Minesweeper.Core
             _spotRBs = new Rigidbody[_gridSize];
             _playerInput = _camera.GetComponent<PlayerInput>();
         }
-
-        private void Update()
-        {
-            if (_shouldFollowMouse)
-            {
-                // gridController.transform.forward = _playerInput.ScreenPointToRay.direction;
-                foreach (var spot in _spotControllers)
-                {
-                    spot.transform.forward = _playerInput.ScreenPointToRay.direction;
-                }
-            }
-        }
         #endregion
         #region PUBLIC_CALLBACKS
         public void OnGameReady() => _shouldFollowMouse = true;
