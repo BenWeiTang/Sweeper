@@ -30,7 +30,6 @@ namespace Minesweeper.Core
         private Rigidbody[] _spotRBs;
         private Layout _layout;
         private int _gridSize;
-        private bool _shouldFollowMouse = false;
         private PlayerInput _playerInput;
 
         #region UNITY_METHODS
@@ -46,10 +45,10 @@ namespace Minesweeper.Core
         }
         #endregion
         #region PUBLIC_CALLBACKS
-        public void OnGameReady() => _shouldFollowMouse = true;
-        public void OnGamePaused() => _shouldFollowMouse = false;
-        public void OnGameResumed() => _shouldFollowMouse = true;
-        public void OnGameFinished(bool _) => _shouldFollowMouse = false;
+        public void OnGameReady() {} 
+        public void OnGamePaused() {}
+        public void OnGameResumed() {}
+        public void OnGameFinished(bool _) {}
         #endregion
         #region INTERNAL_METHODS
         internal void SetTransformAt(int index, Transform t)
