@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed115de6c7aeb43cb93c0b6bae1b2283, type: 3}
   m_Name: GE_GameRestart
   m_EditorClassIdentifier: 
-  DevNote: This button is raised by the Game Manager when a RESTART button, in win,
+  DevNote: 'This event is raised by the Game Manager when a RESTART button, in win,
     lose, or pause panel, is pressed.
+
+
+    The boolean value passed down is used
+    to determine if we need to move the blocks back in place.'
