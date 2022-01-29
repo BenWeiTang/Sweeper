@@ -2456,6 +2456,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &372061799
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3275,6 +3276,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &435055839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5074,6 +5076,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &478684949
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6689,6 +6692,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &483938749
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8304,6 +8308,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &534797757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9919,6 +9924,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &539758078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11892,6 +11898,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &714987557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14283,6 +14290,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &791838563
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16113,6 +16121,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &957312366
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18388,6 +18397,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &1322846776
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20003,6 +20013,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &1434215111
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21802,6 +21813,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &1464619143
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22621,6 +22633,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &1609222815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25012,6 +25025,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &1806362188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26995,6 +27009,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &1872767431
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28877,6 +28892,7 @@ MonoBehaviour:
   _uiSpotUp: {fileID: 11400000, guid: 28019cf0fee91452c922b7627897873c, type: 2}
   _downScale: 0.7
   _animDuration: 0.0875
+  _firstClick: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
 --- !u!65 &1983542037
 BoxCollider:
   m_ObjectHideFlags: 0
