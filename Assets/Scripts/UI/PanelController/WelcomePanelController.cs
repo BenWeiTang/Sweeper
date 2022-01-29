@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Minesweeper.Event;
 
-namespace Minesweeper.UI
+namespace Minesweeper.UI.PanelController
 {
     public class WelcomePanelController : APanelController
     {

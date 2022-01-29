@@ -1,7 +1,10 @@
 {
-    "name": "UI",
-    "rootNamespace": "Minesweeper.UI",
-    "references": [],
+    "name": "UISpotController",
+    "rootNamespace": "Minesweeper.UI.SpotController",
+    "references": [
+        "GUID:bcfa8dc36c9604d6cb2002f81e414e6e",
+        "GUID:32e525b2662d4450886458c10aa430f4"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

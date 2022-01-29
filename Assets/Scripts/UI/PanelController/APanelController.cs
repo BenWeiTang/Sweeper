@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Minesweeper.UI
+namespace Minesweeper.UI.PanelController
 {
     public abstract class APanelController : MonoBehaviour
     {

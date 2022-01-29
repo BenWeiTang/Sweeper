@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Minesweeper
+namespace Minesweeper.UI
 {
     public class ExitGame : MonoBehaviour
     {

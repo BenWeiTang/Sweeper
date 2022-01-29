@@ -1,21 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Minesweeper.Event;
 
-namespace Minesweeper.UI
+
+namespace Minesweeper.UI.SpotController
 {
-    public class UIDecorSpotControlelr : MonoBehaviour
+    public class UIDecorSpotControlelr : UISpotController
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
     }
 }

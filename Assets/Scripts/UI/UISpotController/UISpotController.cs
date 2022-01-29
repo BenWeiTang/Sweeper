@@ -2,7 +2,7 @@ using UnityEngine;
 using Minesweeper.Event;
 using DG.Tweening;
 
-namespace Minesweeper.UI
+namespace Minesweeper.UI.SpotController
 {
     [RequireComponent(typeof(BoxCollider))]
     public class UISpotController : MonoBehaviour

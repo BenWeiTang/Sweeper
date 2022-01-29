@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Minesweeper.Reference;
 
-namespace Minesweeper.UI
+namespace Minesweeper.UI.PanelController
 {
     public class LoadingPanelController : APanelController
     {
