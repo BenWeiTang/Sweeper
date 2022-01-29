@@ -15,9 +15,11 @@ namespace Minesweeper.Animation
         private Vignette _vignette;
         private float _ogDofValue;
         private float _ogVignetteValue;
+        private DG.Tweening.Tween _vignetteLoopingOperation;
 
         public void OnFirstClicked()
         {
+            _vignetteLoopingOperation.Kill();
             DOTween.To(() => _dof.focalLength.value, x => _dof.focalLength.value = x, 50f, 1f);
             DOTween.To(() => _vignette.intensity.value, x => _vignette.intensity.value = x, 0f, 1f);
         }
@@ -30,7 +32,13 @@ namespace Minesweeper.Animation
             _ogVignetteValue = _vignette.intensity.value;
 
             // Not very clean code; fix if got time
-            if (!_firstSession.value)
+            if (_firstSession.value)
+            {
+                _vignetteLoopingOperation = DOTween.To(() => _vignette.intensity.value, x => _vignette.intensity.value = x, 0f, 1f)
+                    .SetEase(Ease.InOutSine)
+                    .SetLoops(-1, LoopType.Yoyo);
+            }
+            else
             {
                 _dof.focalLength.value = 50f;
                 _vignette.intensity.value = 0f;
