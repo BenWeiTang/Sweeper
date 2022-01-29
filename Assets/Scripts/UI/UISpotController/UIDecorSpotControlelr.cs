@@ -8,6 +8,8 @@ namespace Minesweeper.UI.SpotController
     {
         [SerializeField] private VoidEvent _firstClick;
 
+        public void OnFirstClicked() => _firstClick = null;
+
         protected override void OnMouseDown()
         {
             base.OnMouseDown();
@@ -16,7 +18,7 @@ namespace Minesweeper.UI.SpotController
         protected override void OnMouseUp()
         {
             base.OnMouseUp();
-            _firstClick.Raise();
+            _firstClick?.Raise();
         }
     }
 }

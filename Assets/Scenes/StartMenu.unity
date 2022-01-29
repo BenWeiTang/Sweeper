@@ -2470,6 +2470,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000101029895, z: -0.000000059604645}
+--- !u!114 &372061803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372061797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 372061798}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &435055835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3290,6 +3319,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1.0000002}
   m_Center: {x: -0.00000023841858, y: 0, z: -0.000000029802322}
+--- !u!114 &435055844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435055837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 435055838}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &477611731
 Mesh:
   m_ObjectHideFlags: 0
@@ -5090,6 +5148,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000100910685, z: -0.000000059604645}
+--- !u!114 &478684953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478684947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 478684948}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &483938745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6706,6 +6793,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000101029895, z: -0.000000059604645}
+--- !u!114 &483938753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483938747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 483938748}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &534797753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8322,6 +8438,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000101029895, z: -0.000000059604645}
+--- !u!114 &534797761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534797755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 534797756}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &539758074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9938,6 +10083,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000100910685, z: -0.000000059604645}
+--- !u!114 &539758082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539758076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 539758077}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &620910261
 Mesh:
   m_ObjectHideFlags: 0
@@ -11912,6 +12086,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000101029895, z: -0.000000059604645}
+--- !u!114 &714987561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714987555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 714987556}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &739972456
 Mesh:
   m_ObjectHideFlags: 0
@@ -14304,6 +14507,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0029075, y: 1.0000365, z: 1.0000001}
   m_Center: {x: 0.0014534298, y: 0.000018119816, z: 0.000000059604645}
+--- !u!114 &791838567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791838561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 791838562}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &869899985
 Mesh:
   m_ObjectHideFlags: 0
@@ -16135,6 +16367,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000100910685, z: -0.000000059604645}
+--- !u!114 &957312370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957312364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 957312365}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &1000118474
 Mesh:
   m_ObjectHideFlags: 0
@@ -18411,6 +18672,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000101029895, z: -0.000000059604645}
+--- !u!114 &1322846780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322846774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1322846775}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1434215107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20027,6 +20317,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000101029895, z: -0.000000059604645}
+--- !u!114 &1434215115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434215109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1434215110}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &1453425294
 Mesh:
   m_ObjectHideFlags: 0
@@ -21827,6 +22146,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000101029895, z: -0.000000059604645}
+--- !u!114 &1464619147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464619141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1464619142}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1609222811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22647,6 +22995,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1.0000002}
   m_Center: {x: -0.00000023841858, y: 0, z: -0.000000029802322}
+--- !u!114 &1609222820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609222813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1609222814}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &1749488473
 Mesh:
   m_ObjectHideFlags: 0
@@ -25039,6 +25416,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0029075, y: 1.0000365, z: 1.0000001}
   m_Center: {x: 0.0014534298, y: 0.000018119816, z: 0.000000059604645}
+--- !u!114 &1806362192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806362186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1806362187}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &1843016736
 Mesh:
   m_ObjectHideFlags: 0
@@ -27023,6 +27429,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000101029895, z: -0.000000059604645}
+--- !u!114 &1872767435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872767429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1872767430}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1893267542
 GameObject:
   m_ObjectHideFlags: 0
@@ -28906,6 +29341,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000794, y: 1.0002023, z: 1.0000004}
   m_Center: {x: 0.00003936888, y: 0.000101029895, z: -0.000000059604645}
+--- !u!114 &1983542041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983542035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: c945b9a907c974779937950609ea09a9, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1983542036}
+        m_TargetAssemblyTypeName: Minesweeper.UI.SpotController.UIDecorSpotControlelr,
+          UISpotController
+        m_MethodName: OnFirstClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!43 &2078984671
 Mesh:
   m_ObjectHideFlags: 0
