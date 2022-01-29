@@ -75,11 +75,11 @@ namespace Minesweeper.Core
                     yield break;
 #endif
 
-                var panelOperation = FadeSetPanelActive(_welcomePanel, true);
-                while (!panelOperation.IsCompleted)
-                {
-                    yield return null;
-                }
+                // var panelOperation = FadeSetPanelActive(_welcomePanel, true);
+                // while (!panelOperation.IsCompleted)
+                // {
+                //     yield return null;
+                // }
             }
         }
 
