@@ -16,7 +16,6 @@ namespace Minesweeper.Core
         private IEnumerator CountDigs()
         {
             yield return null;
-            Debug.Log(_combo);
             ManySafeSpotsDig.Raise(_combo);
             _combo = 0;
         }
