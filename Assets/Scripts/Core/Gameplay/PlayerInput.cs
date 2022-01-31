@@ -7,7 +7,7 @@ namespace Minesweeper.Core
     {
         [SerializeField] private Camera _camera;
         [SerializeField] private IntRef _clickCount;
-        [SerializeField] private FloatRef _efficiency;
+        [SerializeField] private ComboController _comboController;
 
         internal Ray ScreenPointToRay {get; private set;} = new Ray();
 
@@ -62,6 +62,7 @@ namespace Minesweeper.Core
             if (_currentISpot != null)
             {
                 _clickCount.value++;
+                _comboController.StartCountingDigs();
                 _currentISpot.Dig();
             }
         }
