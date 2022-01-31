@@ -88,6 +88,7 @@ namespace Minesweeper.Core
             UpdateCurrentISpot();
             if (_currentISpot != null)
             {
+                _comboController.StartCountingDigs();
                 _currentISpot.ClearNear();
                 _clickCount.value += addOne ? 1 : -1;
             }
