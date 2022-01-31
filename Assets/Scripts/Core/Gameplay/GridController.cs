@@ -164,9 +164,11 @@ namespace Minesweeper.Core
                 {
                     _grid[i].HintNumber = 0;
                 }
-                bool isMine = Random.Range(0f, 100f) < _layout.MinePercentage;
-                _grid[i].SetMine(isMine);
             }
+            var rnd = new System.Random();
+            var indices = Enumerable.Range(0, _gridSize).OrderBy(x => rnd.Next()).Take(_layout.MineCount);
+            foreach (int index in indices)
+                _grid[index].SetMine(true);
         }
 
         private void GenerateGrid()
