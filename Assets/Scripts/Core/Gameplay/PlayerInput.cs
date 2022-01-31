@@ -6,15 +6,13 @@ namespace Minesweeper.Core
     public class PlayerInput : MonoBehaviour
     {
         [SerializeField] private Camera _camera;
-        [SerializeField] private IntRef _clickCount;
-        [SerializeField] private FloatRef _efficiency;
+        [SerializeField] private ComboController _comboController;
+        [SerializeField] private ACEController _ACEController;
 
         internal Ray ScreenPointToRay {get; private set;} = new Ray();
 
         private ISpot _currentISpot;
         private float _lastEscDown;
-
-        public void OnFirstSafeSpotDug() => _clickCount.value = 1;
 
         private void Update()
         {
@@ -61,7 +59,8 @@ namespace Minesweeper.Core
             UpdateCurrentISpot();
             if (_currentISpot != null)
             {
-                _clickCount.value++;
+                _ACEController.UpdateClickCount(1);
+                _comboController.StartCountingDigs();
                 _currentISpot.Dig();
             }
         }
@@ -71,7 +70,7 @@ namespace Minesweeper.Core
             UpdateCurrentISpot();
             if (_currentISpot != null)
             {
-                _clickCount.value++;
+                _ACEController.UpdateClickCount(1);
                 _currentISpot.Mark();
             }
         }
@@ -87,8 +86,9 @@ namespace Minesweeper.Core
             UpdateCurrentISpot();
             if (_currentISpot != null)
             {
+                _comboController.StartCountingDigs();
                 _currentISpot.ClearNear();
-                _clickCount.value += addOne ? 1 : -1;
+                _ACEController.UpdateClickCount(addOne ? 1 : -1);
             }
         }
 
