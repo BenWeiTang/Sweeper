@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8944242afe54233ab9e0bacd78c0cb, type: 3}
   m_Name: GE_ManySafeSpotDig
   m_EditorClassIdentifier: 
-  DevNote: 
+  DevNote: This event is called by the Combo Contorller

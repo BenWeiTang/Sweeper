@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56522b1022b884f2597906cc42e31a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ManySafeSpotsDig: {fileID: 11400000, guid: 4162b1d3d2ce8452aa4c5b93fb8452bb, type: 2}
 --- !u!4 &863012483
 Transform:
   m_ObjectHideFlags: 0
@@ -513,8 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 1412377934}
   _clickCount: {fileID: 11400000, guid: 91960d0316f2f44e2bed467a4ed3527e, type: 2}
-  _efficiency: {fileID: 0}
-  _comboController: {fileID: 0}
+  _comboController: {fileID: 863012482}
 --- !u!114 &1412377938
 MonoBehaviour:
   m_ObjectHideFlags: 0
