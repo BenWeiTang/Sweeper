@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 16
   Height: 16
-  MineCount: 45
+  MineCount: 5
   SpotSize: 0.4
   Spacing: 0.05
   CameraDisplacement: {x: 0, y: 0, z: 10}
