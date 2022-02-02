@@ -7,7 +7,7 @@ namespace Minesweeper.Animation
 {
 
     [CreateAssetMenu(fileName = "Canvas Group Fade", menuName = "3D Minesweeper/Animation/UI/Canvas Group Fade")]
-    public class CanvasGroupFade : ACanvasGroupAnimation
+    public class CanvasGroupFade : ASerializedTargetAnimation<CanvasGroup>
     {
         [SerializeField] private bool _toFadeIn;
         [SerializeField, Range(0f, 2f)] private float _fadeDuration;
