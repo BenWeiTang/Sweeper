@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Minesweeper.Animation
 {
-    public abstract class AAnimation<T> : ScriptableObject
+    public abstract class AAnimation<T, E> : ScriptableObject
     {
-        public virtual async Task PerformAsync(T item, Action onEnter, Action onPeak, Action onExit)
+        public virtual async Task PerformAsync(T item, E target, Action onEnter, Action onPeak, Action onExit)
         {
             await Task.Yield();
         }

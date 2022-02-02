@@ -2,5 +2,5 @@ using UnityEngine;
 
 namespace Minesweeper.Animation
 {
-    public class ATransformAnimation : AAnimation<Transform> { }
+    public class ATransformAnimation : AAnimation<Transform, Vector3> { }
 }
