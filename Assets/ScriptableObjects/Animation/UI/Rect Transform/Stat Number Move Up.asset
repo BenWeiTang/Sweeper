@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156568498f53d44e59821f960f50bf68, type: 3}
   m_Name: Stat Number Move Up
   m_EditorClassIdentifier: 
-  _duration: 0.3
+  _duration: 0.2
   _inEase: 1
   _outEase: 3

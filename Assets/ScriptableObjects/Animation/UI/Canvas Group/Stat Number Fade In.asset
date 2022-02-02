@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Stat Number Fade In
   m_EditorClassIdentifier: 
   _toFadeIn: 1
-  _fadeDuration: 0.35
+  _fadeDuration: 0.2
   _easeMode: 1
