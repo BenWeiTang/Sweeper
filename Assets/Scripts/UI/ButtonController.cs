@@ -22,7 +22,11 @@ namespace Minesweeper.UI
         [Tooltip("Exit is triggered when the pointer leaves the bounds of the button.")]
         [SerializeField] private List<VoidEvent> _exitEvents;
 
-        // [Header("Animtation")]
+        [Header("Animtation")]
+        [SerializeField] private ImageColorTo _BGColorOnEnter;
+        [SerializeField] private ImageColorTo _BGColorOnExit;
+        [SerializeField] private TMProColorTo _textColorOnEnter;
+        [SerializeField] private TMProColorTo _textColorOnExit;
 
         public void OnPointerClick(PointerEventData eventData)
         {
