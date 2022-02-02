@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Detonate Mines", menuName = "3D Minesweeper/Animation/Grid/Detonate Mines")]
-    public class DetonateMines : AGridAnimation<Rigidbody>
+    public class DetonateMines : ASerializedTargetAnimation<IEnumerable<Rigidbody>>
     {
         [SerializeField, Range(0f, 50f)] private float _explosionForce;
         [SerializeField, Range(0f, 10f)] private float _randomSphereRadius;
@@ -33,17 +33,6 @@ namespace Minesweeper.Animation
             }
 
             onExit?.Invoke();
-        }
-
-        public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, IEnumerable<Vector3> _, Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
-        }
-        public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, Vector3 _, Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Float All", menuName = "3D Minesweeper/Animation/Grid/Float All")]
-    public class FloatAll : AGridAnimation<Rigidbody>
+    public class FloatAll : ASerializedTargetAnimation<IEnumerable<Rigidbody>>
     {
         [SerializeField, Range(0f, 2.5f)] private float _initForce;
         [SerializeField, Range(0f, 2.5f)] private float _initTorque;
@@ -25,17 +25,6 @@ namespace Minesweeper.Animation
             }
 
             await Task.Yield();
-        }
-
-        public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, IEnumerable<Vector3> _, Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
-        }
-        public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, Vector3 _, Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
         }
     }
 }
