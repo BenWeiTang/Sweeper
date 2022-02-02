@@ -78,13 +78,13 @@ namespace Minesweeper.Core
 
         internal async Task ShakeToBlock(Block toBlock, float duration, Vector3 strength, int vibrato, float randomness, bool fadeOut = false)
         {
-            await _shakeToBlockAnim.PerformAsync(transform, null, () => SwtichToBlock(toBlock), null);
+            await _shakeToBlockAnim.PerformAsync(transform, Vector3.zero, null, () => SwtichToBlock(toBlock), null);
         }
 
         internal async Task Bounce(Action atPeak)
         {
             AnimIsPlaying = true;
-            await _bounceAnim.PerformAsync(transform, null, atPeak, null);
+            await _bounceAnim.PerformAsync(transform, Vector3.zero, null, atPeak, null);
             AnimIsPlaying = false;
         }
 

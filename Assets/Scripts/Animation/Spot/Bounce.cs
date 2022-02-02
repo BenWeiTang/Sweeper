@@ -15,7 +15,11 @@ namespace Minesweeper.Animation
         [SerializeField] private Ease _outEase;
 
 
-        public override async Task PerformAsync(Transform controller, Action onEnter = null, Action onPeak = null, Action onExit = null)
+        ///<summary>
+        ///Performs a bouncing animation
+        ///</summary>
+        ///<param name = "_">This Vector3 does absolutely nothing. Just don't bother.</param>
+        public override async Task PerformAsync(Transform controller, Vector3 _, Action onEnter = null, Action onPeak = null, Action onExit = null)
         {
             Sequence s = DOTween.Sequence();
             float ogScaleFactor = controller.localScale.x;
@@ -26,12 +30,6 @@ namespace Minesweeper.Animation
             onPeak?.Invoke();
             await controller.DOScale(ogScaleFactor, _outDuration).SetEase(_outEase).AsyncWaitForCompletion();
             onExit?.Invoke();
-        }
-
-        public override async Task PerformAsync(Transform controller, Vector3 _, Action onEnter = null, Action onPeak = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
         }
     }
 }

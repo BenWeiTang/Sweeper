@@ -22,8 +22,11 @@ namespace Minesweeper.Animation
         [SerializeField] private bool _fadeOut;
 
 
-        // Does not provide optional Actions for we want to make sure caller implement SwitchToBlock at onPeak
-        public override async Task PerformAsync(Transform controller, Action onEnter, Action onPeak, Action onExit)
+        ///<summary>
+        ///Performs a Switch-to-block animation. The Action onPeak must not be null and make sure to pass in the switching delegate.
+        ///</summary>
+        ///<param name = "_">This Vector3 does absolutely nothing. Just don't bother.</param>
+        public override async Task PerformAsync(Transform controller, Vector3 _, Action onEnter, Action onPeak, Action onExit)
         {
             Vector3 strength = new Vector3(X, Y, Z);
             onEnter?.Invoke();
@@ -43,12 +46,6 @@ namespace Minesweeper.Animation
             }
 
             onExit?.Invoke();
-        }
-
-        public override async Task PerformAsync(Transform controller, Vector3 _, Action onEnter = null, Action onPeak = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
         }
     }
 }

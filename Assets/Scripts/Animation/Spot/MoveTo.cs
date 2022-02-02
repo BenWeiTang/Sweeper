@@ -13,6 +13,11 @@ namespace Minesweeper.Animation
         [SerializeField] private Ease _outEase;
 
 
+        ///<summary>
+        ///Moves the controller to the position
+        ///</summary>
+        ///<param name = "controller">The controller to move</param>
+        ///<param name = "position">The target posistion</param>
         public override async Task PerformAsync(Transform controller, Vector3 position, Action onEnter = null, Action _ = null, Action onExit = null)
         {
             onEnter?.Invoke();
@@ -24,11 +29,6 @@ namespace Minesweeper.Animation
             onExit?.Invoke();
             
             await Task.Yield();
-        }
-        public override async Task PerformAsync(Transform controller, Action onEnter = null, Action onPeak = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
         }
     }
 }
