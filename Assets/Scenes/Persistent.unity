@@ -1406,7 +1406,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1174583648}
   - {fileID: 2095921376}
   - {fileID: 670656906}
   - {fileID: 853905567}
@@ -1910,7 +1909,7 @@ RectTransform:
   - {fileID: 484092238}
   - {fileID: 1411473446}
   m_Father: {fileID: 503595062}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2107,6 +2106,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Generic Button
       objectReference: {fileID: 0}
+    - target: {fileID: 7708416034236378777, guid: 6c88d9a337c8645ee84965620d3bd720, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c88d9a337c8645ee84965620d3bd720, type: 3}
 --- !u!1 &713689502
@@ -2144,7 +2147,7 @@ RectTransform:
   - {fileID: 806833035}
   - {fileID: 1961810231}
   m_Father: {fileID: 503595062}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2563,7 +2566,7 @@ RectTransform:
   - {fileID: 1462540987}
   - {fileID: 2008301493}
   m_Father: {fileID: 503595062}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2868,7 +2871,7 @@ RectTransform:
   m_Children:
   - {fileID: 1760961370}
   m_Father: {fileID: 503595062}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3356,79 +3359,6 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
---- !u!1 &1174583647
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1174583648}
-  - component: {fileID: 1174583650}
-  - component: {fileID: 1174583649}
-  - component: {fileID: 1174583651}
-  m_Layer: 5
-  m_Name: Welcome Panel
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1174583648
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174583647}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 503595062}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!225 &1174583649
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174583647}
-  m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
---- !u!222 &1174583650
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174583647}
-  m_CullTransparentMesh: 1
---- !u!114 &1174583651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174583647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 088406140865040f8995b83cbf19498b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Note: This panel should not block raycasts. Otherwise, the deco spots will not
-    be triggered.
 --- !u!1 &1204019791
 GameObject:
   m_ObjectHideFlags: 0
@@ -3465,7 +3395,7 @@ RectTransform:
   - {fileID: 1073905304}
   - {fileID: 793827573}
   m_Father: {fileID: 503595062}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -3966,7 +3896,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 503595062}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4723,7 +4653,7 @@ MonoBehaviour:
   _blindFadeOutAnim: {fileID: 11400000, guid: 292c6ac69420242d7b551bb17a2fd0b4, type: 2}
   _panelFadeInAnim: {fileID: 11400000, guid: 19b9c1ac45d1c40e8895f6e71dd7ba9a, type: 2}
   _panelFadeOutAnim: {fileID: 11400000, guid: ecfacf4d2f18c4cd5a5b82e0dd688ba4, type: 2}
-  _welcomePanel: {fileID: 1174583647}
+  _welcomePanel: {fileID: 0}
   _startMenuPanel: {fileID: 2095921375}
   _settingsPanel: {fileID: 670656905}
   _pausePanel: {fileID: 853905566}
@@ -5216,7 +5146,7 @@ RectTransform:
   - {fileID: 294309981}
   - {fileID: 671250697}
   m_Father: {fileID: 503595062}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
