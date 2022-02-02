@@ -3,7 +3,8 @@
     "rootNamespace": "Minesweeper.UI",
     "references": [
         "GUID:bcfa8dc36c9604d6cb2002f81e414e6e",
-        "GUID:b2f63adbcb5ef468c944b34f44d31d49"
+        "GUID:b2f63adbcb5ef468c944b34f44d31d49",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 using Minesweeper.Event;
 using Minesweeper.Animation;
 
@@ -9,6 +11,11 @@ namespace Minesweeper.UI
     public class ButtonController : MonoBehaviour, 
         IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
     {
+        [Header("Component")]
+        [SerializeField] private Image _BGImage;
+        [SerializeField] private RectTransform _BGRectTransform;
+        [SerializeField] private TextMeshProUGUI _text;
+
         [Header("Event")]
         [Tooltip("Click is triggered if the pointer has been inside the button when it was both down and up.")]
         [SerializeField] private List<VoidEvent> _clickEvents;
@@ -23,8 +30,16 @@ namespace Minesweeper.UI
         [SerializeField] private List<VoidEvent> _exitEvents;
 
         [Header("Animtation")]
+        [SerializeField] private ImageColorTo _BGColorOnDown;
         [SerializeField] private ImageColorTo _BGColorOnEnter;
         [SerializeField] private ImageColorTo _BGColorOnExit;
+        [SerializeField] private ImageSpriteTo _BGSpriteOnDown;
+        [SerializeField] private ImageSpriteTo _BGSpriteOnEnter;
+        [SerializeField] private ImageSpriteTo _BGSpriteOnExit;
+        [SerializeField] private RectTransformScale _BGScaleOnDown;
+        [SerializeField] private RectTransformScale _BGScaleOnEnter;
+        [SerializeField] private RectTransformScale _BGScaleOnExit;
+        [SerializeField] private TMProColorTo _textColorOnDown;
         [SerializeField] private TMProColorTo _textColorOnEnter;
         [SerializeField] private TMProColorTo _textColorOnExit;
 
@@ -42,6 +57,10 @@ namespace Minesweeper.UI
             {
                 downEvent?.Raise();
             }
+            _BGColorOnDown?.PerformAsync(_BGImage);
+            _BGSpriteOnDown?.PerformAsync(_BGImage);
+            _BGScaleOnDown?.PerformAsync(_BGRectTransform);
+            _textColorOnDown?.PerformAsync(_text);
         }
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -49,6 +68,10 @@ namespace Minesweeper.UI
             {
                 enterEvent?.Raise();
             }
+            _BGColorOnEnter?.PerformAsync(_BGImage);
+            _BGSpriteOnEnter?.PerformAsync(_BGImage);
+            _BGScaleOnEnter?.PerformAsync(_BGRectTransform);
+            _textColorOnEnter?.PerformAsync(_text);
         }
 
         public void OnPointerExit(PointerEventData eventData)
@@ -57,6 +80,10 @@ namespace Minesweeper.UI
             {
                 exitEvent?.Raise();
             }
+            _BGColorOnExit?.PerformAsync(_BGImage);
+            _BGSpriteOnExit?.PerformAsync(_BGImage);
+            _BGScaleOnExit?.PerformAsync(_BGRectTransform);
+            _textColorOnExit?.PerformAsync(_text);
         }
     }
 }
