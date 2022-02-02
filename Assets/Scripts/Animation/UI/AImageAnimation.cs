@@ -1,12 +1,13 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Minesweeper.Animation
 {
-    public abstract class ACanvasGroupAnimation : AUIAnimation<CanvasGroup>
+    public abstract class AImageAnimation : AUIAnimation<Image>
     {
-        public override async Task PerformAsync(CanvasGroup canvasGroup,
+        public override async Task PerformAsync(Image image,
             Action onEnter = null, Action onPeak = null, Action onExit = null)
         {
             await Task.Yield();
