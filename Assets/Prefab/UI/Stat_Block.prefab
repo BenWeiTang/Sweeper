@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _statNumBlock: {fileID: 3248992634231044736}
+  _moveUpAnim: {fileID: 11400000, guid: ad9f57fc2ad874ae08b477b3780ff234, type: 2}
   _fadeInAnim: {fileID: 11400000, guid: f9b93c42864d7440cb915ac995936eee, type: 2}
   _fadeOutAnim: {fileID: 11400000, guid: 6d070ef9a80644278aceb7b1d3472acf, type: 2}
 --- !u!1 &3307215323989376838
