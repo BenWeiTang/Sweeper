@@ -6,7 +6,7 @@ using DG.Tweening;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Bounce", menuName = "3D Minesweeper/Animation/Spot/Bounce")]
-    public class Bounce : ASpotAnimation
+    public class Bounce : ATransformAnimation
     {
         [SerializeField, Range(0f, 0.1f)] private float _inDuration;
         [SerializeField, Range(0f, 0.2f)] private float _outDuration;
