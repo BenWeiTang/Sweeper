@@ -43,7 +43,6 @@ namespace Minesweeper.UI.PanelController
         private void UpdateEffText()
         {
             float efficiency = (float)((double)_safeSpotCount.value / (double)_clickCount.value) * 100;
-            // _effText.text = efficiency.ToString("n2") + "%";
             _effText.text = Mathf.RoundToInt(efficiency).ToString() + "%";
             _effDetailText.text = efficiency.ToString("n2") + "%";
         }
@@ -51,7 +50,6 @@ namespace Minesweeper.UI.PanelController
         private void UpdateACEText()
         {
             float ace = _ACE.value * 100f;
-            // _ACEText.text = ace.ToString("n2") + "%";
             _ACEText.text = Mathf.RoundToInt(ace) + "%";
             _ACEDetailText.text = ace.ToString("n2") + "%";
         }
