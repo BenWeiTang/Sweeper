@@ -6,6 +6,7 @@ using DG.Tweening;
 
 namespace Minesweeper.Animation
 {
+    [CreateAssetMenu(fileName = "TMPro Color To", menuName = "3D Minesweeper/Animation/UI/TMPro Color To")]
     public class TMProColorTo : ATMProAnimation
     {
         [SerializeField] private Color _targetColor;

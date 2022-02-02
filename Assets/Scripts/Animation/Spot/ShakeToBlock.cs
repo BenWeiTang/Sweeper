@@ -6,7 +6,7 @@ using DG.Tweening;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Shake To Block", menuName = "3D Minesweeper/Animation/Spot/Shake To Block")]
-    public class ShakeToBlock : ATransformAnimation
+    public class ShakeToBlock : ASerializedTargetAnimation<Transform>
     {
         [SerializeField] private float _duration;
 
@@ -25,8 +25,7 @@ namespace Minesweeper.Animation
         ///<summary>
         ///Performs a Switch-to-block animation. The Action onPeak must not be null and make sure to pass in the switching delegate.
         ///</summary>
-        ///<param name = "_">This Vector3 does absolutely nothing. Just don't bother.</param>
-        public override async Task PerformAsync(Transform controller, Vector3 _, Action onEnter, Action onPeak, Action onExit)
+        public override async Task PerformAsync(Transform controller, Action onEnter, Action onPeak, Action onExit)
         {
             Vector3 strength = new Vector3(X, Y, Z);
             onEnter?.Invoke();
