@@ -9,7 +9,6 @@ namespace Minesweeper.Editor
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            T instance = target as T;
 
             GUILayout.Space(10f);
         }
