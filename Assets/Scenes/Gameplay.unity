@@ -536,6 +536,8 @@ MonoBehaviour:
   _camera: {fileID: 1412377934}
   _bigShake: {fileID: 11400000, guid: 2ff9bb603943643ce841b9c9498aca4b, type: 2}
   _smallShake: {fileID: 11400000, guid: b29483e1be8ee42fdab9ec7589b5e747, type: 2}
+  _bigThreshold: {fileID: 11400000, guid: 3afd5b5441d6f41a5b1a29800b0d2c50, type: 2}
+  _smallThreshold: {fileID: 11400000, guid: b342f91e2e1c8427e88fa1c347399ee1, type: 2}
 --- !u!1001 &2732980785700630659
 PrefabInstance:
   m_ObjectHideFlags: 0
