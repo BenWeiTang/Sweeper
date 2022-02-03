@@ -4739,6 +4739,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1601160120}
   - component: {fileID: 1601160121}
+  - component: {fileID: 1601160123}
+  - component: {fileID: 1601160122}
+  - component: {fileID: 1601160124}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: AudioManager
@@ -4782,6 +4785,92 @@ MonoBehaviour:
   _BGMSoundBank: {fileID: 11400000, guid: 892bfd77bd86d44e9b1cdfece9802d7e, type: 2}
   _gameplayEffectSoundBank: {fileID: 11400000, guid: 892bfd77bd86d44e9b1cdfece9802d7e, type: 2}
   _UIEffectSoundBank: {fileID: 11400000, guid: 04c0d02487aa94196816d699b29ccbfa, type: 2}
+  _bigShake: {fileID: 11400000, guid: 3afd5b5441d6f41a5b1a29800b0d2c50, type: 2}
+  _smallShake: {fileID: 11400000, guid: b342f91e2e1c8427e88fa1c347399ee1, type: 2}
+--- !u!114 &1601160122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601160119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1709cbda25d4edc8699836e1cf0248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 4162b1d3d2ce8452aa4c5b93fb8452bb, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1601160121}
+        m_TargetAssemblyTypeName: Minesweeper.Core.AudioManager, Core
+        m_MethodName: OnCombo
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1601160123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601160119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1709cbda25d4edc8699836e1cf0248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: addaaf29477294ec690a3d681f9bca3d, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1601160121}
+        m_TargetAssemblyTypeName: Minesweeper.Core.AudioManager, Core
+        m_MethodName: OnMarked
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1601160124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601160119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 3dc3a6c2b969b481eafe7779193754d6, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1601160121}
+        m_TargetAssemblyTypeName: Minesweeper.Core.AudioManager, Core
+        m_MethodName: OnMineDetonated
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1652330010 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7558698151174822333, guid: 61ab7602910004a38be644d9ecf7af9e, type: 3}
@@ -4951,7 +5040,6 @@ MonoBehaviour:
   _blindFadeOutAnim: {fileID: 11400000, guid: 292c6ac69420242d7b551bb17a2fd0b4, type: 2}
   _panelFadeInAnim: {fileID: 11400000, guid: 19b9c1ac45d1c40e8895f6e71dd7ba9a, type: 2}
   _panelFadeOutAnim: {fileID: 11400000, guid: ecfacf4d2f18c4cd5a5b82e0dd688ba4, type: 2}
-  _welcomePanel: {fileID: 0}
   _startMenuPanel: {fileID: 2095921375}
   _settingsPanel: {fileID: 670656905}
   _pausePanel: {fileID: 853905566}

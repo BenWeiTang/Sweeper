@@ -18,3 +18,4 @@ MonoBehaviour:
   _upwardsModifier: 0
   _delayMinInMS: 12
   _delayMaxInMS: 28
+  MineDetonate: {fileID: 11400000, guid: 3dc3a6c2b969b481eafe7779193754d6, type: 2}

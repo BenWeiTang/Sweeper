@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using Minesweeper.Event;
 
 namespace Minesweeper.Animation
 {
@@ -14,6 +15,7 @@ namespace Minesweeper.Animation
         [SerializeField, Range(0f, 20f)] private float _upwardsModifier;
         [SerializeField, Range(0, 100)] private int _delayMinInMS;
         [SerializeField, Range(0, 100)] private int _delayMaxInMS;
+        [SerializeField] private VoidEvent MineDetonate;
 
         public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, Action onEnter = null, Action onEach = null, Action onExit = null)
         {
@@ -29,6 +31,7 @@ namespace Minesweeper.Animation
                     _upwardsModifier, ForceMode.Impulse
                 );
 
+                MineDetonate.Raise();
                 await Task.Delay(UnityEngine.Random.Range(_delayMinInMS, _delayMaxInMS));
             }
 
