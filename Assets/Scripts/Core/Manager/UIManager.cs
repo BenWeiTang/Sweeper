@@ -23,7 +23,6 @@ namespace Minesweeper.Core
         [Header("Panels")]
         [SerializeField] private CanvasGroupFade _panelFadeInAnim;
         [SerializeField] private CanvasGroupFade _panelFadeOutAnim;
-        [SerializeField] private GameObject _welcomePanel;
         [SerializeField] private GameObject _startMenuPanel;
         [SerializeField] private GameObject _settingsPanel;
         [SerializeField] private GameObject _pausePanel;
