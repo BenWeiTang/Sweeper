@@ -8,7 +8,7 @@ using DG.Tweening;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Bounce All", menuName = "3D Minesweeper/Animation/Grid/Bounce All")]
-    public class BounceAll : AGridAnimation<Transform>
+    public class BounceAll : ASerializedTargetAnimation<IEnumerable<Transform>>
     {
         [SerializeField, Range(0f, 1f)] private float _inDuration;
         [SerializeField, Range(0f, 1f)] private float _outDuration;
@@ -38,18 +38,6 @@ namespace Minesweeper.Animation
             }
             await Task.WhenAll(secondBounceTasks);
             onExit?.Invoke();
-        }
-
-        public override async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Vector3> _, Action onEnter = null, Action onPeak = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
-        }
-
-        public override async Task PerformAsync(IEnumerable<Transform> controllers, Vector3 _, Action onEnter = null, Action onPeak = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
         }
     }
 }

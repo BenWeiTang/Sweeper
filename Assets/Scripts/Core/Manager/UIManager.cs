@@ -74,12 +74,6 @@ namespace Minesweeper.Core
                 if (!LevelSystem.IsSameScene(SceneIndex.StartMenu, scene))
                     yield break;
 #endif
-
-                var panelOperation = FadeSetPanelActive(_welcomePanel, true);
-                while (!panelOperation.IsCompleted)
-                {
-                    yield return null;
-                }
             }
         }
 
@@ -159,7 +153,9 @@ namespace Minesweeper.Core
 
         public async void OnFirstClick()
         {
-            await FadeSwitchPanel(_startMenuPanel);
+            // await FadeSwitchPanel(_startMenuPanel);
+            await Task.Delay(1000);
+            await FadeSetPanelActive(_startMenuPanel, true);
         }
 
         // Called by the Settings Button in StartMenu panel, Back Button in the Settings panel

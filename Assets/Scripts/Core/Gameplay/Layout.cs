@@ -10,7 +10,7 @@ namespace Minesweeper.Core
 
         [Min(5)] public int Height;
 
-        [Range(0f, 90f)] public float MinePercentage = 20f;
+        [Min(5)] public int MineCount = 5;
 
         [Range(0f, 2f)] public float SpotSize = 0.4f;
 
@@ -24,5 +24,10 @@ namespace Minesweeper.Core
 
         [Header("Tweening")]
         public float SpawnSphereRadius = 15f;
+
+        private void OnValidate()
+        {
+            MineCount = Mathf.Min(MineCount, Mathf.FloorToInt(Height * Width * 0.2063f));
+        }
     }
 }

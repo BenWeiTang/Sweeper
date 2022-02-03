@@ -7,7 +7,7 @@ using DG.Tweening;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Rotate All Towards", menuName = "3D Minesweeper/Animation/Grid/Rotate All Towards")]
-    public class RotateAllTowards : AGridAnimation<Transform>
+    public class RotateAllTowards : ADynamicTargetAnimation<IEnumerable<Transform>, Vector3>
     {
         [SerializeField, Range(0f, 2f)] private float _minRotateTime;
         [SerializeField, Range(0f, 2f)] private float _maxRotateTime;
@@ -26,17 +26,6 @@ namespace Minesweeper.Animation
             }
             await Task.WhenAll(rotationTasks);
             onExit?.Invoke();
-        }
-
-        public override async Task PerformAsync(IEnumerable<Transform> controllers, Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
-        }
-        public override async Task PerformAsync(IEnumerable<Transform> controllers, IEnumerable<Vector3> _, Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
         }
     }
 }

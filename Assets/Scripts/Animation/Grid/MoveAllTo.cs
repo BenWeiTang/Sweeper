@@ -8,7 +8,7 @@ using DG.Tweening;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "Move All To", menuName = "3D Minesweeper/Animation/Grid/Move All To")]
-    public class MoveAllTo : AGridAnimation<Transform>
+    public class MoveAllTo : ADynamicTargetAnimation<IEnumerable<Transform>, IEnumerable<Vector3>>
     {
         [SerializeField, Range(0f, 5f)] private float _minMoveTime;
         [SerializeField, Range(0f, 5f)] private float _maxMoveTime;
@@ -29,16 +29,6 @@ namespace Minesweeper.Animation
             }
             await Task.WhenAll(tasks);
             onExit?.Invoke();
-        }
-        public override async Task PerformAsync(IEnumerable<Transform> controllers, Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
-        }
-        public override async Task PerformAsync(IEnumerable<Transform> controllers, Vector3 _, Action onEnter = null, Action onEach = null, Action onExit = null)
-        {
-            await Task.Yield();
-            throw new NotSupportedException();
         }
     }
 }

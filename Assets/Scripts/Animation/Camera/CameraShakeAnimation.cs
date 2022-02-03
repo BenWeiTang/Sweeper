@@ -6,7 +6,7 @@ using DG.Tweening;
 namespace Minesweeper.Animation
 {
     [CreateAssetMenu(fileName = "New Camera Shake", menuName = "3D Minesweeper/Animation/Camera/Shake")]
-    public class CameraShakeAnimation : ScriptableObject
+    public class CameraShakeAnimation : ASerializedTargetAnimation<Camera>
     {
         [SerializeField] private float _duration;
         [SerializeField] private Vector3 _strength;
@@ -14,7 +14,7 @@ namespace Minesweeper.Animation
         [SerializeField] private float _randomness;
         [SerializeField] private bool _fadeOut;
 
-        public async Task PerformAsync(Camera camera, Action onEnter = null, Action _ = null, Action onExit = null)
+        public override async Task PerformAsync(Camera camera, Action onEnter = null, Action _ = null, Action onExit = null)
         {
             onEnter?.Invoke();
             await camera.DOShakePosition(_duration, _strength, _vibrato, _randomness, _fadeOut).AsyncWaitForCompletion();
