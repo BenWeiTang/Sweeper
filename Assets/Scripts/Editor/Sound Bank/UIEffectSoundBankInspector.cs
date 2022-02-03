@@ -17,7 +17,7 @@ namespace Minesweeper.Editor
         {
             if (GUILayout.Button("Update"))
             {
-
+                instance.UpdatePlayList();
             }
         }
     }
