@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEditor;
 
-namespace Minesweeper.Audio
+namespace Minesweeper.Editor
 {
     public static class AudioUtility
     {

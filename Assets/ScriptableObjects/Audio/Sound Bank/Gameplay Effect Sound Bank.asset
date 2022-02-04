@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Gameplay Effect Sound Bank
   m_EditorClassIdentifier: 
   _tracks:
-  - track: {fileID: 0}
+  - track: {fileID: 11400000, guid: 233fdeb6cf91045779ee8807303e4178, type: 2}
     type: 0
-  - track: {fileID: 0}
+  - track: {fileID: 11400000, guid: a81b43fd1c6f0454288bb12bf6d69cfd, type: 2}
     type: 1
-  - track: {fileID: 0}
+  - track: {fileID: 11400000, guid: bba092421f24548c8aaec7a6804c5782, type: 2}
     type: 2
-  - track: {fileID: 0}
+  - track: {fileID: 11400000, guid: 1e8e1ae426b2846e4be9a34773a07e5c, type: 2}
     type: 3
-  - track: {fileID: 0}
+  - track: {fileID: 11400000, guid: 6cfe59b7701ac4aa38604598f8b1401e, type: 2}
     type: 4
-  - track: {fileID: 0}
+  - track: {fileID: 11400000, guid: 325f9a2e90d3147209e992ab707f8f65, type: 2}
     type: 5
