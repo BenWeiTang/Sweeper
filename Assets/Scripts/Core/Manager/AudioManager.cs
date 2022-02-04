@@ -79,11 +79,11 @@ namespace Minesweeper.Core
         private void PlaySound(AudioSource audioSource, Track track)
         {
             audioSource.clip = track.track;
-            if (!audioSource.isPlaying)
+            if (audioSource.isPlaying)
             {
-                audioSource.Play();
+                audioSource.Stop();
             }
-            // audioSource.clip = null;
+            audioSource.Play();
         }
         #endregion
     }

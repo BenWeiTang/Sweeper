@@ -19,17 +19,13 @@ namespace Minesweeper.Audio
             {
                 _playlist[track.type] = track.track;
             }
-            
-            // foreach (var entry in _playlist)
-            // {
-            //     Debug.Log(entry.Key.ToString());
-            //     Debug.Log(entry.Value.ToString());
-            // }
         }
 
         public virtual Track GetTrack(T type) 
         {
-            UpdatePlaylist();
+            if (!_playlist.ContainsKey(type))
+                UpdatePlaylist();
+
             return _playlist[type];
         }
 
