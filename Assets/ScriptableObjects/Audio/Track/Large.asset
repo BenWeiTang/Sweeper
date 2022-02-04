@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f55ed09ab15c947a8af9ce72c42685a3, type: 3}
-  m_Name: Spot_02
+  m_Name: Large
   m_EditorClassIdentifier: 
-  track: {fileID: 8300000, guid: 3a18b2270c9794eda9a0287657ad2d29, type: 3}
+  track: {fileID: 0}
   trackName: 
   author: 

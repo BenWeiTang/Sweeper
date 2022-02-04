@@ -83,7 +83,7 @@ namespace Minesweeper.Core
             {
                 audioSource.Play();
             }
-            audioSource.clip = null;
+            // audioSource.clip = null;
         }
         #endregion
     }
