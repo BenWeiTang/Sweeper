@@ -11,9 +11,9 @@ namespace Minesweeper.Audio
 
         public virtual void UpdatePlayList()
         {
-            if (_tracks == null || _tracks.Count == 0)
+            if (_tracks == null)
                 return;
-            
+             
             _playlist.Clear();
             foreach(var track in _tracks)
             {

@@ -4782,9 +4782,9 @@ MonoBehaviour:
   _effectGroup: {fileID: -4684761788416997603, guid: 2e67523eaf72a400aa4e4d66490ee4e6, type: 2}
   _BGMSource: {fileID: 937753905}
   _effectSource: {fileID: 428122525}
-  _BGMSoundBank: {fileID: 11400000, guid: 892bfd77bd86d44e9b1cdfece9802d7e, type: 2}
-  _gameplayEffectSoundBank: {fileID: 11400000, guid: 892bfd77bd86d44e9b1cdfece9802d7e, type: 2}
-  _UIEffectSoundBank: {fileID: 11400000, guid: 04c0d02487aa94196816d699b29ccbfa, type: 2}
+  _BGMSoundBank: {fileID: 11400000, guid: e782b4d169b074ff7abf1b2a6fd4df11, type: 2}
+  _gameplayEffectSoundBank: {fileID: 11400000, guid: c9149792a5ff34e1ea43b80f52c03707, type: 2}
+  _UIEffectSoundBank: {fileID: 11400000, guid: 11f9f086638824e7d8dd2d49fb2b6934, type: 2}
   _bigShake: {fileID: 11400000, guid: 3afd5b5441d6f41a5b1a29800b0d2c50, type: 2}
   _smallShake: {fileID: 11400000, guid: b342f91e2e1c8427e88fa1c347399ee1, type: 2}
 --- !u!114 &1601160122
