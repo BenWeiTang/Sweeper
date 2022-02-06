@@ -84,7 +84,6 @@ namespace Minesweeper.Core
 
         public void Mark()
         {
-            //TODO: Allow for 1 stored click
             if (animController.AnimIsPlaying)
                 return;
 
@@ -145,10 +144,7 @@ namespace Minesweeper.Core
 
         public void HideSpot()
         {
-            if (spot.State == SpotState.Marked)
-                animController.SwtichToBlock(Block.Marked);
-            else
-                animController.SwtichToBlock(Block.Untouched);
+            animController.SwtichToBlock(spot.State == SpotState.Marked ? Block.Marked : Block.Untouched);
         }
 #endif
     }
