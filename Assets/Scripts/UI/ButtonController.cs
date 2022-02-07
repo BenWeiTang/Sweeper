@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,12 +44,16 @@ namespace Minesweeper.UI
         [SerializeField] private TMProColorTo _textColorOnEnter;
         [SerializeField] private TMProColorTo _textColorOnExit;
 
+        public event Action OnButtonClick;
+
         public void OnPointerClick(PointerEventData eventData)
         {
             foreach (var clickEvent in _clickEvents)
             {
                 clickEvent?.Raise();
             }
+            
+            OnButtonClick?.Invoke();
         }
 
         public void OnPointerDown(PointerEventData eventData)

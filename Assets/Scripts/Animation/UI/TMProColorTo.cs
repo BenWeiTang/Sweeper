@@ -11,11 +11,12 @@ namespace Minesweeper.Animation
     {
         [SerializeField] private Color _targetColor;
         [SerializeField] private float _duration;
+        [SerializeField] private Ease _easeMode;
 
         public override async Task PerformAsync(TextMeshProUGUI item, Action onEnter = null, Action _ = null, Action onExit = null)
         {
             onEnter?.Invoke();
-            await item.DOColor(_targetColor, _duration).AsyncWaitForCompletion();
+            await item.DOColor(_targetColor, _duration).SetEase(_easeMode).AsyncWaitForCompletion();
             onExit?.Invoke();
         }
     }
