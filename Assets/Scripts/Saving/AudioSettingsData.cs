@@ -2,11 +2,11 @@ namespace Minesweeper.Saving
 {
     public class AudioSettingsData
     {
-        public float MasterVolume;
-        public float BGMVolume;
-        public float EffectVolume;
-        public bool Mute;
-        public bool MuteBGM;
-        public bool MuteEffect;
+        public float MasterVolume = 100f;
+        public float BGMVolume = 100f;
+        public float EffectVolume = 100f;
+        public bool Mute = false;
+        public bool MuteBGM = false;
+        public bool MuteEffect = false;
     }
 }
