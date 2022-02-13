@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using Minesweeper.Animation;
+using Minesweeper.Saving;
 using TMPro;
+using UnityEngine.PlayerLoop;
 
 namespace Minesweeper.UI
 {
@@ -28,12 +30,14 @@ namespace Minesweeper.UI
         private Tab _generalTab;
         private Tab _audioTab;
         private Tab _customizeTab;
+        private MasterSettingsData _settingsData;
 
         private void Awake()
         {
             _generalTab = new Tab(_generalTabContent, _generalButton);
             _audioTab = new Tab(_audioTabContent, _audioButton);
             _customizeTab = new Tab(_customizeTabContent, _customizeButton);
+            _settingsData = SettingsSerializer.LoadSettings();
             
             _generalTab.AddListener(OnGeneralButtonClicked);
             _audioTab.AddListener(OnAudioButtonClicked);
@@ -43,6 +47,8 @@ namespace Minesweeper.UI
         private void OnEnable()
         {
             SwitchToTab(_generalTab);
+            _settingsData = SettingsSerializer.LoadSettings();
+            UpdateSettings();
         }
 
         private void OnDisable()
@@ -55,7 +61,6 @@ namespace Minesweeper.UI
             SwitchToTab(_generalTab);
         }
 
-
         private void OnAudioButtonClicked()
         {
             SwitchToTab(_audioTab);
@@ -66,6 +71,13 @@ namespace Minesweeper.UI
             SwitchToTab(_customizeTab);
         }
 
+        private void UpdateSettings()
+        {
+            if (_settingsData == null) return;
+            
+            
+        }
+        
         private async void SwitchToTab(Tab target)
         {
             if (CurrentTab.Content == target.Content)
