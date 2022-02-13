@@ -10,18 +10,17 @@ namespace Minesweeper.Core
 {
     public class UIManager : AManager<UIManager>
     {
-        [Header("Event")]
-        [SerializeField] private VoidEvent FadeBlindOutComplete;
+        [Header("Event")] [SerializeField] private VoidEvent FadeBlindOutComplete;
         [SerializeField] private VoidEvent SettingsButtonClick;
         [SerializeField] private VoidEvent LeaveMenu;
 
-        [Header("Fade Blind")]
-        [SerializeField] private CanvasGroup _blind;
+        [Header("Fade Blind")] [SerializeField]
+        private CanvasGroup _blind;
+
         [SerializeField] private CanvasGroupFade _blindFadeInAnim;
         [SerializeField] private CanvasGroupFade _blindFadeOutAnim;
 
-        [Header("Panels")]
-        [SerializeField] private CanvasGroupFade _panelFadeInAnim;
+        [Header("Panels")] [SerializeField] private CanvasGroupFade _panelFadeInAnim;
         [SerializeField] private CanvasGroupFade _panelFadeOutAnim;
         [SerializeField] private GameObject _startMenuPanel;
         [SerializeField] private GameObject _settingsPanel;
@@ -39,9 +38,6 @@ namespace Minesweeper.Core
 
             SceneManager.sceneLoaded += (scene, mode) =>
             {
-                _blind.alpha = 1f;
-                _blind.blocksRaycasts = true;
-
                 /*
                 Persistent is loaded before StartMenu
                 This means that the first time this callback is invoked, 
@@ -52,6 +48,13 @@ namespace Minesweeper.Core
                 */
                 if (LevelSystem.IsSameScene(SceneIndex.Persistent, scene))
                     return;
+
+                //FIXME: temp solution to nullref
+                if (_blind)
+                {
+                    _blind.alpha = 1f;
+                    _blind.blocksRaycasts = true;
+                }
 
                 if (_isFirstTime)
                 {
@@ -234,10 +237,10 @@ namespace Minesweeper.Core
             {
                 await _blindFadeOutAnim.PerformAsync(
                     _blind,
-                    null, // onEnter
-                    null, // onPeak
+                    null,
+                    null,
                     () =>
-                    { //onExit
+                    {
                         _blind.blocksRaycasts = false;
                         FadeBlindOutComplete.Raise();
                     }

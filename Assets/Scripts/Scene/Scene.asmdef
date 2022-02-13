@@ -1,7 +1,9 @@
 {
     "name": "Scene",
     "rootNamespace": "Minesweeper.Scene",
-    "references": [],
+    "references": [
+        "GUID:cef233af998cb459398395927061083e"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

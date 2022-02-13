@@ -5,7 +5,7 @@ namespace Minesweeper.Saving
 {
     public static class SettingsSerializer
     {
-        private const string PATH = "Settings.json";
+        public const string PATH = "Settings.json";
         
         public static void SaveSettings(MasterSettingsData masterSettingsData)
         {
