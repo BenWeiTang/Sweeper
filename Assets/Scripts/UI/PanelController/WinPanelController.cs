@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using Minesweeper.Reference;
 
-namespace Minesweeper.UI.PanelController
+namespace Minesweeper.UI
 {
     public class WinPanelController : APanelController
     {

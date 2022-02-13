@@ -5,7 +5,7 @@ using UnityEngine;
 using Minesweeper.Animation;
 using TMPro;
 
-namespace Minesweeper.UI.PanelController
+namespace Minesweeper.UI
 {
     public class SettingsPanelController : APanelController
     {
@@ -126,21 +126,19 @@ namespace Minesweeper.UI.PanelController
     [Serializable]
     public struct Tab
     {
-        public CanvasGroup Content => _content;
-        public ButtonController ButtonController => _buttonController;
-        public TextMeshProUGUI ButtonText => _buttonText;
-        
-        private CanvasGroup _content;
-        private ButtonController _buttonController;
-        private TextMeshProUGUI _buttonText;
+        public CanvasGroup Content { get; }
+
+        public ButtonController ButtonController { get; }
+
+        public TextMeshProUGUI ButtonText { get; }
 
         public Tab(CanvasGroup content, ButtonController buttonController)
         {
-            this._content = content;
-            this._buttonController = buttonController;
-            this._buttonText = buttonController.GetComponentInChildren<TextMeshProUGUI>();
+            Content = content;
+            ButtonController = buttonController;
+            ButtonText = buttonController.GetComponentInChildren<TextMeshProUGUI>();
         }
 
-        public void AddListener(Action callback) => _buttonController.OnButtonClick += callback;
+        public void AddListener(Action callback) => ButtonController.OnButtonClick += callback;
     }
 }
