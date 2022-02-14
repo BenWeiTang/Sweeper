@@ -5,7 +5,7 @@ namespace Minesweeper.Saving
 {
     public static class SettingsSerializer
     {
-        public const string PATH = "Settings.json";
+        public const string PATH = "/GameSettings.json";
         
         public static void SaveSettings(MasterSettingsData masterSettingsData)
         {
@@ -15,6 +15,7 @@ namespace Minesweeper.Saving
 
         public static MasterSettingsData LoadSettings()
         {
+            Debug.Log($"Loading settings from {Application.dataPath + PATH}");
             string json = File.ReadAllText(Application.dataPath + PATH);
             return JsonUtility.FromJson<MasterSettingsData>(json);
         }
