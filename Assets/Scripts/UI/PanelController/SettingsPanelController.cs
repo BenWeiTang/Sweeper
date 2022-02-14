@@ -43,7 +43,7 @@ namespace Minesweeper.UI
         private Tab _generalTab;
         private Tab _audioTab;
         private Tab _customizeTab;
-        private Tab _voidTab = new Tab();
+        private readonly Tab _voidTab = new Tab();
 
         
         public void SaveSettings()
@@ -115,6 +115,7 @@ namespace Minesweeper.UI
             _difficulty.UpdateCurrentController(targetControllerID);
             _useEasyClear.isOn = settings.GeneralSettingsData.EasyClear;
             _masterVolume.value = settings.AudioSettingsData.MasterVolume;
+            _bgmVolume.value = settings.AudioSettingsData.BGMVolume;
             _sfxVolume.value = settings.AudioSettingsData.EffectVolume;
             _muteMaster.isOn = settings.AudioSettingsData.Mute;
             _muteBgm.isOn = settings.AudioSettingsData.MuteBGM;
@@ -197,64 +198,5 @@ namespace Minesweeper.UI
         }
 
         public void AddListener(Action callback) => ButtonController.OnButtonClick += callback;
-    }
-
-    public abstract class TabController
-    {
-        public CanvasGroup Content { get; }
-        public ButtonController ButtonController { get; }
-        public TextMeshProUGUI ButtonText { get; }
-
-        public TabController(CanvasGroup content, ButtonController buttonController)
-        {
-            Content = content;
-            ButtonController = buttonController;
-            ButtonText = buttonController.GetComponentInChildren<TextMeshProUGUI>();
-        }
-
-        public abstract void UpdateSettings(MasterSettingsData data);
-
-        public void AddListener(Action callback) => ButtonController.OnButtonClick += callback;
-    }
-
-    public class GeneralTab : TabController
-    {
-        private ToggleGroupController _difficulty;
-        private Toggle _useEasyClear;
-        
-        public GeneralTab(CanvasGroup content, ButtonController buttonController, ToggleGroupController difficulty, Toggle useEasyClear) : base(content, buttonController)
-        {
-            _difficulty = difficulty;
-            _useEasyClear = useEasyClear;
-        }
-
-        public override void UpdateSettings(MasterSettingsData data)
-        {
-            var generalSettingsData = data.GeneralSettingsData;
-        }
-    }
-
-    public class AudioTab : TabController
-    {
-        public AudioTab(CanvasGroup content, ButtonController buttonController) : base(content, buttonController)
-        {
-        }
-
-        public override void UpdateSettings(MasterSettingsData data)
-        {
-            var audioSettingsData = data.AudioSettingsData;
-        }
-    }
-
-    public class CustomizeTab : TabController
-    {
-        public CustomizeTab(CanvasGroup content, ButtonController buttonController) : base(content, buttonController)
-        {
-        }
-
-        public override void UpdateSettings(MasterSettingsData data)
-        {
-            var customizeSettingsData = data.CustomizeSettingsData;
-        }
     }
 }

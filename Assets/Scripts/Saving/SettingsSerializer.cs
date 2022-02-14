@@ -15,7 +15,6 @@ namespace Minesweeper.Saving
 
         public static MasterSettingsData LoadSettings()
         {
-            Debug.Log($"Loading settings from {Application.dataPath + PATH}");
             string json = File.ReadAllText(Application.dataPath + PATH);
             return JsonUtility.FromJson<MasterSettingsData>(json);
         }
