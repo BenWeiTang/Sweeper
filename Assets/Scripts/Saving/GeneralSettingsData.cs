@@ -1,16 +1,14 @@
 namespace Minesweeper.Saving
 {
-    public class GeneralSettingsDate
+    public class GeneralSettingsData
     {
         public int Difficulty;
         public bool EasyClear;
-        public bool ShowPostGameAnimation;
 
-        public GeneralSettingsDate()
+        public GeneralSettingsData()
         {
             Difficulty = 0;
             EasyClear = false;
-            ShowPostGameAnimation = true;
         }
     }
 }
