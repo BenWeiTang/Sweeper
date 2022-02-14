@@ -7,12 +7,15 @@ namespace Minesweeper.UI
     public class ToggleController : MonoBehaviour, IPointerClickHandler
     {
         public int ID => _id;
+        public bool IsOn => _isOn;
 
         [SerializeField] private int _id;
         [SerializeField] private Image _image;
         [SerializeField] private ToggleGroupController _groupController;
         [SerializeField] private bool _isOn;
         private float _defaultAlpha;
+        
+        public void Select() => _groupController.Select(this);
         
         private void Awake()
         {
@@ -35,8 +38,6 @@ namespace Minesweeper.UI
         {
             Select();
         }
-
-        private void Select() => _groupController.Select(this);
 
         private void OnToggleSelected(ToggleController toggleController)
         {
