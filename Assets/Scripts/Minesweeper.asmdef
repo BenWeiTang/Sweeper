@@ -1,3 +1,14 @@
 {
-	"name": "Minesweeper"
+    "name": "Minesweeper",
+    "rootNamespace": "Minesweeper",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
