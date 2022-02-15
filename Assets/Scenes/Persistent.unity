@@ -252,7 +252,7 @@ MonoBehaviour:
   _id: 1
   _image: {fileID: 151141767}
   _groupController: {fileID: 1658358870}
-  _isOn: 1
+  _isOn: 0
 --- !u!114 &151141767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3159,17 +3159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _generalTabContent: {fileID: 1326374212}
   _generalButton: {fileID: 1282636798}
-  _difficulty: {fileID: 1658358870}
-  _useEasyClear: {fileID: 1940001827}
   _audioTabContent: {fileID: 1974719538}
   _audioButton: {fileID: 813781194}
-  _muteMaster: {fileID: 2036705414}
-  _masterVolume: {fileID: 1639774266}
-  _muteBgm: {fileID: 631811866}
-  _bgmVolume: {fileID: 665857443}
-  _muteSfx: {fileID: 902009367}
-  _sfxVolume: {fileID: 1811122033}
-  _masterMixer: {fileID: 24100000, guid: 2e67523eaf72a400aa4e4d66490ee4e6, type: 2}
   _customizeTabContent: {fileID: 185310251}
   _customizeButton: {fileID: 939075577}
   _tabFadeInAnim: {fileID: 11400000, guid: 4613557a3cc5944519f747b064580d38, type: 2}
@@ -7954,6 +7945,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c0ca55abcf14b37af3d0c98889ea79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _controllers:
+  - {fileID: 1466201212}
+  - {fileID: 151141766}
+  - {fileID: 2022358552}
 --- !u!1 &1674972600
 GameObject:
   m_ObjectHideFlags: 0
