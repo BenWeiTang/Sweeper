@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 namespace Minesweeper.UI
@@ -32,9 +31,13 @@ namespace Minesweeper.UI
         {
             ToggleSelected += OnSelected;
             _controllers = GetComponentsInChildren<ToggleController>().ToList();
+            // Grab the one that is manually set to active in the inspector as the current active toggle controller
             CurrentToggleController = _controllers.First(c => c.IsOn);
         }
 
-        private void OnSelected(ToggleController toggleController) => CurrentToggleController = toggleController;
+        private void OnSelected(ToggleController toggleController)
+        {
+            CurrentToggleController = toggleController;
+        }
     }
 }

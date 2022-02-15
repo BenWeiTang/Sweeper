@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 using Minesweeper.Animation;
-using Minesweeper.Saving;
 using TMPro;
 
 namespace Minesweeper.UI
@@ -12,23 +10,15 @@ namespace Minesweeper.UI
     public class SettingsPanelController : APanelController
     {
         public override PanelType Type => PanelType.Settings;
-        public Tab CurrentTab { get; private set; }
+        private Tab CurrentTab { get; set; }
 
         [Header("General Tab")] 
         [SerializeField] private CanvasGroup _generalTabContent;
         [SerializeField] private ButtonController _generalButton;
-        [SerializeField] private ToggleGroupController _difficulty;
-        [SerializeField] private Toggle _useEasyClear;
         
         [Header("Audio Tab")]
         [SerializeField] private CanvasGroup _audioTabContent;
         [SerializeField] private ButtonController _audioButton;
-        [SerializeField] private Toggle _muteMaster;
-        [SerializeField] private Slider _masterVolume;
-        [SerializeField] private Toggle _muteBgm;
-        [SerializeField] private Slider _bgmVolume;
-        [SerializeField] private Toggle _muteSfx;
-        [SerializeField] private Slider _sfxVolume;
         
         [Header("Customize Tab")]
         [SerializeField] private CanvasGroup _customizeTabContent;
@@ -44,39 +34,6 @@ namespace Minesweeper.UI
         private Tab _audioTab;
         private Tab _customizeTab;
         private readonly Tab _voidTab = new Tab();
-
-        
-        public void SaveSettings()
-        {
-            int newDifficulty = _difficulty.CurrentID switch
-            {
-                0 => 0,
-                1 => 1,
-                2 => 2,
-                _ => 0
-            };
-            
-            var newSettings = new MasterSettingsData
-            {
-                GeneralSettingsData =
-                {
-                    Difficulty = newDifficulty,
-                    EasyClear = _useEasyClear.isOn
-                },
-                AudioSettingsData =
-                {
-                    MasterVolume = _masterVolume.value,
-                    BGMVolume = _bgmVolume.value,
-                    EffectVolume = _sfxVolume.value,
-                    Mute = _muteMaster.isOn,
-                    MuteEffect = _muteSfx.isOn,
-                    MuteBGM = _muteBgm.isOn
-                }
-            };
-            
-            SettingsSerializer.SaveSettings(newSettings);
-        }
-        
         private void Awake()
         {
             _generalTab = new Tab(_generalTabContent, _generalButton);
@@ -87,40 +44,22 @@ namespace Minesweeper.UI
             _audioTab.AddListener(OnAudioButtonClicked);
             _customizeTab.AddListener(OnCustomizeButtonClicked);
         }
-
+        
         private void OnEnable()
         {
             SwitchToTab(_generalTab);
-            ReadFromJson();
         }
 
-        private void OnDisable() => ResetAllTabs();
+        private void OnDisable()
+        {
+            ResetAllTabs();
+        }
 
         private void OnGeneralButtonClicked() => SwitchToTab(_generalTab);
 
         private void OnAudioButtonClicked() => SwitchToTab(_audioTab);
 
         private void OnCustomizeButtonClicked() => SwitchToTab(_customizeTab);
-
-        private void ReadFromJson()
-        {
-            var settings = SettingsSerializer.LoadSettings();
-            int targetControllerID = settings.GeneralSettingsData.Difficulty switch
-            {
-                0 => 0,
-                1 => 1,
-                2 => 2,
-                _ => 0
-            };
-            _difficulty.UpdateCurrentController(targetControllerID);
-            _useEasyClear.isOn = settings.GeneralSettingsData.EasyClear;
-            _masterVolume.value = settings.AudioSettingsData.MasterVolume;
-            _bgmVolume.value = settings.AudioSettingsData.BGMVolume;
-            _sfxVolume.value = settings.AudioSettingsData.EffectVolume;
-            _muteMaster.isOn = settings.AudioSettingsData.Mute;
-            _muteBgm.isOn = settings.AudioSettingsData.MuteBGM;
-            _muteSfx.isOn = settings.AudioSettingsData.MuteEffect;
-        }
 
         private async void SwitchToTab(Tab target)
         {
@@ -166,17 +105,21 @@ namespace Minesweeper.UI
 
         private void ResetAllTabs()
         {
-            ResetTab(_generalTab.Content);
-            ResetTab(_audioTab.Content);
-            ResetTab(_customizeTab.Content);
+            ResetTab(_generalTab);
+            ResetTab(_audioTab);
+            ResetTab(_customizeTab);
             CurrentTab = _voidTab;
 
-            void ResetTab(CanvasGroup item)
+            void ResetTab(Tab target)
             {
+                var item = target.Content;
+                var text = target.ButtonText;
+                
                 item.gameObject.SetActive(false);
                 item.alpha = 0f;
                 item.interactable = false;
                 item.blocksRaycasts = false;
+                _colorToOutAnim.PerformAsync(text);
             }
         }
     }
