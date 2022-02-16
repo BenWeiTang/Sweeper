@@ -1,5 +1,6 @@
+using System;
+using Minesweeper.Saving;
 using UnityEngine;
-using Minesweeper.Reference;
 
 namespace Minesweeper.Core
 {
@@ -9,10 +10,16 @@ namespace Minesweeper.Core
         [SerializeField] private ComboController _comboController;
         [SerializeField] private ACEController _ACEController;
 
-        internal Ray ScreenPointToRay {get; private set;} = new Ray();
+        private Ray ScreenPointToRay {get; set;} = new Ray();
 
         private ISpot _currentISpot;
         private float _lastEscDown;
+        private bool _useEasyClear;
+
+        private void Awake()
+        {
+            _useEasyClear = SettingsManager.Instance.MasterSettingsData.GeneralSettingsData.EasyClear;
+        }
 
         private void Update()
         {
@@ -33,7 +40,7 @@ namespace Minesweeper.Core
             {
                 LeftClick();
 
-                if (Input.GetMouseButton(1))
+                if (Input.GetMouseButton(1) && !_useEasyClear)
                 {
                     DoubleDown(false);
                 }
@@ -42,7 +49,7 @@ namespace Minesweeper.Core
             {
                 RightClick();
 
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) && !_useEasyClear)
                 {
                     DoubleDown(false);
                 }
@@ -62,6 +69,14 @@ namespace Minesweeper.Core
                 _ACEController.UpdateClickCount(1);
                 _comboController.StartCountingDigs();
                 _currentISpot.Dig();
+
+                if (_useEasyClear)
+                {
+                    // This is stupid but should work
+                    // This double down is zero in the delta
+                    _ACEController.UpdateClickCount(-1);
+                    DoubleDown(true);
+                }
             }
         }
 
