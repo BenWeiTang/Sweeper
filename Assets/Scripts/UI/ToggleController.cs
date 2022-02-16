@@ -1,6 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Minesweeper.UI
 {
@@ -13,6 +14,8 @@ namespace Minesweeper.UI
         [SerializeField] private Image _image;
         [SerializeField] private ToggleGroupController _groupController;
         [SerializeField] private bool _isOn;
+        [SerializeField] private UnityEvent _onSelected;
+        
         private float _defaultAlpha;
         
         public void Select() => _groupController.Select(this);
@@ -37,6 +40,7 @@ namespace Minesweeper.UI
         public void OnPointerClick(PointerEventData eventData)
         {
             Select();
+            _onSelected?.Invoke();
         }
 
         private void OnToggleSelected(ToggleController toggleController)

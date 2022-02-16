@@ -13,7 +13,9 @@ namespace Minesweeper.Core
 
 
         [Header("Setting")]
-        [SerializeField] private Layout _defaultLayout;
+        [SerializeField] private Layout _easyLayout;
+        [SerializeField] private Layout _mediumLayout;
+        [SerializeField] private Layout _hardLayout;
 
         [Header("Event")]
         [SerializeField] private VoidEvent GamePause;
@@ -29,11 +31,12 @@ namespace Minesweeper.Core
         {
             get
             {
-                if (_layout == null)
-                    _layout = _defaultLayout;
+                UpdateDifficulty();
+                if (_layout == null) 
+                    _layout = _mediumLayout;
                 return _layout;
             }
-            private set { }
+            private set => _layout = value;
         }
 
 
@@ -86,6 +89,17 @@ namespace Minesweeper.Core
         {
             CurrentState = GameState.PostGame;
             PostGameEnter.Raise(won);
+        }
+
+        private void UpdateDifficulty()
+        {
+            CurrentLayout = SettingsManager.Instance.MasterSettingsData.GeneralSettingsData.Difficulty switch
+            {
+                0 => _easyLayout,
+                1 => _mediumLayout,
+                2 => _hardLayout,
+                _ => _mediumLayout
+            };
         }
 
         private async Task UnloadThenLoadScene(SceneIndex toUnload, SceneIndex toLoad)
