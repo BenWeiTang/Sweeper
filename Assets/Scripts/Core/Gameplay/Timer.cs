@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 using Minesweeper.Reference;
 
@@ -7,16 +8,17 @@ namespace Minesweeper.Core
     {
         [SerializeField] private FloatRef _time;
 
-        private float _start = 0f;
+        private Stopwatch _stopwatch;
 
-        public void OnFirstSafeSpotDug()
-        {
-            _start = Time.time;
-        }
+        private void Awake() => _stopwatch = new Stopwatch();
         
+        public void OnFirstSafeSpotDug() => _stopwatch.Restart();
+        public void OnGamePaused() => _stopwatch.Stop(); 
+        public void OnGameResumed() => _stopwatch.Start();
         public void OnGameFinished()
         {
-            _time.value = Time.time - _start;
+            _stopwatch.Stop();
+            _time.value = (float) _stopwatch.Elapsed.TotalSeconds;
         }
     }
 }

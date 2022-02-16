@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: -6928085397785770335}
   - component: {fileID: 5744018058956544400}
   - component: {fileID: -295334388649624584}
+  - component: {fileID: 7762975517413492411}
+  - component: {fileID: -9053884226365717346}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -94,6 +96,62 @@ MonoBehaviour:
       - m_Target: {fileID: -6928085397785770335}
         m_TargetAssemblyTypeName: Minesweeper.Core.Timer, Core
         m_MethodName: OnGameFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7762975517413492411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8367538911680370214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: aa90a7233f1654b95880032616ac2352, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6928085397785770335}
+        m_TargetAssemblyTypeName: Minesweeper.Core.Timer, Core
+        m_MethodName: OnGamePaused
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-9053884226365717346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8367538911680370214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 29723e4b7e22a4395a7081bb3458df63, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6928085397785770335}
+        m_TargetAssemblyTypeName: Minesweeper.Core.Timer, Core
+        m_MethodName: OnGameResumed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
