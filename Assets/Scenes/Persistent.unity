@@ -8262,6 +8262,7 @@ MonoBehaviour:
   _winPanel: {fileID: 713689502}
   _losePanel: {fileID: 1204019791}
   _loadingPanel: {fileID: 935224050}
+  _inPauseTransition: {fileID: 11400000, guid: 4dc49135ed75cd94cacde78ca434b033, type: 2}
 --- !u!114 &1702091599
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -465,6 +465,7 @@ MonoBehaviour:
   _camera: {fileID: 1412377934}
   _comboController: {fileID: 863012482}
   _ACEController: {fileID: 907204638}
+  _inPauseTransition: {fileID: 11400000, guid: 4dc49135ed75cd94cacde78ca434b033, type: 2}
 --- !u!114 &1412377938
 MonoBehaviour:
   m_ObjectHideFlags: 0

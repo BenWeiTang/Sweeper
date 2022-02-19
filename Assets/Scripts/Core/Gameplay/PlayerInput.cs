@@ -1,6 +1,5 @@
-using System;
-using Minesweeper.Saving;
 using UnityEngine;
+using Minesweeper.Reference;
 
 namespace Minesweeper.Core
 {
@@ -9,6 +8,7 @@ namespace Minesweeper.Core
         [SerializeField] private Camera _camera;
         [SerializeField] private ComboController _comboController;
         [SerializeField] private ACEController _ACEController;
+        [SerializeField] private BoolRef _inPauseTransition;
 
         private Ray ScreenPointToRay {get; set;} = new Ray();
 
@@ -117,7 +117,7 @@ namespace Minesweeper.Core
 
         private void CheckPause()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && Time.time > _lastEscDown + 1f)
+            if (Input.GetKeyDown(KeyCode.Escape) && Time.time > _lastEscDown + 1f && !_inPauseTransition.value)
             {
                 _lastEscDown = Time.time;
 

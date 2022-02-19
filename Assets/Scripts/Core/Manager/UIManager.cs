@@ -4,23 +4,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Minesweeper.Event;
 using Minesweeper.Animation;
+using Minesweeper.Reference;
 using Minesweeper.Scene;
 
 namespace Minesweeper.Core
 {
     public class UIManager : AManager<UIManager>
     {
-        [Header("Event")] [SerializeField] private VoidEvent FadeBlindOutComplete;
+        [Header("Event")] 
+        [SerializeField] private VoidEvent FadeBlindOutComplete;
         [SerializeField] private VoidEvent SettingsButtonClick;
         [SerializeField] private VoidEvent LeaveMenu;
 
-        [Header("Fade Blind")] [SerializeField]
+        [Header("Fade Blind")] 
+        [SerializeField]
         private CanvasGroup _blind;
 
         [SerializeField] private CanvasGroupFade _blindFadeInAnim;
         [SerializeField] private CanvasGroupFade _blindFadeOutAnim;
 
-        [Header("Panels")] [SerializeField] private CanvasGroupFade _panelFadeInAnim;
+        [Header("Panels")] 
+        [SerializeField] private CanvasGroupFade _panelFadeInAnim;
         [SerializeField] private CanvasGroupFade _panelFadeOutAnim;
         [SerializeField] private GameObject _startMenuPanel;
         [SerializeField] private GameObject _settingsPanel;
@@ -28,6 +32,9 @@ namespace Minesweeper.Core
         [SerializeField] private GameObject _winPanel;
         [SerializeField] private GameObject _losePanel;
         [SerializeField] private GameObject _loadingPanel;
+
+        [Header("Reference")] 
+        [SerializeField] private BoolRef _inPauseTransition;
 
         private GameObject _currentActivePanel;
         private bool _isFirstTime = true;
@@ -133,12 +140,16 @@ namespace Minesweeper.Core
         // Used only for when Esc key is down when in pause panel
         public async void OnGameResumed()
         {
+            _inPauseTransition.value = true;
             await FadeSetPanelActive(_pausePanel, false);
+            _inPauseTransition.value = false;
         }
 
         public async void OnGamePaused()
         {
+            _inPauseTransition.value = true;
             await FadeSetPanelActive(_pausePanel, true);
+            _inPauseTransition.value = false;
         }
 
         public async void OnPostGameExit(bool won)
