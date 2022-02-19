@@ -7,15 +7,15 @@ namespace Minesweeper.Core
 {
     public class AudioManager : AManager<AudioManager>
     {
-        [Header("Audio Mixer")]
-        [SerializeField] private AudioMixer _mixer;
-        [SerializeField] private AudioMixerGroup _masterGroup;
-        [SerializeField] private AudioMixerGroup _BGMGroup;
-        [SerializeField] private AudioMixerGroup _effectGroup;
+        // [Header("Audio Mixer")]
+        // [SerializeField] private AudioMixer _mixer;
+        // [SerializeField] private AudioMixerGroup _masterGroup;
+        // [SerializeField] private AudioMixerGroup _BGMGroup;
+        // [SerializeField] private AudioMixerGroup _effectGroup;
 
         [Header("Audio Source")]
-        [SerializeField] private AudioSource _BGMSource;
-        [SerializeField] private AudioSource _effectSource;
+        [SerializeField] private AudioPool _BGMPool;
+        [SerializeField] private AudioPool _SFXPool;
 
         [Header("Sound Banks & Tracks")]
         [SerializeField] private BGMSoundBank _BGMSoundBank;
@@ -26,15 +26,9 @@ namespace Minesweeper.Core
         [SerializeField] private IntRef _bigShake;
         [SerializeField] private IntRef _smallShake;
 
-        protected override void Awake()
-        {
-            base.Awake();
-        }
-
         #region PUBLIC_CALLBACKS
         public void OnMarked(int _)
         {
-            // PlaySound(_effectSource, _gameplayEffectSoundBank.GetTrack(GameplaySoundEffect.Mark));
             PlayGameplayEffect(GameplaySoundEffect.Mark);
         }
         public void OnCombo(int combo)
@@ -62,27 +56,14 @@ namespace Minesweeper.Core
         }
         #endregion
         #region PRIVATE_METHODS
-        private void PlayGameplayEffect(GameplaySoundEffect effect)
-        {
-            PlaySound(_effectSource, _gameplayEffectSoundBank.GetTrack(effect));
-        }
+        private void PlayGameplayEffect(GameplaySoundEffect effect) => PlaySound(_SFXPool, _gameplayEffectSoundBank.GetTrack(effect));
 
-        private void PlayBGM(BGMType type)
-        {
-            PlaySound(_BGMSource, _BGMSoundBank.GetTrack(type));
-        }
+        private void PlayBGM(BGMType type) => PlaySound(_BGMPool, _BGMSoundBank.GetTrack(type));
 
-        private void PlayUIEffect(UISoundEffect effect)
-        {
-            PlaySound(_effectSource, _UIEffectSoundBank.GetTrack(effect));
-        }
+        private void PlayUIEffect(UISoundEffect effect) => PlaySound(_SFXPool, _UIEffectSoundBank.GetTrack(effect));
 
-        private void PlaySound(AudioSource audioSource, Track track)
-        {
-            if (audioSource.isPlaying) return;
-            audioSource.clip = track.track;
-            audioSource.Play();
-        }
+        private static void PlaySound(AudioPool pool, Track track) => pool.PlayClip(track.track);
+
         #endregion
     }
 }
