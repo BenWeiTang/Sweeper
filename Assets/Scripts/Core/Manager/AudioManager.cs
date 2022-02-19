@@ -34,7 +34,8 @@ namespace Minesweeper.Core
         #region PUBLIC_CALLBACKS
         public void OnMarked(int _)
         {
-            PlaySound(_effectSource, _gameplayEffectSoundBank.GetTrack(GameplaySoundEffect.Mark));
+            // PlaySound(_effectSource, _gameplayEffectSoundBank.GetTrack(GameplaySoundEffect.Mark));
+            PlayGameplayEffect(GameplaySoundEffect.Mark);
         }
         public void OnCombo(int combo)
         {
@@ -78,11 +79,8 @@ namespace Minesweeper.Core
 
         private void PlaySound(AudioSource audioSource, Track track)
         {
+            if (audioSource.isPlaying) return;
             audioSource.clip = track.track;
-            if (audioSource.isPlaying)
-            {
-                audioSource.Stop();
-            }
             audioSource.Play();
         }
         #endregion
