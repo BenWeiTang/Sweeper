@@ -16201,7 +16201,7 @@ MonoBehaviour:
   _start: {fileID: 937220085}
   _settings: {fileID: 2098423838}
   _exit: {fileID: 2139224789}
-  _lookAwayTarget: {fileID: 1303856691}
+  _lookAwayTarget: {fileID: 0}
   _moveToAnim: {fileID: 11400000, guid: cc015c71e39a640b29565c8727b8d7a3, type: 2}
   _rotateAnim: {fileID: 11400000, guid: 1187cb75c59e12f4ca7501a0e19369b4, type: 2}
   _firstEnterSession: {fileID: 11400000, guid: 2d243a8fc7a14482fb710e736495ff15, type: 2}
@@ -16539,37 +16539,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1303856690
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1303856691}
-  m_Layer: 0
-  m_Name: Look Away Target
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1303856691
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303856690}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.96, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2139224789}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1322846772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29678,8 +29647,7 @@ Transform:
   m_LocalPosition: {x: 20, y: 16, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1303856691}
+  m_Children: []
   m_Father: {fileID: 289815283}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}

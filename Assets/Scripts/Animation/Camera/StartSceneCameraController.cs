@@ -18,7 +18,6 @@ namespace Minesweeper.Animation
         [SerializeField] private Transform _start;
         [SerializeField] private Transform _settings;
         [SerializeField] private Transform _exit;
-        [SerializeField] private Transform _lookAwayTarget;
 
         [Header("Animation")]
         [SerializeField] private MoveTo _moveToAnim;
