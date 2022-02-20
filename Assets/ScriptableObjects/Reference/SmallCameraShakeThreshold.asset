@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c889b78d33e2441ba866f8ab913cc357, type: 3}
   m_Name: SmallCameraShakeThreshold
   m_EditorClassIdentifier: 
-  value: 25
+  value: 10
