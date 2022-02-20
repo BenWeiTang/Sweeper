@@ -607,10 +607,6 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1412377935}
-    - target: {fileID: 7924643439155788944, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
-      propertyPath: _playerInput
-      value: 
-      objectReference: {fileID: 1412377937}
     - target: {fileID: 7924643439155788945, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
       propertyPath: m_Name
       value: Grid Controller
