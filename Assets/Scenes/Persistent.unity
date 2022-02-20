@@ -4169,7 +4169,6 @@ GameObject:
   - component: {fileID: 856506285}
   - component: {fileID: 856506284}
   - component: {fileID: 856506283}
-  - component: {fileID: 856506286}
   m_Layer: 5
   m_Name: Exit Button
   m_TagString: Untagged
@@ -4242,9 +4241,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 856506286}
-        m_TargetAssemblyTypeName: Minesweeper.ExitGame, UI
-        m_MethodName: Exit
+      - m_Target: {fileID: 1702091597}
+        m_TargetAssemblyTypeName: Minesweeper.Core.UIManager, Core
+        m_MethodName: OnExitButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4292,18 +4291,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856506281}
   m_CullTransparentMesh: 1
---- !u!114 &856506286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856506281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1f94e53571fa4d05bc8b24cb0a900c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &876003341
 GameObject:
   m_ObjectHideFlags: 0
@@ -8026,6 +8013,7 @@ GameObject:
   - component: {fileID: 1674972602}
   - component: {fileID: 1674972604}
   - component: {fileID: 1674972605}
+  - component: {fileID: 1674972606}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -8116,6 +8104,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Minesweeper.Core.GameManager, Core
         m_MethodName: OnGameFinished
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1674972606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674972600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: ce6c454ea68a72b4bb311a7703720170, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1674972602}
+        m_TargetAssemblyTypeName: Minesweeper.Core.GameManager, Core
+        m_MethodName: OnReadyToQuitGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8251,6 +8267,7 @@ MonoBehaviour:
   FadeBlindOutComplete: {fileID: 11400000, guid: 5e11d7c4ddc234892952c2ea344fabba, type: 2}
   SettingsButtonClick: {fileID: 11400000, guid: 4c47a58fc2c474bf697bf6276554fbd3, type: 2}
   LeaveMenu: {fileID: 11400000, guid: 8fdea6e47b8454620b4fa66cd2a90bce, type: 2}
+  ExitGame: {fileID: 11400000, guid: 81459ff60359a434c91b93122a0f35db, type: 2}
   _blind: {fileID: 1361284720}
   _blindFadeInAnim: {fileID: 11400000, guid: c26380c7ff5944a39a4b41a0d2d7972d, type: 2}
   _blindFadeOutAnim: {fileID: 11400000, guid: 292c6ac69420242d7b551bb17a2fd0b4, type: 2}

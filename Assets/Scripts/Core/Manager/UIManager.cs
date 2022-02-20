@@ -15,6 +15,7 @@ namespace Minesweeper.Core
         [SerializeField] private VoidEvent FadeBlindOutComplete;
         [SerializeField] private VoidEvent SettingsButtonClick;
         [SerializeField] private VoidEvent LeaveMenu;
+        [SerializeField] private VoidEvent ExitGame;
 
         [Header("Fade Blind")] 
         [SerializeField]
@@ -169,6 +170,12 @@ namespace Minesweeper.Core
             // await FadeSwitchPanel(_startMenuPanel);
             await Task.Delay(1000);
             await FadeSetPanelActive(_startMenuPanel, true);
+        }
+
+        public async void OnExitButtonClick()
+        {
+            ExitGame.Raise();
+            await FadeBlind(true);
         }
 
         // Called by the Settings Button in StartMenu panel, Back Button in the Settings panel

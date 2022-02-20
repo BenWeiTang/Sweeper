@@ -51,17 +51,14 @@ namespace Minesweeper.Core
             };
         }
 
-        // Should only be called by the UI Manager
         public async Task StartNewGame() => await UnloadThenLoadScene(SceneIndex.StartMenu, SceneIndex.Gameplay);
 
-        // Should only be called by the UI Manager
         public void RestartGame(bool shouldMoveBlocks)
         {
             CurrentState = GameState.PreGame;
             GameRestart.Raise(shouldMoveBlocks);
         }
 
-        // Should only be called by the UI Manager
         public async Task BackToMenu()
         {
             CurrentState = GameState.None;
@@ -80,16 +77,15 @@ namespace Minesweeper.Core
             CurrentState = GameState.InGame;
         }
 
-        public void OnGameReady()
-        {
-            CurrentState = GameState.InGame;
-        }
+        public void OnGameReady() => CurrentState = GameState.InGame;
 
         public void OnGameFinished(bool won)
         {
             CurrentState = GameState.PostGame;
             PostGameEnter.Raise(won);
         }
+
+        public void OnReadyToQuitGame() => Application.Quit();
 
         private void UpdateDifficulty()
         {
