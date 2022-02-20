@@ -21,6 +21,7 @@ namespace Minesweeper.Core
 
         [Header("Reference")]
         [SerializeField] private IntRef _safeSpotCount;
+        [SerializeField] private PlayerInput _playerInput;
 
         public bool HasBegun { get; set; } = false;
 
@@ -32,6 +33,7 @@ namespace Minesweeper.Core
         private Spot[] _grid;
         private SpotController[] _spotControllers;
         private int _dugSafeSpotCount = 0;
+        private bool _readyToExitPostAnim;
 
         #region PUBLIC_METHODS
         public IEnumerable<SpotController> GetAdjacentSpotControllers(SpotController controller)
@@ -93,9 +95,14 @@ namespace Minesweeper.Core
             }
 
             // UI Manager listens to this
+            while (!_readyToExitPostAnim)
+            {
+                await Task.Yield();
+            }
+            _readyToExitPostAnim = false;
             PostGameExit.Raise(won);
         }
-
+        
         public async void OnGameRestart(bool shouldMoveBlocks)
         {
             if (shouldMoveBlocks)
@@ -125,6 +132,7 @@ namespace Minesweeper.Core
         private void Awake()
         {
             if (!_camera) { _camera = Camera.main.transform; }
+            _playerInput.EndGameLeftClick += OnEndGameLeftClick;
         }
 
         private void Start()
@@ -136,6 +144,7 @@ namespace Minesweeper.Core
         }
         #endregion
         #region PRIVATE_METHODS
+        private void OnEndGameLeftClick() => _readyToExitPostAnim = true;
         private void LayoutInit()
         {
             _layout = GameManager.Instance.CurrentLayout;

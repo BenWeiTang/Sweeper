@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Minesweeper.Reference;
 
@@ -10,6 +11,8 @@ namespace Minesweeper.Core
         [SerializeField] private ACEController _ACEController;
         [SerializeField] private BoolRef _inPauseTransition;
 
+        public event Action EndGameLeftClick;
+        
         private Ray ScreenPointToRay {get; set;} = new Ray();
 
         private ISpot _currentISpot;
@@ -26,6 +29,8 @@ namespace Minesweeper.Core
             ScreenPointToRay = _camera.ScreenPointToRay(Input.mousePosition);
             if (GameManager.Instance.CurrentState == GameState.InGame)
                 CheckMouseInput();
+            else if (GameManager.Instance.CurrentState == GameState.PostGame)
+                CheckEndGameLeftClick();
 
             CheckPause();
         }
@@ -125,6 +130,14 @@ namespace Minesweeper.Core
                     GameManager.Instance.PauseGame();
                 else if (GameManager.Instance.CurrentState == GameState.Pause)
                     GameManager.Instance.ResumeGame();
+            }
+        }
+
+        private void CheckEndGameLeftClick()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                EndGameLeftClick?.Invoke();
             }
         }
     }
