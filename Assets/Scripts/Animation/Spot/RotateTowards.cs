@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
 using DG.Tweening;
-using PlasticGui.WorkspaceWindow.BranchExplorer;
 
 namespace Minesweeper.Animation
 {
