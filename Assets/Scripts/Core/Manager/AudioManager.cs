@@ -26,68 +26,38 @@ namespace Minesweeper.Core
         [SerializeField] private IntRef _smallShake;
 
         #region PUBLIC_CALLBACKS
-        public void OnMarked(int _)
-        {
-            PlayGameplayEffect(GameplaySoundEffect.Mark);
-        }
+        public void OnMarked(int _) => PlayGameplayEffect(GameplaySoundEffect.Mark);
+
         public void OnCombo(int combo)
         {
             if (combo > _bigShake.value)
-            {
                 PlayGameplayEffect(GameplaySoundEffect.LargeClear);
-            }
             else if (combo > _smallShake.value)
-            {
                 PlayGameplayEffect(GameplaySoundEffect.MediumClear);
-            }
             else if (combo == 0)
-            {
                 PlayGameplayEffect(GameplaySoundEffect.ZeroClear);
-            }
             else
-            {
                 PlayGameplayEffect(GameplaySoundEffect.SmallClear);
-            }
         }
 
-        public void OnGridBounceAllStarted()
-        {
-        }
+        public void OnGridBounceAllStarted() => PlayGameplayEffect(GameplaySoundEffect.GridBounceAll);
 
-        public void OnGridFloatAllStarted()
-        {
-        }
+        public void OnGridFloatAllStarted() => PlayGameplayEffect(GameplaySoundEffect.GridFloatAll);
 
-        public void OnGridMoveInStarted()
-        {
-        }
+        public void OnGridMoveInStarted() => PlayGameplayEffect(GameplaySoundEffect.GridMoveIn);
 
-        public void OnGridRotateAllStarted()
-        {
-        }
+        public void OnGridRotateAllStarted() => PlayGameplayEffect(GameplaySoundEffect.GridRotateAll);
 
-        public void OnGridShuffleStarted()
-        {
-        }
+        public void OnGridShuffleStarted() => PlayGameplayEffect(GameplaySoundEffect.GridShuffle);
 
-        public void OnSpotShakeToBlockStarted()
-        {
-        }
-        
-        public void OnMineDetonated()
-        {
-            PlayGameplayEffect(GameplaySoundEffect.Explosion);
-        }
+        public void OnSpotShakeToBlockStarted() => PlayGameplayEffect(GameplaySoundEffect.SpotShakeToBlock);
 
-        public void OnPointerEnteredUIElement()
-        {
-            PlayUIEffect(UISoundEffect.ButtonEnter);
-        }
+        public void OnMineDetonated() => PlayGameplayEffect(GameplaySoundEffect.Explosion);
 
-        public void OnPointerClickedUIElement(bool isConfirmation)
-        {
-            PlayUIEffect(isConfirmation ? UISoundEffect.Confirm : UISoundEffect.ButtonClicked);
-        }
+        public void OnPointerEnteredUIElement() => PlayUIEffect(UISoundEffect.ButtonEnter);
+
+        public void OnPointerClickedUIElement(bool isConfirmation) => PlayUIEffect(isConfirmation ? UISoundEffect.Confirm : UISoundEffect.ButtonClicked);
+
         #endregion
         #region PRIVATE_METHODS
         private void PlayGameplayEffect(GameplaySoundEffect effect) => PlaySound(_SFXPool, _gameplayEffectSoundBank.GetTrack(effect));
