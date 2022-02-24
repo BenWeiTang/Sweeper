@@ -14,6 +14,12 @@ namespace Minesweeper.Audio
         MediumClear,
         LargeClear,
         Mark,
-        Explosion
+        Explosion,
+        GridBounceAll,
+        GridFloatAll,
+        GridMoveIn,
+        GridRotateAll,
+        GridShuffle,
+        SpotShakeToBlock,
     }
 }
