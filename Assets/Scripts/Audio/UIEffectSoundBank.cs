@@ -10,9 +10,7 @@ namespace Minesweeper.Audio
     public enum UISoundEffect
     {
         ButtonEnter,
-        ButtonExit,
         ButtonClicked,
         Confirm,
-        Cancel,
     }
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using Minesweeper.Audio;
 using Minesweeper.Reference;
 
@@ -53,6 +52,16 @@ namespace Minesweeper.Core
         public void OnMineDetonated()
         {
             PlayGameplayEffect(GameplaySoundEffect.Explosion);
+        }
+
+        public void OnPointerEnteredUIElement()
+        {
+            PlayUIEffect(UISoundEffect.ButtonEnter);
+        }
+
+        public void OnPointerClickedUIElement(bool isConfirmation)
+        {
+            PlayUIEffect(isConfirmation ? UISoundEffect.Confirm : UISoundEffect.ButtonClicked);
         }
         #endregion
         #region PRIVATE_METHODS

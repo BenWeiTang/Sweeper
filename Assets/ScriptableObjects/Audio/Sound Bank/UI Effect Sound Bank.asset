@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2841502efa334c318f01f1847de74dd, type: 3}
   m_Name: UI Effect Sound Bank
   m_EditorClassIdentifier: 
-  _tracks: []
+  _tracks:
+  - track: {fileID: 11400000, guid: 0035f571d0433e24bb87be2260d24dc2, type: 2}
+    type: 0
+  - track: {fileID: 11400000, guid: e80d269fdbd710c419090e0ea6a9d465, type: 2}
+    type: 1
+  - track: {fileID: 11400000, guid: 1d67b73f7de1d9446b7f4f1fa9485b4e, type: 2}
+    type: 2
