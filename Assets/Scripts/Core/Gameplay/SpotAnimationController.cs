@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using UnityEngine;
 using Minesweeper.Animation;
+using Minesweeper.Event;
 
 namespace Minesweeper.Core
 {
@@ -28,7 +29,7 @@ namespace Minesweeper.Core
         {
             if (index == _spotController.IndexInGrid)
             {
-                await Bounce(() => SwtichToBlock((Block)_spotController.spot.HintNumber));
+                await Bounce(() => SwitchToBlock((Block)_spotController.spot.HintNumber));
             }
         }
 
@@ -38,11 +39,11 @@ namespace Minesweeper.Core
             {
                 if (_spotController.spot.State == SpotState.Untouched)
                 {
-                    await Bounce(() => SwtichToBlock(Block.Untouched));
+                    await Bounce(() => SwitchToBlock(Block.Untouched));
                 }
                 else if (_spotController.spot.State == SpotState.Marked)
                 {
-                    await Bounce(() => SwtichToBlock(Block.Marked));
+                    await Bounce(() => SwitchToBlock(Block.Marked));
                 }
             }
         }
@@ -51,11 +52,11 @@ namespace Minesweeper.Core
         {
             if (index == _spotController.IndexInGrid)
             {
-                await Bounce(() => SwtichToBlock(Block.Mine));
+                await Bounce(() => SwitchToBlock(Block.Mine));
             }
         }
 
-        internal void SwtichToBlock(Block toBlock)
+        internal void SwitchToBlock(Block toBlock)
         {
             _currentBlock?.SetActive(false);
             switch (toBlock)
@@ -76,9 +77,9 @@ namespace Minesweeper.Core
             _currentBlock.SetActive(true);
         }
 
-        internal async Task ShakeToBlock(Block toBlock, float duration, Vector3 strength, int vibrato, float randomness, bool fadeOut = false)
+        internal async Task ShakeToBlock(Block toBlock)
         {
-            await _shakeToBlockAnim.PerformAsync(transform, null, () => SwtichToBlock(toBlock), null);
+            await _shakeToBlockAnim.PerformAsync(transform, null, () => SwitchToBlock(toBlock), null);
         }
 
         internal async Task Bounce(Action atPeak)
@@ -90,7 +91,7 @@ namespace Minesweeper.Core
 
         private void Start()
         {
-            SwtichToBlock(Block.Untouched);
+            SwitchToBlock(Block.Untouched);
         }
     }
 

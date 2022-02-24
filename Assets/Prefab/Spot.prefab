@@ -97,6 +97,7 @@ MonoBehaviour:
   _mineBlock: {fileID: 6796468873931138701}
   _bounceAnim: {fileID: 11400000, guid: 7b9207a1b5cf74dc79cf83dc44d40d4e, type: 2}
   _shakeToBlockAnim: {fileID: 11400000, guid: 45365feff28e545efb18e73541a1167b, type: 2}
+  SpotShakeToBlockStart: {fileID: 11400000, guid: 3a81bf8330a54844fb71b760620bb74a, type: 2}
 --- !u!114 &-4771067930902092392
 MonoBehaviour:
   m_ObjectHideFlags: 0

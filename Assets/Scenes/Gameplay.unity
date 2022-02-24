@@ -659,6 +659,26 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1412377935}
+    - target: {fileID: 7924643440182354030, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
+      propertyPath: SpotsMoveInStart
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f55596ae25827647b0384ef8a94ccea, type: 2}
+    - target: {fileID: 7924643440182354030, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
+      propertyPath: SpotsShuffleStart
+      value: 
+      objectReference: {fileID: 11400000, guid: 1490ecc0a23deb04e947b1c40700ed7c, type: 2}
+    - target: {fileID: 7924643440182354030, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
+      propertyPath: SpotsFloatAllStart
+      value: 
+      objectReference: {fileID: 11400000, guid: ceba08e8bc911f14789f110c3b931f15, type: 2}
+    - target: {fileID: 7924643440182354030, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
+      propertyPath: SpotsBounceAllStart
+      value: 
+      objectReference: {fileID: 11400000, guid: 121ec4056743d4742a7d2e97ea1c18a0, type: 2}
+    - target: {fileID: 7924643440182354030, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
+      propertyPath: SpotsRotateAllStart
+      value: 
+      objectReference: {fileID: 11400000, guid: 4159c96f904d8f94a9dbdad39f73d2bb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cb81addcc1b04702a4cfd983ac2816b, type: 3}
 --- !u!1001 &8367538912144273094

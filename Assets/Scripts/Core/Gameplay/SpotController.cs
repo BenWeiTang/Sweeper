@@ -123,7 +123,7 @@ namespace Minesweeper.Core
         {
             spot.SetMine(false);
             spot.State = SpotState.Untouched;
-            await animController.ShakeToBlock(Block.Untouched, 0.75f, Vector3.one * 10f, 50, 30f);
+            await animController.ShakeToBlock(Block.Untouched);
         }
 
         private void Start()
@@ -135,16 +135,16 @@ namespace Minesweeper.Core
         public void ShowSpot()
         {
             if (spot.IsMine)
-                animController.SwtichToBlock(Block.Mine);
+                animController.SwitchToBlock(Block.Mine);
             else
             {
-                animController.SwtichToBlock((Block)spot.HintNumber);
+                animController.SwitchToBlock((Block)spot.HintNumber);
             }
         }
 
         public void HideSpot()
         {
-            animController.SwtichToBlock(spot.State == SpotState.Marked ? Block.Marked : Block.Untouched);
+            animController.SwitchToBlock(spot.State == SpotState.Marked ? Block.Marked : Block.Untouched);
         }
 #endif
     }

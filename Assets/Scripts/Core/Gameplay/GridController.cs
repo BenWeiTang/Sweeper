@@ -15,6 +15,7 @@ namespace Minesweeper.Core
         [SerializeField] private VoidEvent GameReady;
         [SerializeField] private BoolEvent GameFinish;
         [SerializeField] private BoolEvent PostGameExit;
+        [SerializeField] private VoidEvent SpotShakeToBlockStart;
 
         [Header("Animation")]
         [SerializeField] internal GridAnimationController animationController;
@@ -104,12 +105,13 @@ namespace Minesweeper.Core
             }
             await Task.Delay(100);
 
-            // Clear mines, set state to untouched, swtich block to untouched while doing ShakeToBlock anim
+            // Clear mines, set state to untouched, switch block to untouched while doing ShakeToBlock anim
             List<Task> resettingTasks = new List<Task>();
             foreach (var sc in _spotControllers)
             {
                 resettingTasks.Add(sc.ResetSpot());
             }
+            SpotShakeToBlockStart.Raise();
             await Task.WhenAll(resettingTasks);
             await Task.Delay(100);
 

@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using UnityEngine;
 using Minesweeper.Animation;
+using Minesweeper.Event;
 
 namespace Minesweeper.Core
 {
@@ -22,6 +23,11 @@ namespace Minesweeper.Core
         [SerializeField] private RotateAllTowards _lookForwardAnim;
         [SerializeField] private BounceAll _bounceAllAnim;
 
+        [Header("Event")]
+        [SerializeField] private VoidEvent SpotsMoveInStart;
+        [SerializeField] private VoidEvent SpotsBounceAllStart;
+        [SerializeField] private VoidEvent SpotsRotateAllStart;
+        [SerializeField] private VoidEvent SpotsFloatAllStart;
 
         // Cache
         private Transform[] _spotTransforms;
@@ -88,7 +94,7 @@ namespace Minesweeper.Core
             SetAllIsKinematic(true);
             SetAllUseGravity(false);
 
-            await _moveAllInPlaceAnim.PerformAsync(_spotTransforms, _targetPositions);
+            await _moveAllInPlaceAnim.PerformAsync(_spotTransforms, _targetPositions, () => SpotsMoveInStart.Raise());
         }
 
         internal async Task MoveAllBack()
@@ -96,17 +102,17 @@ namespace Minesweeper.Core
             SetAllIsKinematic(true);
             SetAllUseGravity(false);
 
-            await _moveAllInPlaceAnim.PerformAsync(_spotTransforms, _targetPositions);
+            await _moveAllInPlaceAnim.PerformAsync(_spotTransforms, _targetPositions, () => SpotsMoveInStart.Raise());
 
             Vector3 forward = gridController.transform.forward * -1;
-            await _lookForwardAnim.PerformAsync(_spotTransforms, forward);
+            await _lookForwardAnim.PerformAsync(_spotTransforms, forward, () => SpotsRotateAllStart.Raise());
         }
 
         internal async Task FloatAll()
         {
             SetAllIsKinematic(false);
             SetAllUseGravity(false);
-            await _floatAllAnim.PerformAsync(_spotRBs);
+            await _floatAllAnim.PerformAsync(_spotRBs, () => SpotsFloatAllStart.Raise());
             await Task.Delay(1_000);
         }
 
@@ -131,7 +137,7 @@ namespace Minesweeper.Core
 
         internal async Task BounceAll()
         {
-            await _bounceAllAnim.PerformAsync(_spotTransforms);
+            await _bounceAllAnim.PerformAsync(_spotTransforms, () => SpotsBounceAllStart.Raise());
         }
         #endregion
     }

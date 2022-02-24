@@ -49,6 +49,31 @@ namespace Minesweeper.Core
                 PlayGameplayEffect(GameplaySoundEffect.SmallClear);
             }
         }
+
+        public void OnGridBounceAllStarted()
+        {
+        }
+
+        public void OnGridFloatAllStarted()
+        {
+        }
+
+        public void OnGridMoveInStarted()
+        {
+        }
+
+        public void OnGridRotateAllStarted()
+        {
+        }
+
+        public void OnGridShuffleStarted()
+        {
+        }
+
+        public void OnSpotShakeToBlockStarted()
+        {
+        }
+        
         public void OnMineDetonated()
         {
             PlayGameplayEffect(GameplaySoundEffect.Explosion);

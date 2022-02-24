@@ -55,6 +55,7 @@ MonoBehaviour:
   GameReady: {fileID: 11400000, guid: 6f977b49cadbd42b280271909bba90af, type: 2}
   GameFinish: {fileID: 11400000, guid: d32849a6b114a498c90735847c3b2a66, type: 2}
   PostGameExit: {fileID: 11400000, guid: 2998892afbd714d6bb1a21f90bea5190, type: 2}
+  SpotShakeToBlockStart: {fileID: 11400000, guid: 3a81bf8330a54844fb71b760620bb74a, type: 2}
   animationController: {fileID: 7924643440182354030}
   _safeSpotCount: {fileID: 11400000, guid: 43a8df78be4c34736aa76b5508b267d4, type: 2}
 --- !u!114 &7924643439155788946
@@ -254,6 +255,10 @@ MonoBehaviour:
   _moveAllInPlaceAnim: {fileID: 11400000, guid: 3dd787412667d4dfebe9d1ca2c2f3549, type: 2}
   _lookForwardAnim: {fileID: 11400000, guid: 6e307d757931b4224a7d08b1df46da69, type: 2}
   _bounceAllAnim: {fileID: 11400000, guid: ed84419f110a44ff9aaa2bb7c5a332b9, type: 2}
+  SpotsMoveInStart: {fileID: 0}
+  SpotsBounceAllStart: {fileID: 0}
+  SpotsRotateAllStart: {fileID: 0}
+  SpotsFloatAllStart: {fileID: 0}
 --- !u!114 &8501496799568893505
 MonoBehaviour:
   m_ObjectHideFlags: 0
