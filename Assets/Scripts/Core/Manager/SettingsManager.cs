@@ -34,6 +34,7 @@ namespace Minesweeper.Core
         private const string SFX_NAME = "SFX Volume";
 
         private bool _firstLoaded = true;
+        private int _toggleGroupControllerID;
 
         protected override void Awake()
         {
@@ -46,6 +47,7 @@ namespace Minesweeper.Core
                     StartCoroutine(LateAwake(() =>
                     {
                         _firstLoaded = false;
+                        LoadSettings();
                         InitAudioMixer();
                     }));
                 }
@@ -67,22 +69,7 @@ namespace Minesweeper.Core
 
         public void RefreshUI()
         {
-            var settings = SettingsSerializer.LoadSettings();
-            int targetControllerID = settings.GeneralSettingsData.Difficulty switch
-            {
-                0 => 0,
-                1 => 1,
-                2 => 2,
-                _ => 0
-            };
-            _difficulty.UpdateCurrentController(targetControllerID);
-            _useEasyClear.isOn = settings.GeneralSettingsData.EasyClear;
-            _masterVolume.value = settings.AudioSettingsData.MasterVolume;
-            _bgmVolume.value = settings.AudioSettingsData.BGMVolume;
-            _sfxVolume.value = settings.AudioSettingsData.EffectVolume;
-            _muteMaster.isOn = settings.AudioSettingsData.Mute;
-            _muteBgm.isOn = settings.AudioSettingsData.MuteBGM;
-            _muteSfx.isOn = settings.AudioSettingsData.MuteEffect;
+            LoadSettings();
         }
 
         public void SaveSettings()
@@ -114,6 +101,26 @@ namespace Minesweeper.Core
             };
             
             SettingsSerializer.SaveSettings(newSettings);
+        }
+
+        private void LoadSettings()
+        {
+            var settings = SettingsSerializer.LoadSettings();
+            _toggleGroupControllerID = settings.GeneralSettingsData.Difficulty switch
+            {
+                0 => 0,
+                1 => 1,
+                2 => 2,
+                _ => 0
+            };
+            _difficulty.UpdateCurrentController(_toggleGroupControllerID);
+            _useEasyClear.isOn = settings.GeneralSettingsData.EasyClear;
+            _masterVolume.value = settings.AudioSettingsData.MasterVolume;
+            _bgmVolume.value = settings.AudioSettingsData.BGMVolume;
+            _sfxVolume.value = settings.AudioSettingsData.EffectVolume;
+            _muteMaster.isOn = settings.AudioSettingsData.Mute;
+            _muteBgm.isOn = settings.AudioSettingsData.MuteBGM;
+            _muteSfx.isOn = settings.AudioSettingsData.MuteEffect;
         }
 
         private void InitAudioMixer()
