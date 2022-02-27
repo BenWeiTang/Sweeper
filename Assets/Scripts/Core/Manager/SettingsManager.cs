@@ -15,7 +15,7 @@ namespace Minesweeper.Core
     public class SettingsManager : AManager<SettingsManager>
     {
         public MasterSettingsData MasterSettingsData => SettingsSerializer.LoadSettings();
-        public Theme CurrentTheme => _themes[_theme.CurrentID];
+        public Theme CurrentTheme => _themes[MasterSettingsData.ThemeSettingsData.ThemeID];
 
         [Header("General")]
         [SerializeField] private ToggleGroupController _difficulty;
@@ -40,8 +40,8 @@ namespace Minesweeper.Core
         private const string SFX_NAME = "SFX Volume";
 
         private bool _firstLoaded = true;
-        private int _difficultyID;
-        private int _themeID;
+        private int _oldDifficultyID;
+        private int _oldThemeID;
 
         protected override void Awake()
         {
@@ -94,7 +94,7 @@ namespace Minesweeper.Core
             // In case where the player exits the settings panel without visiting the theme tab,
             // newTheme should just be set to whatever the previous ThemeSettingsData says,
             // i.e., _themeID, which has previously been initialized in LoadSettings()
-            int newTheme = _themeID;
+            int newTheme = _oldThemeID;
             if (_theme.CurrentToggleController != null)
             {
                 newTheme = _theme.CurrentID switch
@@ -134,14 +134,14 @@ namespace Minesweeper.Core
         {
             var settings = SettingsSerializer.LoadSettings();
             // General
-            _difficultyID = settings.GeneralSettingsData.Difficulty switch
+            _oldDifficultyID = settings.GeneralSettingsData.Difficulty switch
             {
                 0 => 0,
                 1 => 1,
                 2 => 2,
                 _ => 0
             };
-            _difficulty.UpdateCurrentController(_difficultyID);
+            _difficulty.UpdateCurrentController(_oldDifficultyID);
             _useEasyClear.isOn = settings.GeneralSettingsData.EasyClear;
             
             // Audio
@@ -153,13 +153,13 @@ namespace Minesweeper.Core
             _muteSfx.isOn = settings.AudioSettingsData.MuteEffect;
             
             // Theme
-            _themeID = settings.ThemeSettingsData.ThemeID switch
+            _oldThemeID = settings.ThemeSettingsData.ThemeID switch
             {
                 0 => 0,
                 1 => 1,
                 _ => 0,
             };
-            _theme.UpdateCurrentController(_themeID);
+            _theme.UpdateCurrentController(_oldThemeID);
         }
 
         private void InitAudioMixer()
