@@ -1634,7 +1634,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 4
+  m_PixelsPerUnitMultiplier: 3.5
 --- !u!114 &318075256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6136,7 +6136,7 @@ MonoBehaviour:
   _id: 0
   _image: {fileID: 1090545861}
   _groupController: {fileID: 185310253}
-  _isOn: 1
+  _isOn: 0
   _onSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -6169,7 +6169,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 4
+  m_PixelsPerUnitMultiplier: 3.5
 --- !u!114 &1090545862
 MonoBehaviour:
   m_ObjectHideFlags: 0
