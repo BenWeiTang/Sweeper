@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b6d5cae488c8845b5a2a6c6e323bb9, type: 3}
+  m_Name: Mono Theme
+  m_EditorClassIdentifier: 
+  DugBase: {r: 0.78039217, g: 0.81960785, b: 0.8509804, a: 1}
+  DugEdge: {r: 0.37254897, g: 0.45098037, b: 0.43529406, a: 1}
+  MarkedBase: {r: 0.37254897, g: 0.45098037, b: 0.43529406, a: 1}
+  MarkedEdge: {r: 0.78039217, g: 0.81960785, b: 0.8509804, a: 1}
+  MineBase: {r: 0.23529404, g: 0.34901956, b: 0.317647, a: 1}
+  MineEdge: {r: 0, g: 0, b: 0, a: 1}
+  UntouchedBase: {r: 0.9137255, g: 0.9490196, b: 0.945098, a: 1}
+  UntouchedEdge: {r: 0.23529404, g: 0.34901956, b: 0.317647, a: 1}
+  One: {r: 0.082352914, g: 0.12549016, b: 0.094117604, a: 1}
+  Two: {r: 0.082352914, g: 0.12549016, b: 0.094117604, a: 1}
+  Three: {r: 0.082352914, g: 0.12549016, b: 0.094117604, a: 1}
+  Four: {r: 0.082352914, g: 0.12549016, b: 0.094117604, a: 1}
+  Five: {r: 0.082352914, g: 0.12549016, b: 0.094117604, a: 1}
+  Six: {r: 0.082352914, g: 0.12549016, b: 0.094117604, a: 1}
+  Seven: {r: 0.082352914, g: 0.12549016, b: 0.094117604, a: 1}
+  Eight: {r: 0.082352914, g: 0.12549016, b: 0.094117604, a: 1}
