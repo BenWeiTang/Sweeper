@@ -12,10 +12,12 @@ namespace Minesweeper.UI
         [SerializeField] private List<ToggleController> _controllers;
 
         public event Action<ToggleController> ToggleSelected;
+
+        public ToggleController CurrentToggleController { get; private set; }
         public int CurrentID => CurrentToggleController.ID;
+        
         public void Select(ToggleController toggleController) => ToggleSelected?.Invoke(toggleController);
 
-        private ToggleController CurrentToggleController { get; set; }
         private Func<int> _getID;
 
         public void UpdateCurrentController(int id)

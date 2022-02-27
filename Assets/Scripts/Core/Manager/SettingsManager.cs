@@ -89,12 +89,25 @@ namespace Minesweeper.Core
                 _ => 0
             };
 
-            int newTheme = _theme.CurrentID switch
+            // When entering the settings panel but not into the theme tab, CurrentToggleController is still null
+            // CurrentToggleController is not initialized until the tab is opened.
+            // In case where the player exits the settings panel without visiting the theme tab,
+            // newTheme should just be set to whatever the previous ThemeSettingsData says,
+            // i.e., _themeID, which has previously been initialized in LoadSettings()
+            int newTheme = 0;
+            if (_theme.CurrentToggleController != null)
             {
-                0 => 0,
-                1 => 1,
-                _ => 0
-            };
+                newTheme = _theme.CurrentID switch
+                {
+                    0 => 0,
+                    1 => 1,
+                    _ => 0,
+                };
+            }
+            else
+            {
+                newTheme = _themeID;
+            }
             
             var newSettings = new MasterSettingsData
             {
