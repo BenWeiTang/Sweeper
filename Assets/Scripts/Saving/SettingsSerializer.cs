@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -6,7 +7,8 @@ namespace Minesweeper.Saving
     public static class SettingsSerializer
     {
         public const string PATH = "/GameSettings.json";
-        
+        public const string QUOTEPATH = "/Quotes.txt";
+
         public static void SaveSettings(MasterSettingsData masterSettingsData)
         {
             string masterSettingsDataString = JsonUtility.ToJson(masterSettingsData);

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Minesweeper.Animation;
 
-namespace Minesweeper.UI.PanelController
+namespace Minesweeper.UI
 {
     public class StatNumberController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
