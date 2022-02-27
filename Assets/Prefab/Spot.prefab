@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1108562070234402482}
   - component: {fileID: 68974095654745218}
   - component: {fileID: 191861087216191889}
+  - component: {fileID: 4123361803765842775}
   - component: {fileID: -4771067930902092392}
   - component: {fileID: -3257536075018758437}
   - component: {fileID: -5719195737910396985}
@@ -97,7 +98,31 @@ MonoBehaviour:
   _mineBlock: {fileID: 6796468873931138701}
   _bounceAnim: {fileID: 11400000, guid: 7b9207a1b5cf74dc79cf83dc44d40d4e, type: 2}
   _shakeToBlockAnim: {fileID: 11400000, guid: 45365feff28e545efb18e73541a1167b, type: 2}
-  SpotShakeToBlockStart: {fileID: 11400000, guid: 3a81bf8330a54844fb71b760620bb74a, type: 2}
+--- !u!114 &4123361803765842775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763972840110850404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48200109edce473ea54143a10c067769, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numBlocks:
+  - {fileID: 120120497775706683}
+  - {fileID: 3598752658878552451}
+  - {fileID: 8323672306750485334}
+  - {fileID: 8225342516698687841}
+  - {fileID: 9164030044905421521}
+  - {fileID: 8553308419275002992}
+  - {fileID: 7169597113444549805}
+  - {fileID: 4858474622290652305}
+  - {fileID: 4037746912934297473}
+  _untouchedBlock: {fileID: 1546534817307506918}
+  _markedBlock: {fileID: 3996765763414669458}
+  _mineBlock: {fileID: 6796468873931138701}
 --- !u!114 &-4771067930902092392
 MonoBehaviour:
   m_ObjectHideFlags: 0

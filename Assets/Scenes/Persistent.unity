@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e58bcb1ff7465a977d2b74c586838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defualtCount: 5
+  _defualtCount: 10
   _forceReleaseAfterSeconds: 1
   _template: {fileID: 428122525}
 --- !u!1 &185310247
@@ -4172,6 +4172,9 @@ MonoBehaviour:
   _sfxVolume: {fileID: 1811122033}
   _masterMixer: {fileID: 24100000, guid: 2e67523eaf72a400aa4e4d66490ee4e6, type: 2}
   _theme: {fileID: 185310253}
+  _themes:
+  - {fileID: 11400000, guid: d11a5818d23ca0547bdcb1f7790cb5a6, type: 2}
+  - {fileID: 11400000, guid: 6c2d21385a070744a9d021bbbb123400, type: 2}
 --- !u!1 &779260129
 GameObject:
   m_ObjectHideFlags: 0

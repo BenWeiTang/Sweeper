@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ namespace Minesweeper.Core
     public class SettingsManager : AManager<SettingsManager>
     {
         public MasterSettingsData MasterSettingsData => SettingsSerializer.LoadSettings();
+        public Theme CurrentTheme => _themes[_theme.CurrentID];
 
         [Header("General")]
         [SerializeField] private ToggleGroupController _difficulty;
@@ -30,6 +32,8 @@ namespace Minesweeper.Core
 
         [Header("Theme")]
         [SerializeField] private ToggleGroupController _theme;
+        [Tooltip("The order of this list should correspond to the ID's of the ToggleControllers'. For example, the ID of Default Theme Toggle Controller is 0, then Default Theme should be at index 0 in this list.")]
+        [SerializeField] private List<Theme> _themes;
 
         private const string MASTER_NAME = "Master Volume";
         private const string BGM_NAME = "BGM Volume";
