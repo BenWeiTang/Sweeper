@@ -17,5 +17,5 @@ MonoBehaviour:
   _explosionRadius: 15
   _upwardsModifier: 0
   _delayMinInMS: 10
-  _delayMaxInMS: 20
+  _delayMaxInMS: 175
   MineDetonate: {fileID: 11400000, guid: 3dc3a6c2b969b481eafe7779193754d6, type: 2}
