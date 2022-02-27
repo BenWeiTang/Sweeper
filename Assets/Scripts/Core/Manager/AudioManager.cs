@@ -48,8 +48,6 @@ namespace Minesweeper.Core
 
         public void OnGridRotateAllStarted() => PlayGameplayEffect(GameplaySoundEffect.GridRotateAll);
 
-        public void OnGridShuffleStarted() => PlayGameplayEffect(GameplaySoundEffect.GridShuffle);
-
         public void OnSpotShakeToBlockStarted() => PlayGameplayEffect(GameplaySoundEffect.SpotShakeToBlock);
 
         public void OnMineDetonated() => PlayGameplayEffect(GameplaySoundEffect.Explosion);

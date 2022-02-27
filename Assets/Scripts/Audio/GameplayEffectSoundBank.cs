@@ -19,7 +19,6 @@ namespace Minesweeper.Audio
         GridFloatAll,
         GridMoveIn,
         GridRotateAll,
-        GridShuffle,
         SpotShakeToBlock,
     }
 }
