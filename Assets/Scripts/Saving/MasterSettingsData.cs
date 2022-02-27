@@ -7,6 +7,6 @@ namespace Minesweeper.Saving
     {
         public GeneralSettingsData GeneralSettingsData = new GeneralSettingsData();
         public AudioSettingsData AudioSettingsData = new AudioSettingsData();
-        public CustomizeSettingsData CustomizeSettingsData = new CustomizeSettingsData();
+        public ThemeSettingsData ThemeSettingsData = new ThemeSettingsData();
     }
 }

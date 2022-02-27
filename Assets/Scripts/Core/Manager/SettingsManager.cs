@@ -15,7 +15,6 @@ namespace Minesweeper.Core
     {
         public MasterSettingsData MasterSettingsData => SettingsSerializer.LoadSettings();
 
-        
         [Header("General")]
         [SerializeField] private ToggleGroupController _difficulty;
         [SerializeField] private Toggle _useEasyClear;
@@ -29,12 +28,16 @@ namespace Minesweeper.Core
         [SerializeField] private Slider _sfxVolume;
         [SerializeField] private AudioMixer _masterMixer;
 
+        [Header("Theme")]
+        [SerializeField] private ToggleGroupController _theme;
+
         private const string MASTER_NAME = "Master Volume";
         private const string BGM_NAME = "BGM Volume";
         private const string SFX_NAME = "SFX Volume";
 
         private bool _firstLoaded = true;
-        private int _toggleGroupControllerID;
+        private int _difficultyID;
+        private int _themeID;
 
         protected override void Awake()
         {
@@ -81,6 +84,13 @@ namespace Minesweeper.Core
                 2 => 2,
                 _ => 0
             };
+
+            int newTheme = _theme.CurrentID switch
+            {
+                0 => 0,
+                1 => 1,
+                _ => 0
+            };
             
             var newSettings = new MasterSettingsData
             {
@@ -97,30 +107,46 @@ namespace Minesweeper.Core
                     Mute = _muteMaster.isOn,
                     MuteEffect = _muteSfx.isOn,
                     MuteBGM = _muteBgm.isOn
+                },
+                ThemeSettingsData =
+                {
+                    ThemeID = newTheme
                 }
             };
-            
+
             SettingsSerializer.SaveSettings(newSettings);
         }
 
         private void LoadSettings()
         {
             var settings = SettingsSerializer.LoadSettings();
-            _toggleGroupControllerID = settings.GeneralSettingsData.Difficulty switch
+            // General
+            _difficultyID = settings.GeneralSettingsData.Difficulty switch
             {
                 0 => 0,
                 1 => 1,
                 2 => 2,
                 _ => 0
             };
-            _difficulty.UpdateCurrentController(_toggleGroupControllerID);
+            _difficulty.UpdateCurrentController(_difficultyID);
             _useEasyClear.isOn = settings.GeneralSettingsData.EasyClear;
+            
+            // Audio
             _masterVolume.value = settings.AudioSettingsData.MasterVolume;
             _bgmVolume.value = settings.AudioSettingsData.BGMVolume;
             _sfxVolume.value = settings.AudioSettingsData.EffectVolume;
             _muteMaster.isOn = settings.AudioSettingsData.Mute;
             _muteBgm.isOn = settings.AudioSettingsData.MuteBGM;
             _muteSfx.isOn = settings.AudioSettingsData.MuteEffect;
+            
+            // Theme
+            _themeID = settings.ThemeSettingsData.ThemeID switch
+            {
+                0 => 0,
+                1 => 1,
+                _ => 0,
+            };
+            _theme.UpdateCurrentController(_themeID);
         }
 
         private void InitAudioMixer()

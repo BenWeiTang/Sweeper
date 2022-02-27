@@ -8,6 +8,7 @@ namespace Minesweeper.UI
 {
     public class ToggleGroupController : MonoBehaviour
     {
+        [SerializeField] private ToggleGroupSettingType _type;
         [SerializeField] private List<ToggleController> _controllers;
 
         public event Action<ToggleController> ToggleSelected;
@@ -15,6 +16,7 @@ namespace Minesweeper.UI
         public void Select(ToggleController toggleController) => ToggleSelected?.Invoke(toggleController);
 
         private ToggleController CurrentToggleController { get; set; }
+        private Func<int> _getID;
 
         public void UpdateCurrentController(int id)
         {
@@ -31,6 +33,18 @@ namespace Minesweeper.UI
         private void Awake()
         {
             ToggleSelected += OnSelected;
+            switch (_type)
+            {
+                case ToggleGroupSettingType.Difficulty:
+                    _getID = GetDifficultyID;
+                    break;
+                case ToggleGroupSettingType.Theme:
+                    _getID = GetThemeID;
+                    break;
+                default:
+                    Debug.LogError("Invalid Toggle Group Setting type.");
+                    break;
+            }
         }
 
         private void Start()
@@ -47,15 +61,32 @@ namespace Minesweeper.UI
         // Otherwise, when calling Select() at the end of this method, nothing will happen
         private void LoadFromGameSettings()
         {
-            var targetID = SettingsSerializer.LoadSettings().GeneralSettingsData.Difficulty switch
+            int targetID = _getID();
+            CurrentToggleController = _controllers.First(c => c.ID == targetID);
+            Select(CurrentToggleController);
+        }
+
+        private static int GetDifficultyID()
+        {
+            int result = SettingsSerializer.LoadSettings().GeneralSettingsData.Difficulty switch
             {
                 0 => 0,
                 1 => 1,
                 2 => 2,
                 _ => 0,
             };
-            CurrentToggleController = _controllers.First(c => c.ID == targetID);
-            Select(CurrentToggleController);
+            return result;
+        }
+
+        private static int GetThemeID()
+        {
+            int result = SettingsSerializer.LoadSettings().ThemeSettingsData.ThemeID switch
+            {
+                0 => 0,
+                1 => 1,
+                _ => 0,
+            };
+            return result;
         }
     }
 }
