@@ -33,7 +33,5 @@ MonoBehaviour:
     type: 8
   - track: {fileID: 11400000, guid: f39e85e0ccd60cf42b6184f62ae50092, type: 2}
     type: 9
-  - track: {fileID: 11400000, guid: 61cace9b979c56d4db80150874962231, type: 2}
-    type: 10
   - track: {fileID: 11400000, guid: bd677cfd8890e7049a48bd250859cc72, type: 2}
-    type: 11
+    type: 10
