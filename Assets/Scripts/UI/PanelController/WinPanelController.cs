@@ -16,11 +16,13 @@ namespace Minesweeper.UI
         [SerializeField] private TextMeshProUGUI _effText;
         [SerializeField] private TextMeshProUGUI _ACEText;
 
-        [Header("Trigger Area")]
+        [Header("Text Bubble")]
         [SerializeField] private TextMeshProUGUI _textBubble;
         [SerializeField] private LayoutElement _textBubbleLayoutElement;
         [SerializeField] private int _textWrapLimit;
         [SerializeField] private RectTransform _textBubbleTransform;
+        
+        [Header("Trigger Area")]
         [SerializeField] private StatTriggerAreaController _timeName;
         [SerializeField] private StatTriggerAreaController _timeNumber;
         [SerializeField] private StatTriggerAreaController _clickName;
