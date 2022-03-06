@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using TMPro;
 using Minesweeper.Reference;
+using UnityEngine.UI;
 
 namespace Minesweeper.UI
 {
@@ -16,8 +18,9 @@ namespace Minesweeper.UI
 
         [Header("Trigger Area")]
         [SerializeField] private TextMeshProUGUI _textBubble;
+        [SerializeField] private LayoutElement _textBubbleLayoutElement;
+        [SerializeField] private int _textWrapLimit;
         [SerializeField] private RectTransform _textBubbleTransform;
-        [SerializeField] private RectTransform _textBubbleBg;
         [SerializeField] private StatTriggerAreaController _timeName;
         [SerializeField] private StatTriggerAreaController _timeNumber;
         [SerializeField] private StatTriggerAreaController _clickName;
@@ -46,14 +49,20 @@ namespace Minesweeper.UI
         }
 
         private void OnDisable() => UpdateRegistration(false);
-        
+
+        private void Update()
+        {
+            // int textLength = _textBubble.text.Length;
+            // _textBubbleLayoutElement.enabled = textLength > _textWrapLimit;
+        }
+
         #endregion
 
         #region PRIVATE_METHODS
         
         private void UpdateTimeText()
         {
-            _timeText.text = Mathf.RoundToInt(_time.value).ToString() + "s";
+            _timeText.text = Mathf.FloorToInt(_time.value).ToString() + "s";
             _timeNumber.Text = _time.value.ToString("n2") + "s";
         }
         
@@ -66,14 +75,14 @@ namespace Minesweeper.UI
         private void UpdateEffText()
         {
             float efficiency = (float) ((double) _safeSpotCount.value / (double) _clickCount.value) * 100;
-            _effText.text = Mathf.RoundToInt(efficiency).ToString() + "%";
+            _effText.text = Mathf.FloorToInt(efficiency).ToString() + "%";
             _effNumber.Text = efficiency.ToString("n2") + "%";
         }
 
         private void UpdateACEText()
         {
             float ace = _ACE.value * 100f;
-            _ACEText.text = Mathf.RoundToInt(ace) + "%";
+            _ACEText.text = Mathf.FloorToInt(ace) + "%";
             _ACENumber.Text = ace.ToString("n2") + "%";
         }
 
@@ -126,16 +135,18 @@ namespace Minesweeper.UI
         private void MoveTextBubble(StatTriggerAreaController controller)
         {
             bool isUpwards = controller.AnchorOption == TextBubbleAnchorOption.Upwards;
-            
-            _textBubbleTransform.pivot = new Vector2(0.5f, isUpwards ? 0f : 1f);
-            Vector2 offset = isUpwards ? Vector2.up : Vector2.down;
-            offset *= 10f;
-            _textBubbleTransform.position = controller.AnchorPosition + offset;
-            _textBubbleBg.localScale = new Vector3(1f, isUpwards ? 1f : -1f, 1f);
 
+            // Positioning text bubble
+            _textBubbleTransform.pivot = new Vector2(0.5f, isUpwards ? 0f : 1f);
+            // Vector2 offset = isUpwards ? Vector2.up * 5f : Vector2.down * 10f;
+            _textBubbleTransform.position = controller.AnchorPosition;//+ offset;
+
+            // Update text content
             _textBubble.text = controller.Text;
             
+            // Set active before refresh layout element for auto-wrapping
             _textBubbleTransform.gameObject.SetActive(true);
+            _textBubbleLayoutElement.enabled = _textBubble.text.Length > _textWrapLimit;
         }
 
         private void HideTextBubble()
