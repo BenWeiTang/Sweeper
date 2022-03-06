@@ -52,12 +52,6 @@ namespace Minesweeper.UI
 
         private void OnDisable() => UpdateRegistration(false);
 
-        private void Update()
-        {
-            // int textLength = _textBubble.text.Length;
-            // _textBubbleLayoutElement.enabled = textLength > _textWrapLimit;
-        }
-
         #endregion
 
         #region PRIVATE_METHODS
