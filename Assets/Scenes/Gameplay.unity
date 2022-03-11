@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 1412377934}
   - component: {fileID: 1412377933}
   - component: {fileID: 1412377936}
+  - component: {fileID: 1412377941}
   - component: {fileID: 1412377937}
   - component: {fileID: 1412377940}
   - component: {fileID: 1412377938}
@@ -539,6 +540,18 @@ MonoBehaviour:
   _smallShake: {fileID: 11400000, guid: b29483e1be8ee42fdab9ec7589b5e747, type: 2}
   _bigThreshold: {fileID: 11400000, guid: 3afd5b5441d6f41a5b1a29800b0d2c50, type: 2}
   _smallThreshold: {fileID: 11400000, guid: b342f91e2e1c8427e88fa1c347399ee1, type: 2}
+--- !u!114 &1412377941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412377932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5205338ed98f6b442bc1c42f854730ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2732980785700630659
 PrefabInstance:
   m_ObjectHideFlags: 0

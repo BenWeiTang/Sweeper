@@ -24,5 +24,8 @@ namespace Minesweeper.Core
         public Color Six;
         public Color Seven;
         public Color Eight;
+
+        [Header("Camera")]
+        public Color BackgroundColor;
     }
 }
