@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 1411992444}
   - component: {fileID: 1411992447}
   - component: {fileID: 1411992448}
+  - component: {fileID: 1411992449}
   m_Layer: 0
   m_Name: PostProcessing
   m_TagString: Untagged
@@ -270,6 +271,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _volume: {fileID: 1411992442}
+  _dofTargetValue: 50
+  _vignetteMin: 0.15
+  _vignetteMax: 0.3
+  _bigCameraShakeThreshold: {fileID: 11400000, guid: 3afd5b5441d6f41a5b1a29800b0d2c50, type: 2}
+  _smallCameraShakeThreshold: {fileID: 11400000, guid: b342f91e2e1c8427e88fa1c347399ee1, type: 2}
+  _bigComboRecoveryTime: 3
+  _smallComboRecoveryTime: 1
 --- !u!114 &1411992447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +327,35 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Minesweeper.Animation.GameplayScenePPController,
           Animation
         m_MethodName: OnGameRestarted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1411992449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411992441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d1709cbda25d4edc8699836e1cf0248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 4162b1d3d2ce8452aa4c5b93fb8452bb, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1411992446}
+        m_TargetAssemblyTypeName: Minesweeper.Animation.GameplayScenePPController,
+          Animation
+        m_MethodName: OnComboHit
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
