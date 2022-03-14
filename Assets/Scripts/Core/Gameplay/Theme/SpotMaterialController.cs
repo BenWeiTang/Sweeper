@@ -22,6 +22,10 @@ namespace Minesweeper.Core
 
         private void UpdateMaterials()
         {
+            // At index 0 -> edge material
+            // At index 1 -> base material
+            // At index 2 -> number material (if applicable)
+            
             for (int i = 0; i < _numBlocks.Count; i++)
             {
                 var materials = _numBlocks[i].GetComponent<MeshRenderer>().materials;
