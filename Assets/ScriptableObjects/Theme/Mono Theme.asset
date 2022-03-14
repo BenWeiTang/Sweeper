@@ -29,22 +29,22 @@ MonoBehaviour:
   Seven: {r: 0.19411767, g: 0.3, b: 0.22352941, a: 1}
   Eight: {r: 0.19411767, g: 0.3, b: 0.22352941, a: 1}
   BackgroundColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
-  DugEdgeMaterial: {fileID: 0}
-  DugBaseMaterial: {fileID: 0}
-  MarkedEdgeMaterial: {fileID: 0}
-  MarkedBaseMaterial: {fileID: 0}
-  MineEdgeMaterial: {fileID: 0}
-  MineBaseMaterial: {fileID: 0}
-  UntouchedEdgeMaterial: {fileID: 0}
-  UntouchedBaseMaterial: {fileID: 0}
-  OneMaterial: {fileID: 0}
-  TwoMaterial: {fileID: 0}
-  ThreeMaterial: {fileID: 0}
-  FourMaterial: {fileID: 0}
-  FiveMaterial: {fileID: 0}
-  SixMaterial: {fileID: 0}
-  SevenMaterial: {fileID: 0}
-  EightMaterial: {fileID: 0}
+  DugEdgeMaterial: {fileID: 2100000, guid: 407ba7df1852d0a43aab55dc35914928, type: 2}
+  DugBaseMaterial: {fileID: 2100000, guid: 5c8302c977b0c9a43bb25eb5542333ed, type: 2}
+  MarkedEdgeMaterial: {fileID: 2100000, guid: 13f0ae7942427b44f98d65b639c1af7b, type: 2}
+  MarkedBaseMaterial: {fileID: 2100000, guid: 60738e54b636aea45bd77e8c75b33924, type: 2}
+  MineEdgeMaterial: {fileID: 2100000, guid: 92f0ad4ecfa441a4c9de8da5db81b23d, type: 2}
+  MineBaseMaterial: {fileID: 2100000, guid: b0b59f43fd9c81a4a8600fa4eb36408f, type: 2}
+  UntouchedEdgeMaterial: {fileID: 2100000, guid: dfe4efead24b125459cbd9ed45298e4e, type: 2}
+  UntouchedBaseMaterial: {fileID: 2100000, guid: e151c27d6da0c9249902661cf079f367, type: 2}
+  OneMaterial: {fileID: 2100000, guid: f2559cea1b5d14778b60f4f10970d2cf, type: 2}
+  TwoMaterial: {fileID: 2100000, guid: 5a1cb79eb45794f77894c772c0ed7348, type: 2}
+  ThreeMaterial: {fileID: 2100000, guid: cee4748c933a74d9dbaebad7931b4d08, type: 2}
+  FourMaterial: {fileID: 2100000, guid: 13a4415a66c9a4f3ba2ec0d0568d265a, type: 2}
+  FiveMaterial: {fileID: 2100000, guid: 3e0cb819c83da478e8b08af45bb114fe, type: 2}
+  SixMaterial: {fileID: 2100000, guid: e084437b678904c62a6f1842f0fa169e, type: 2}
+  SevenMaterial: {fileID: 2100000, guid: 8974e210a813540f4af0ce49f061c956, type: 2}
+  EightMaterial: {fileID: 2100000, guid: 4bf6062ff5ef74ca8a701149429a2ca7, type: 2}
   UseTrackingLight: 0
   BGMSoundBank: {fileID: 11400000, guid: e782b4d169b074ff7abf1b2a6fd4df11, type: 2}
   GameplayEffectSoundBank: {fileID: 11400000, guid: c9149792a5ff34e1ea43b80f52c03707, type: 2}
