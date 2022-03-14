@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Minesweeper.Audio;
 using Minesweeper.Reference;
+using Minesweeper.Scene;
 
 namespace Minesweeper.Core
 {
@@ -16,9 +18,9 @@ namespace Minesweeper.Core
         [SerializeField] private AudioPool _BGMPool;
         [SerializeField] private AudioPool _SFXPool;
 
-        [Header("Sound Banks & Tracks")]
-        [SerializeField] private BGMSoundBank _BGMSoundBank;
-        [SerializeField] private GameplayEffectSoundBank _gameplayEffectSoundBank;
+        [Header("Sound Bank")]
+        private BGMSoundBank _BGMSoundBank;
+        private GameplayEffectSoundBank _gameplayEffectSoundBank;
         [SerializeField] private UIEffectSoundBank _UIEffectSoundBank;
 
         [Header("Camera Shake Threshold References")]
@@ -57,6 +59,28 @@ namespace Minesweeper.Core
         public void OnPointerClickedUIElement(bool isConfirmation) => PlayUIEffect(isConfirmation ? UISoundEffect.Confirm : UISoundEffect.ButtonClicked);
 
         #endregion
+
+        #region UNITY_METHODS
+
+        protected override void Awake()
+        {
+            base.Awake();
+            SceneManager.sceneLoaded += ((scene, _) =>
+            {
+                // When entering the Gameplay or StartMenu scene, reload the two sound banks
+                // The reason why checking against StartMenu scene is needed, is that the 
+                // deco spots in that scene has a callback that in turn uses the GameplayEffectSoundBank
+                if (LevelSystem.IsSameScene(SceneIndex.Gameplay, scene) || LevelSystem.IsSameScene(SceneIndex.StartMenu, scene))
+                {
+                    var currentSettings = SettingsManager.Instance.CurrentTheme;
+                    _BGMSoundBank = currentSettings.BGMSoundBank;
+                    _gameplayEffectSoundBank = currentSettings.GameplayEffectSoundBank;
+                }
+            });
+        }
+
+        #endregion
+        
         #region PRIVATE_METHODS
         private void PlayGameplayEffect(GameplaySoundEffect effect) => PlaySound(_SFXPool, _gameplayEffectSoundBank.GetTrack(effect));
 
