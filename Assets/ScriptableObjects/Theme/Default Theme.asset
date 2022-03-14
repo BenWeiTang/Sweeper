@@ -29,3 +29,22 @@ MonoBehaviour:
   Seven: {r: 0, g: 0, b: 0, a: 1}
   Eight: {r: 0.5019608, g: 0.5019608, b: 0.49803925, a: 1}
   BackgroundColor: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
+  DugEdgeMaterial: {fileID: 0}
+  DugBaseMaterial: {fileID: 0}
+  MarkedEdgeMaterial: {fileID: 0}
+  MarkedBaseMaterial: {fileID: 0}
+  MineEdgeMaterial: {fileID: 0}
+  MineBaseMaterial: {fileID: 0}
+  UntouchedEdgeMaterial: {fileID: 0}
+  UntouchedBaseMaterial: {fileID: 0}
+  OneMaterial: {fileID: 0}
+  TwoMaterial: {fileID: 0}
+  ThreeMaterial: {fileID: 0}
+  FourMaterial: {fileID: 0}
+  FiveMaterial: {fileID: 0}
+  SixMaterial: {fileID: 0}
+  SevenMaterial: {fileID: 0}
+  EightMaterial: {fileID: 0}
+  UseTrackingLight: 0
+  BGMSoundBank: {fileID: 11400000, guid: e782b4d169b074ff7abf1b2a6fd4df11, type: 2}
+  GameplayEffectSoundBank: {fileID: 11400000, guid: c9149792a5ff34e1ea43b80f52c03707, type: 2}
