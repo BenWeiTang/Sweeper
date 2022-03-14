@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_BE_Mine
+  m_Name: M_Edge_Mine
   m_Shader: {fileID: -6465566751694194690, guid: 0465ead9539df4652ac5392e07aa5aab, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
