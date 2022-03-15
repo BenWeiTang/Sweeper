@@ -16,6 +16,6 @@ MonoBehaviour:
   _randomSphereRadius: 3
   _explosionRadius: 15
   _upwardsModifier: 0
-  _delayMinInMS: 12
-  _delayMaxInMS: 119
+  _delayMinInMS: 15
+  _delayMaxInMS: 48
   MineDetonate: {fileID: 11400000, guid: 3dc3a6c2b969b481eafe7779193754d6, type: 2}

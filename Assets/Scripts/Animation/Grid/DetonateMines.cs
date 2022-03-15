@@ -13,8 +13,8 @@ namespace Minesweeper.Animation
         [SerializeField, Range(0f, 10f)] private float _randomSphereRadius;
         [SerializeField, Range(0f, 20f)] private float _explosionRadius;
         [SerializeField, Range(0f, 20f)] private float _upwardsModifier;
-        [SerializeField, Range(0, 1_000)] private int _delayMinInMS;
-        [SerializeField, Range(0, 1_000)] private int _delayMaxInMS;
+        [SerializeField, Range(0, 100)] private int _delayMinInMS;
+        [SerializeField, Range(0, 100)] private int _delayMaxInMS;
         [SerializeField] private VoidEvent MineDetonate;
 
         public override async Task PerformAsync(IEnumerable<Rigidbody> rbs, Action onEnter = null, Action onEach = null, Action onExit = null)
