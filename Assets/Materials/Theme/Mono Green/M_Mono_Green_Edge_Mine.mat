@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Mono_Edge_Dug
+  m_Name: M_Mono_Green_Edge_Mine
   m_Shader: {fileID: -6465566751694194690, guid: 0465ead9539df4652ac5392e07aa5aab, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -90,7 +90,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 1
+    - _Alpha: 0.35
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -120,9 +120,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.372549, g: 0.45098037, b: 0.4352941, a: 1}
-    - _Emission: {r: 0.39019608, g: 0.40980393, b: 0.4254902, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Emission: {r: 0.23529412, g: 0.34901962, b: 0.31764707, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Specular: {r: 0.29930583, g: 0.33218622, b: 0.3584906, a: 1}
+    - _Specular: {r: 0.23529412, g: 0.34901962, b: 0.31764707, a: 1}
   m_BuildTextureStacks: []
