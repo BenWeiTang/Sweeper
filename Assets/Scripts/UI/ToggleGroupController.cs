@@ -82,12 +82,7 @@ namespace Minesweeper.UI
 
         private static int GetThemeID()
         {
-            int result = SettingsSerializer.LoadSettings().ThemeSettingsData.ThemeID switch
-            {
-                0 => 0,
-                1 => 1,
-                _ => 0,
-            };
+            int result = SettingsSerializer.LoadSettings().ThemeSettingsData.ThemeID;
             return result;
         }
     }

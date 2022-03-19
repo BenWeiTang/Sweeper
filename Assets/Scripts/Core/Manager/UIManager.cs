@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Minesweeper.Event;
 using Minesweeper.Animation;
+using Minesweeper.Extensions;
 using Minesweeper.Reference;
 using Minesweeper.Scene;
 

@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Minesweeper.Core
@@ -14,7 +15,9 @@ namespace Minesweeper.Core
                     _instance = FindObjectsOfType<T>() as T;
 
                     if (_instance == null)
+                    {
                         Debug.LogError($"Cannont find an instance of {typeof(T)}. Please Manually place it in scene.");
+                    }
                 }
                 return _instance;
             }

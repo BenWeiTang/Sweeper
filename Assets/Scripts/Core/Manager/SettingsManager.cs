@@ -97,12 +97,7 @@ namespace Minesweeper.Core
             int newTheme = _oldThemeID;
             if (_theme.CurrentToggleController != null)
             {
-                newTheme = _theme.CurrentID switch
-                {
-                    0 => 0,
-                    1 => 1,
-                    _ => 0,
-                };
+                newTheme = _theme.CurrentID;
             }
             
             var newSettings = new MasterSettingsData
@@ -153,12 +148,7 @@ namespace Minesweeper.Core
             _muteSfx.isOn = settings.AudioSettingsData.MuteEffect;
             
             // Theme
-            _oldThemeID = settings.ThemeSettingsData.ThemeID switch
-            {
-                0 => 0,
-                1 => 1,
-                _ => 0,
-            };
+            _oldThemeID = settings.ThemeSettingsData.ThemeID;
             _theme.UpdateCurrentController(_oldThemeID);
         }
 

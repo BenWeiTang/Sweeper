@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b6d5cae488c8845b5a2a6c6e323bb9, type: 3}
+  m_Name: Purple
+  m_EditorClassIdentifier: 
+  BackgroundColor: {r: 0.38361654, g: 0.3010413, b: 0.38679248, a: 1}
+  DugEdgeMaterial: {fileID: 2100000, guid: 17dcbca1f82ce8a4f81da42f9271c84c, type: 2}
+  DugBaseMaterial: {fileID: 2100000, guid: afb6c7efa3145dd45ad46b910805264a, type: 2}
+  MarkedEdgeMaterial: {fileID: 2100000, guid: 8862fab608f653145b287e52f0e15eb5, type: 2}
+  MarkedBaseMaterial: {fileID: 2100000, guid: 8cbee49f248b4e44891c55e44fdea084, type: 2}
+  MineEdgeMaterial: {fileID: 2100000, guid: b8d41d939de1d854e8ac5427c45faafc, type: 2}
+  MineBaseMaterial: {fileID: 2100000, guid: 871eb70f4f91e604cb2d6c6c128a2a75, type: 2}
+  UntouchedEdgeMaterial: {fileID: 2100000, guid: 40361e146a613db4b900b63b1925077f, type: 2}
+  UntouchedBaseMaterial: {fileID: 2100000, guid: 23fce262d4fd27948accc006c34c2ea9, type: 2}
+  OneMaterial: {fileID: 2100000, guid: bc0759f4b8f8c05468828a99be886828, type: 2}
+  TwoMaterial: {fileID: 2100000, guid: b5dc984e8a17edd45a4577e5c328f9d1, type: 2}
+  ThreeMaterial: {fileID: 2100000, guid: 9aa7be15b8e01f94aaaf1d342a97935f, type: 2}
+  FourMaterial: {fileID: 2100000, guid: 767c4b7b2b2c8a746a92c957e9b3f4db, type: 2}
+  FiveMaterial: {fileID: 2100000, guid: a65496a2bc268f742a67e0d746fb71c0, type: 2}
+  SixMaterial: {fileID: 2100000, guid: ef05609aa4a3c7944868c22bb5505421, type: 2}
+  SevenMaterial: {fileID: 2100000, guid: e531b9917fa0bde45a4310df9761dd70, type: 2}
+  EightMaterial: {fileID: 2100000, guid: d16160ef9f37aee40afdf782499d3f61, type: 2}
+  UseTrackingLight: 0
+  BGMSoundBank: {fileID: 11400000, guid: e782b4d169b074ff7abf1b2a6fd4df11, type: 2}
+  GameplayEffectSoundBank: {fileID: 11400000, guid: c9149792a5ff34e1ea43b80f52c03707, type: 2}
