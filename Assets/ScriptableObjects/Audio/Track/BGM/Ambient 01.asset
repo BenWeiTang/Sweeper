@@ -7,11 +7,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98d8b2ea9786d432ca2585b182e881eb, type: 3}
-  m_Name: BGM Sound Bank
+  m_Script: {fileID: 11500000, guid: f55ed09ab15c947a8af9ce72c42685a3, type: 3}
+  m_Name: Ambient 01
   m_EditorClassIdentifier: 
-  _tracks:
-  - track: {fileID: 11400000, guid: 5a7f1435ebfba8743b25c560ff401b5a, type: 2}
-    type: 1
+  track: {fileID: 8300000, guid: 1d780ab3aeb4d404bbf05e84a72a54a6, type: 3}
+  trackName: 
+  author: 
