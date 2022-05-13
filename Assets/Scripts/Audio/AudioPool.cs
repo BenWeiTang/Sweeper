@@ -18,10 +18,12 @@ namespace Minesweeper.Audio
         [SerializeField] private AudioSource _template;
 
         private Queue<AudioSource> _audioSources;
+        private List<AudioSource> _inUseAudioSources;
 
         private void Awake()
         {
             _audioSources = new Queue<AudioSource>();
+            _inUseAudioSources = new List<AudioSource>();
             IncreasePoolSize(_defualtCount);
             _template.gameObject.SetActive(false);
         }
@@ -31,24 +33,37 @@ namespace Minesweeper.Audio
         /// After the Audio Clip finishes playing, the Audio Source will be returned to the Audio Source pool.
         /// </summary>
         /// <param name="clip">The Audio Clip to play.</param>
-        public void PlayClip(AudioClip clip)
+        /// <param name="autoRelease">Should the clip be automatically stopped and released after 5 seconds?</param>
+        public void PlayClip(AudioClip clip, bool autoRelease)
         {
             if (_audioSources.Count == 0)
             {
-                // for (int i = 0; i < _defualtCount; i++)
-                // {
-                //     var instance = Instantiate(_template, Vector3.zero, Quaternion.identity);
-                //     instance.transform.SetParent(transform);
-                //     _audioSources.Enqueue(instance);
-                // }
                 IncreasePoolSize(2);
             }
 
             var audioSource = _audioSources.Dequeue();
+            _inUseAudioSources.Add(audioSource);
             audioSource.gameObject.SetActive(true);
             audioSource.clip = clip;
             audioSource.Play();
-            StartCoroutine(ReleaseAfterPlaying(audioSource));
+            
+            if (autoRelease)
+            {
+                StartCoroutine(ReleaseAfterPlaying(audioSource));
+            }
+        }
+
+        public void StopAll()
+        {
+            for (int i = _inUseAudioSources.Count - 1; i >= 0; i--)
+            {
+                var audioSource = _inUseAudioSources[i];
+                audioSource.Stop();
+                audioSource.clip = null;
+                audioSource.gameObject.SetActive(false);
+                _audioSources.Enqueue(audioSource);
+                _inUseAudioSources.Remove(audioSource);
+            }
         }
 
         private IEnumerator ReleaseAfterPlaying(AudioSource audioSource)
@@ -68,6 +83,7 @@ namespace Minesweeper.Audio
             audioSource.clip = null;
             audioSource.gameObject.SetActive(false);
             _audioSources.Enqueue(audioSource);
+            _inUseAudioSources.Remove(audioSource);
         }
 
         private void IncreasePoolSize(int delta)

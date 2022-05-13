@@ -5422,7 +5422,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6934,6 +6934,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8c80c9ad3f0ac5b4c8b1644f78f8b26e, type: 2}
   - {fileID: 11400000, guid: 73cbcef6a543987409baa807eec7b895, type: 2}
   - {fileID: 11400000, guid: 60c70e66d34d9344f9e7db7fc39237cc, type: 2}
+  - {fileID: 11400000, guid: 5c929010832aea2419fca4e3305c5452, type: 2}
+  - {fileID: 11400000, guid: 99ecdc0dd7d11ff41856c3e739c915de, type: 2}
+  - {fileID: 11400000, guid: 5e7625515f26d234092d16e99a3d0b1f, type: 2}
 --- !u!1 &1235757838
 GameObject:
   m_ObjectHideFlags: 0
@@ -9022,6 +9025,8 @@ GameObject:
   - component: {fileID: 1601160129}
   - component: {fileID: 1601160133}
   - component: {fileID: 1601160134}
+  - component: {fileID: 1601160136}
+  - component: {fileID: 1601160135}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: AudioManager
@@ -9389,6 +9394,62 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Minesweeper.Core.AudioManager, Core
         m_MethodName: OnCombo
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1601160135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601160119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e162702c88924da59e4b6863ddadd73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: d32849a6b114a498c90735847c3b2a66, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1601160121}
+        m_TargetAssemblyTypeName: Minesweeper.Core.AudioManager, Core
+        m_MethodName: OnGameFinished
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1601160136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601160119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e81b9a643aa4226a764590baa64275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameEvent: {fileID: 11400000, guid: 6f977b49cadbd42b280271909bba90af, type: 2}
+  _unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1601160121}
+        m_TargetAssemblyTypeName: Minesweeper.Core.AudioManager, Core
+        m_MethodName: OnGameReady
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

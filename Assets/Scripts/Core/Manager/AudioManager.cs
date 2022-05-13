@@ -28,6 +28,7 @@ namespace Minesweeper.Core
         [SerializeField] private IntRef _smallShake;
 
         #region PUBLIC_CALLBACKS
+
         public void OnMarked(int _) => PlayGameplayEffect(GameplaySoundEffect.Mark);
 
         public void OnCombo(int combo)
@@ -58,6 +59,10 @@ namespace Minesweeper.Core
 
         public void OnPointerClickedUIElement(bool isConfirmation) => PlayUIEffect(isConfirmation ? UISoundEffect.Confirm : UISoundEffect.ButtonClicked);
 
+        public void OnGameReady() => PlayBGM(BGMType.Gameplay);
+
+        public void OnGameFinished(bool _) => StopBGM();
+
         #endregion
 
         #region UNITY_METHODS
@@ -84,11 +89,13 @@ namespace Minesweeper.Core
         #region PRIVATE_METHODS
         private void PlayGameplayEffect(GameplaySoundEffect effect) => PlaySound(_SFXPool, _gameplayEffectSoundBank.GetTrack(effect));
 
-        private void PlayBGM(BGMType type) => PlaySound(_BGMPool, _BGMSoundBank.GetTrack(type));
+        private void PlayBGM(BGMType type) => PlaySound(_BGMPool, _BGMSoundBank.GetTrack(type), false);
+
+        private void StopBGM() => _BGMPool.StopAll();
 
         private void PlayUIEffect(UISoundEffect effect) => PlaySound(_SFXPool, _UIEffectSoundBank.GetTrack(effect));
 
-        private static void PlaySound(AudioPool pool, Track track) => pool.PlayClip(track.track);
+        private static void PlaySound(AudioPool pool, Track track, bool autoRelease = true) => pool.PlayClip(track.track, autoRelease);
 
         #endregion
     }
