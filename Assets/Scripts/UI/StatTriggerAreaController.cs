@@ -1,6 +1,4 @@
 using System;
-using System.Net.Mime;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -25,7 +23,7 @@ namespace Minesweeper.UI
         public Vector2 AnchorPosition => _anchor.position;
         public TextBubbleAnchorOption AnchorOption => _anchorOption;
 
-        [CanBeNull] public event Action<StatTriggerAreaController> MouseEntered;
+        public event Action<StatTriggerAreaController> MouseEntered;
         public event Action MouseExited;
 
         [SerializeField] private bool _useThisText;

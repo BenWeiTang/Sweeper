@@ -2432,7 +2432,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7603052728805572508, guid: 531abb49df0494cfbbf9567c023276c6, type: 3}
       propertyPath: m_text
-      value: easy click
+      value: fast chord
       objectReference: {fileID: 0}
     - target: {fileID: 7603052728805572510, guid: 531abb49df0494cfbbf9567c023276c6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -10167,6 +10167,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!224 &1798160814 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7603052728805572510, guid: 531abb49df0494cfbbf9567c023276c6, type: 3}
+  m_PrefabInstance: {fileID: 407829779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1811122031
 GameObject:
   m_ObjectHideFlags: 0
@@ -12056,6 +12061,119 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115123712}
   m_CullTransparentMesh: 1
+--- !u!1001 &5805173991763541123
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1798160814}
+    m_Modifications:
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 368450642514656319, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062096954350487361, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_Name
+      value: Setting Description
+      objectReference: {fileID: 0}
+    - target: {fileID: 6958670769984928660, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: _text
+      value: Should left clicks on number blocks cause it to chord?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8003145650234631668, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_text
+      value: Should left clicks on number blocks cause it to chord?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8003145650234631668, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_fontSize
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8003145650234631668, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
 --- !u!1001 &7558698151747639207
 PrefabInstance:
   m_ObjectHideFlags: 0
