@@ -12158,15 +12158,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6958670769984928660, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
       propertyPath: _text
-      value: Should left clicks on number blocks cause it to chord?
+      value: Should left clicking on a numbered block cause it to chord?
       objectReference: {fileID: 0}
     - target: {fileID: 8003145650234631668, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
       propertyPath: m_text
-      value: Should left clicks on number blocks cause it to chord?
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8003145650234631668, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
       propertyPath: m_fontSize
-      value: 31
+      value: 29.25
       objectReference: {fileID: 0}
     - target: {fileID: 8003145650234631668, guid: 3eea553fc7ce2a74a86d2d72cc4beefc, type: 3}
       propertyPath: m_enableAutoSizing
